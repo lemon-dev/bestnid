@@ -4,8 +4,8 @@ Un sitio web para subastas distinto, en el cuál lo que más importa no es quien
 ***
 
 ### Desarrolladores: 
-  Palacios Russillo, Rodrigo Nicolas.
-  Figueiras, Santiago Jose.
-  Almazan, Juan Cruz.
+  Palacios Russillo, Rodrigo Nicolás.
+  Figueiras, Santiago José.
+  Almazán, Juan Cruz.
   
 #### Grupo: 20
