@@ -8,7 +8,7 @@
 
 <?php include("include/header.php") ?>
 
-
+<?php include("function/listar_subasta.php") ?>
 
 <?php include("include/footer.php") ?>
 	
