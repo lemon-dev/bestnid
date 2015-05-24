@@ -21,6 +21,12 @@
 		<ul>
 			<li><img src="#" alt="logo"></li>
 			<li><a href="#">Bestnid</a></li>
+			<li>
+				<form method="get" action="function/buscar_titulo.php">
+					<input type="text" placeholder="Search" value="" name="param_busqueda">
+					<button type="submit">Buscar</button>
+				</form>
+			</li>	
 			<li><a href="#">Registrarse</a></li>
 			<li><a href="#">Loguearse</a></li>
 		</ul>
