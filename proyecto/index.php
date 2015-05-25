@@ -16,7 +16,14 @@
 </form>
 
 <?php 
-	include("function/listar_subasta.php"); 
+	$query = "	SELECT 	*
+				FROM	Subasta";
+
+	($result = $db->query($query)); 
+
+	while ($row = $result->fetch_object()) {
+		echo $row->titulo . '<br>' . $row->descripcion, '<br>';
+	}
 ?>
 
 <?php include("include/footer.php") ?>
