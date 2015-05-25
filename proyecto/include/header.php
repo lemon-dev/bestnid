@@ -22,7 +22,7 @@
 			<li><img src="#" alt="logo"></li>
 			<li><a href="#">Bestnid</a></li>
 			<li>
-				<form method="get" action="function/buscar_titulo.php">
+				<form method="get" action=<?php echo dirname(__DIR__).'/function/buscar_titulo.php'?>>
 					<input type="text" placeholder="Search" value="" name="param_busqueda">
 					<button type="submit">Buscar</button>
 				</form>
