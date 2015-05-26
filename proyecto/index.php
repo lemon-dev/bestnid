@@ -4,7 +4,10 @@
     include("db/connect.php");
 ?>
 
-<?php include("include/header.php") ?>
+<?php 
+	$pageTitle = "Bestnid";
+	include("include/header.php"); 
+?>
 
 <form method="get" action="function/ordenar.php">
 	<select name="criterio">
@@ -19,15 +22,12 @@
 
 <?php
 	$query = "	SELECT 	*
-				FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto";
+				FROM	Subasta S INNER JOIN Producto P ON S.id_producto = P.id_producto";
 
 	($result = $db->query($query)); 
 
-	while ($row = $result->fetch_object()) {
-		//$imagen=$row->imagen_url;
-		//echo "$imagen"
-		//echo '<img src=$imagen alt="imagen">'; 
-		echo '<br>'.$row->titulo . '<br>' . $row->descripcion.'<br>';
+	while ($row = $result->fetch_object()) { 
+		echo '<br>' . $row->titulo . '<br>' . $row->descripcion.'<br>';
 	}
 ?>
 
