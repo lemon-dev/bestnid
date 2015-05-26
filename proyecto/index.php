@@ -9,20 +9,25 @@
 <form method="get" action="function/ordenar.php">
 	<select name="criterio">
 		<option value="titulo">Titulo</option>
-		<option value="fecha_fin">Fecha de Fin</option>
+		<option value="fecha_final">Fecha de Fin</option>
+		<option value="fecha_inicio">Fecha de inicio</option>
 		<option value="categoria">Categoria</option>
+
 	</select>
-	<input type="submit" value="Ordenar">
+	<input type="submit" value="Ordenar" >
 </form>
 
-<?php 
+<?php
 	$query = "	SELECT 	*
-				FROM	Subasta";
+				FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto";
 
 	($result = $db->query($query)); 
 
 	while ($row = $result->fetch_object()) {
-		echo $row->titulo . '<br>' . $row->descripcion, '<br>';
+		//$imagen=$row->imagen_url;
+		//echo "$imagen"
+		//echo '<img src=$imagen alt="imagen">'; 
+		echo '<br>'.$row->titulo . '<br>' . $row->descripcion.'<br>';
 	}
 ?>
 

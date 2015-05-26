@@ -19,7 +19,7 @@
 <body>
 	<nav>
 		<ul>
-			<li><img src="#" alt="logo"></li>
+			<li><img src="img/logo.png" alt="logo"></li>
 			<li><a href="#">Bestnid</a></li>
 			<li>
 				<form method="get" action="function/buscar_titulo.php">
