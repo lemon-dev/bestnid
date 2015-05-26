@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Bestnid</title>
+	<title><?php echo $pageTitle; ?></title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
 					<button type="submit">Buscar</button>
 				</form>
 			</li>	
-			<li><a href="#">Registrarse</a></li>
+			<li><a href="/register.php">Registrarse</a></li>
 			<li><a href="#">Loguearse</a></li>
 		</ul>
 	</nav>

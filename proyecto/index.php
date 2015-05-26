@@ -4,7 +4,10 @@
     include("db/connect.php");
 ?>
 
-<?php include("include/header.php") ?>
+<?php 
+	$pageTitle = "Bestnid";	
+	include("include/header.php") 
+?>
 
 <form method="get" action="function/ordenar.php">
 	<select name="criterio">

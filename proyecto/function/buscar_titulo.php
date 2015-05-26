@@ -1,4 +1,5 @@
-<?php 
+<?php
+$pageTitle = "Bestnid | Busqueda"; 
 include("../include/header.php"); 
 include("../db/connect.php");
 ?>
