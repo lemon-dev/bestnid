@@ -1,7 +1,7 @@
 <?php
 	$username = "root";
 	$password = "powerofdata";
-	$host = "bestnid.com";
+	$host = "localhost";
 	$dbname = "bestnid";
 
 	$db = new mysqli($host, $username, $password, $dbname);

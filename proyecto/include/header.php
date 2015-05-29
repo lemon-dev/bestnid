@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Bestnid</title>
+	<title><?php echo $pageTitle; ?></title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -19,8 +19,8 @@
 <body>
 	<nav>
 		<ul>
-			<li><img src="#" alt="logo"></li>
-			<li><a href="#">Bestnid</a></li>
+			<li><img src="img/logo.png" alt="logo"></li>
+			<li><a href="/">Bestnid</a></li>
 			<li>
 				<form method="get" action="/function/buscar_titulo.php">
 					<input type="text" placeholder="Search" value="" name="param_busqueda">
