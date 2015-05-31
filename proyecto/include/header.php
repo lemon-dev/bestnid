@@ -5,29 +5,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title><?php echo $pageTitle; ?></title>
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-	<link rel="stylesheet" href="css/index.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/css/materialize.min.css">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<nav>
-		<ul>
-			<li><img src="img/logo.png" alt="logo"></li>
-			<li><a href="/">Bestnid</a></li>
-			<li>
-				<form method="get" action="/function/buscar_titulo.php">
-					<input type="text" placeholder="Search" value="" name="param_busqueda">
-					<button type="submit">Buscar</button>
-				</form>
-			</li>	
-			<li><a href="#">Registrarse</a></li>
-			<li><a href="#">Loguearse</a></li>
-		</ul>
+	<nav class="blue-grey darken-4">
+		<div class="nav-wrapper">
+			<a href="../index.php" class="brand-logo"><img src="/img/logo.png" alt="Logo"></a>
+			<ul ul id="nav-mobile" class="right hide-on-med-and-down">	
+				<li><a href="register.php">Registrarse</a></li>
+				<li><a href="#">Loguearse</a></li>
+			</ul>
+		</div>
 	</nav>

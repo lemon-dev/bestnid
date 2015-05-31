@@ -1,0 +1,32 @@
+body {
+	background-color: #f44336;
+}
+
+*{
+	font-family:'Roboto';
+}
+
+section .container {
+	margin-top: 5%;
+	background-color: #009688;
+}
+
+.form .container {
+	background-color: white;
+}
+
+.form .container .button {
+	margin-bottom: 5%;
+}
+
+.container .dropdown-category {
+	margin-top: 5%;
+}
+
+.busqueda {
+	margin-top: 5%;
+}
+
+footer .container {
+	background-color: none;
+}
