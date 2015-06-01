@@ -1,16 +1,6 @@
 <?php //El footer se modifica solo de acá ?>
 
 	<footer class="page-footer red darken-1">
-		<div class="container">
-            <div class="row">
-				<div class="col 10 s13">
-					<h5 class="white-text">Bestnid</h5>
-				</div>
-				<div class="col 13 s10">
-					<p class="grey-text text-lighten-4">Un sitio web para subastas distinto, en el cuál lo que más importa no es quien más da, sino quién más necesita.</p>
-				</div>
-            </div>
-          </div>
           <div class="footer-copyright">
             <div class="container">
             © 2015 lemon-dev ALL RIGHTS RESERVED
