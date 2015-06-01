@@ -31,7 +31,7 @@
 				</nav>
 			</div>
 		</div>
-		
+
 		<!--div class="container">
 			<div class="row">
 				<form action="/function/ordenar.php" method="post" class="col s12">

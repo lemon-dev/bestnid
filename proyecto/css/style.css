@@ -1,8 +1,13 @@
-body {
-	background-color: #f44336;
+html {
+	height: 100%;
 }
 
-*{
+body {
+	background-color: #f44336;
+	min-height: 100%;
+}
+
+* {
 	font-family:'Roboto';
 }
 
@@ -16,14 +21,13 @@ body {
 }
 
 section .container {
-	padding: 5%;
+	padding: 2%;
 	margin-top: 5%;
 	background-color: white;
 }
 
 section .container .container {
 	background-color: white;
-	padding-top: 5%;
 	padding-bottom: 5%;
 	margin-bottom: 5%;
 }
@@ -34,6 +38,11 @@ section .container .container h2 {
 
 .form .container {
 	background-color: white;
+}
+
+.login-form {
+	margin-top: 200px;
+	margin-bottom: 200px;
 }
 
 .busqueda {

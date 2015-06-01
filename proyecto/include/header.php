@@ -17,7 +17,7 @@
 			<a href="../index.php" class="brand-logo"><img src="/img/logo.png" alt="Logo"></a>
 			<ul ul id="nav-mobile" class="right hide-on-med-and-down">	
 				<li><a href="register.php">Registrarse</a></li>
-				<li><a href="#">Loguearse</a></li>
+				<li><a href="login.php">Loguearse</a></li>
 			</ul>
 		</div>
 	</nav>
