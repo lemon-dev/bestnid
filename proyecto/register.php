@@ -48,7 +48,7 @@ if(!empty($_POST)) {
 <section class="form">
 	<div class="container">
 		<div class="row">
-			<header>
+			<header class="register-header">
 				<h4>Registrarme</h4>
 				<p>Complete los siguientes campos para completar el registro.</p>
 			</header>
@@ -85,9 +85,7 @@ if(!empty($_POST)) {
 	          			<label for="contraseña">Password</label>
 			        </div>
 	     		</div>
-	     		<button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    				<i class="mdi-content-send right"></i>
-  				</button>
+	     		<input type="submit" class="btn" value="Submit">
 			</form>
 		</div>
 	</div>

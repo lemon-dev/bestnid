@@ -6,21 +6,34 @@ body {
 	font-family:'Roboto';
 }
 
+.card {
+	height: 600px;
+}
+
+.card img {
+	width: 400px;
+	height: 400px;
+}
+
 section .container {
+	padding: 5%;
 	margin-top: 5%;
-	background-color: #009688;
+	background-color: white;
+}
+
+section .container .container {
+	background-color: white;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	margin-bottom: 5%;
+}
+
+section .container .container h2 {
+	text-align: center;
 }
 
 .form .container {
 	background-color: white;
-}
-
-.form .container .button {
-	margin-bottom: 5%;
-}
-
-.container .dropdown-category {
-	margin-top: 5%;
 }
 
 .busqueda {
@@ -29,4 +42,17 @@ section .container {
 
 footer .container {
 	background-color: none;
+}
+
+.register-header {
+	text-align: center; 
+}
+
+.register-header h4 {
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.register-header h4,p {
+	
 }

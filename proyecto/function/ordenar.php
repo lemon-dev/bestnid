@@ -36,10 +36,24 @@
 	
 
 	$result = $db->query($query); 
-	while ($row = $result->fetch_object()) {
-		echo'<br>'. $row->titulo . '<br>' . $row->descripcion. '<br>';
-	} 
-?>
+	while ($row = $result->fetch_object()) { 
+		//echo'<br>'. $row->titulo . '<br>' . $row->descripcion. '<br>';
+		?>
+		<div class="col s4 m6">
+          	<div class="card">
+            	<div class="card-image">
+              		<img src="<?php echo $row->imagen_url ?>">
+            	</div>
+            <div class="card-content">
+				<span class="card-title black-text"><?php echo $row->titulo ?></span>
+              	<p><?php echo $row->descripcion ?></p>
+            </div>
+            <div class="card-action">
+              	<a href="#">Ver Subasta</a>
+            </div>
+          </div>
+        </div>	  
+	<?php } ?>
 
 <?php include("../include/footer.php") ?>
 	

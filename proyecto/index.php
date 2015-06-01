@@ -10,44 +10,42 @@
 ?>
 <section>
 	<div class="container">
-		
-		<div class="row col s6">	
-			<header>
-				<h2>Subastas del sitio</h2>	
-			</header>
-		</div>
+		<div class="container">
+			<div class="row col m12">	
+				<header>
+					<h2>Subastas del sitio</h2>	
+				</header>
+			</div>
 
-		<div class="busqueda">
-			<nav class="white">
-				<div class="nav-wrapper">
-				  <form method="get" action="/function/buscar_titulo.php">
-				    <div class="input-field">
-				      <input id="search" name="param_busqueda" type="search" required>
-				      <label for="search"><i class="mdi-action-search black-text"></i></label>
-				      <i class="mdi-navigation-close"></i>
-				    </div>
-				  </form>
-				</div>
-			</nav>
-		</div>
-
-		<div class="dropdown-category">
-			<div class="container">
-				<div class="row">
-					<form action="/function/ordenar.php" method="post" class="col s12">
-						<div class="input-field">
-							<select name="criterio">
-								<option value="titulo">Titulo</option>
-								<option value="fecha_final">Fecha de Fin</option>
-								<option value="fecha_inicio">Fecha d Inicio</option>
-								<option value="categoria">Categoria</option>
-							</select>
-						</div>
-					</form>
-				</div>
+			<div class="busqueda">
+				<nav class="white">
+					<div class="nav-wrapper">
+					  <form method="get" action="/function/buscar_titulo.php">
+					    <div class="input-field">
+					      <input id="search" name="param_busqueda" type="search" required>
+					      <label for="search"><i class="mdi-action-search black-text"></i></label>
+					      <i class="mdi-navigation-close"></i>
+					    </div>
+					  </form>
+					</div>
+				</nav>
 			</div>
 		</div>
-
+		
+		<!--div class="container">
+			<div class="row">
+				<form action="/function/ordenar.php" method="post" class="col s12">
+					<div class="input-field">
+						<select name="criterio">
+							<option value="titulo">Titulo</option>
+							<option value="fecha_final">Fecha de Fin</option>
+							<option value="fecha_inicio">Fecha de Inicio</option>
+							<option value="categoria">Categoria</option>
+						</select>
+					</div>
+				</form>
+			</div>
+		</div-->
 
 		<div class="">
 			<div class="row">
