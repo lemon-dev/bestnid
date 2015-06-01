@@ -11,6 +11,17 @@ body {
 	font-family:'Roboto';
 }
 
+nav .nav-wrapper a img {
+	border-style: solid;
+	border-width: 3px;	
+	border-color: #263238;
+	margin-left: 2px; 
+}
+
+nav .nav-wrapper {
+
+}
+
 .card {
 	height: 600px;
 }
@@ -53,15 +64,21 @@ footer .container {
 	background-color: none;
 }
 
-.register-header {
-	text-align: center; 
+.form-header {
+	text-align: center;
+	color: #263238; 
+	padding-bottom: 3px;
+	border-bottom: 1px solid #263238;
 }
 
-.register-header h4 {
+.form-header h4 {
 	text-transform: uppercase;
-	color: rgba(0, 0, 0, 0.87);
 }
 
-.register-header h4,p {
+.form-header h4,p {
 	
+}
+
+form .btn {
+	margin-top: 2px;
 }

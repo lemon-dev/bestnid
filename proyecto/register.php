@@ -6,40 +6,50 @@ include('include/header.php');
 
 if(!empty($_POST)) {
 	include('db/connect.php');
-	var_dump($_POST);
 
 	if(isset($_POST['nombre'], $_POST['apellido'],
 	 $_POST['nombre_usuario'] , $_POST['dni'], $_POST['contraseña'])) {
 
 		$nombre = trim($_POST['nombre']);
+
+		//Verificar si ya existe un usuario con el nombre
+
 		$apellido = trim($_POST['apellido']);
 		$nombre_usuario = trim($_POST['nombre_usuario']);
 		$dni = trim($_POST['dni']);
 		$contraseña = trim($_POST['contraseña']);
 
-		if(!empty($nombre) && !empty($apellido) &&
-		   !empty($nombre_usuario) && !empty($dni) && 
-		   !empty($contraseña)) {
-			
-			$query = 	"INSERT INTO Usuario (dni, nombre_usuario, contraseña, nombre, apellido, fecha_alta)
-						VALUES (?, ?, ?, ?, ?, NOW())";
+		include('db/user_exists.php');
 
-			if(!$insert = $db->prepare($query)) {
-				echo "<br>Bardeo el insert<br>";
+		if(user_exists($nombre_usuario)){
+			echo "El usuario ya existe";
+		} else {
+
+			if(!empty($nombre) && !empty($apellido) &&
+			   !empty($nombre_usuario) && !empty($dni) && 
+			   !empty($contraseña)) {
+				
+				$query = 	"INSERT INTO Usuario (dni, nombre_usuario, contraseña, nombre, apellido, fecha_alta)
+							VALUES (?, ?, ?, ?, ?, NOW())";
+
+				if($insert = $db->prepare($query)) {
+					echo "<br>Bardeo el insert<br>";
+				}
+				
+				echo "Query: " . var_dump($query);
+
+				$insert->bind_param('issss', $dni, $nombre_usuario, $contraseña, $nombre, $apellido);
+
+				if($insert->execute()) {
+					$insert->close();
+					$db->close();
+					header('Location: index.php');
+					die();
+				}
 			}
-			var_dump($query);
-			var_dump($insert);
-
-			$insert->bind_param('issss', $dni, $nombre_usuario, $contraseña, $nombre, $apellido);
-
-			if($insert->execute()) {
-				header('Location: index.php');
-				die();
-			}
-			
 		}
 	} else {
-		echo "No llenaste todos los formularios.";
+		echo "No llenaste todos los campos.";
 	}
 }
 
@@ -48,7 +58,7 @@ if(!empty($_POST)) {
 <section class="form">
 	<div class="container">
 		<div class="row">
-			<header class="register-header">
+			<header class="form-header">
 				<h4>Registrarme</h4>
 				<p>Complete los siguientes campos para completar el registro.</p>
 			</header>
@@ -85,7 +95,7 @@ if(!empty($_POST)) {
 	          			<label for="contraseña">Password</label>
 			        </div>
 	     		</div>
-	     		<input type="submit" class="btn" value="Submit">
+	     		<input type="submit" class="btn right" value="Submit">
 			</form>
 		</div>
 	</div>
