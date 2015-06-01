@@ -60,7 +60,7 @@
 				        <div class="col s4 m6">
 				          	<div class="card">
 				            	<div class="card-image">
-				              		<img src="<?php echo $row->imagen_url ?>">
+				              		<img class="responsive-img" src="<?php echo $row->imagen_url ?>">
 				            	</div>
 				            <div class="card-content">
 								<span class="card-title black-text"><?php echo $row->titulo ?></span>
