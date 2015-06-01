@@ -15,7 +15,6 @@
             <div class="container">
             © 2015 lemon-dev ALL RIGHTS RESERVED
             <a class="grey-text text-lighten-4 right" href="http://lemon-dev.esy.es">lemon-dev.esy.es</a>
-			<a href="https://github.com/lemon-dev"><i class="small fa fa-github"></i></a>
             </div>
           </div>
 	</footer>
