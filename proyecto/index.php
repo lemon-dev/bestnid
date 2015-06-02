@@ -20,7 +20,6 @@
   </ul>
   <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 </nav-->
-
 <section>
 	<div class="container">
 		<div class="container">
