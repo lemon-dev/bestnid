@@ -1,15 +1,15 @@
 <?php
+   
     error_reporting(-1);
     ini_set('display_errors', 'On');
+    
+    $pageTitle = "Bestnid"; 
+    include("include/header.php");
+
     include("db/connect.php");
 ?>
 
-<?php 
-	$pageTitle = "Bestnid";
-	include("include/header.php"); 
-?>
-
-<nav class="red darken-1">
+<!--nav class="red darken-1">
   <ul class="right hide-on-med-and-down">
     <li><a href="#!">First Sidebar Link</a></li>
     <li><a href="#!">Second Sidebar Link</a></li>
@@ -19,7 +19,7 @@
     <li><a href="#!">Second Sidebar Link</a></li>
   </ul>
   <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-</nav>
+</nav-->
 
 <section>
 	<div class="container">

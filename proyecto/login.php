@@ -4,10 +4,17 @@ include("include/header.php");
 include("db/connect.db");
 
 if(isset($_POST)){
+
 	if(isset($_POST['nombre_usuario'], $_POST['contraseña'])) {
+		
 		$nombre_usuario = trim($_POST['nombre_usuario']);
 		$contraseña = trim($_POST['contraseña']);
 
+		session_start();
+
+		$_SESSION['nombre_usuario'] = $nombre_usuario;
+		header('Location: index.php');
+		die();
 	}
 }
 

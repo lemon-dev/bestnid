@@ -1,5 +1,6 @@
 <?php 
-	// La barra de navegación se modifica solo de aca
+	session_start();
+	//var_dump($_SESSION);
  ?>
 
 <!DOCTYPE html>
@@ -16,8 +17,20 @@
 		<div class="nav-wrapper">
 			<a href="../index.php" class="brand-logo"><img src="/img/logo.png" class="circle responsive-img" alt="Logo"></a>
 			<ul ul id="nav-mobile" class="right hide-on-med-and-down">	
+			
+			<?php 
+			if($_SESSION){ ?>
+				
+				<li><a href="#">Ver Perfil</a></li>	
+				<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
+
+			<?php } else { ?>
+
 				<li><a href="register.php">Registrarse</a></li>
 				<li><a href="login.php">Loguearse</a></li>
+				
+			
+			<?php } ?>
 			</ul>
 		</div>
 	</nav>

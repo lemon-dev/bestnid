@@ -10,18 +10,15 @@ if(!empty($_POST)) {
 	if(isset($_POST['nombre'], $_POST['apellido'],
 	 $_POST['nombre_usuario'] , $_POST['dni'], $_POST['contraseña'])) {
 
-		$nombre = trim($_POST['nombre']);
+		$nombre = trim(mysql_real_escape_string($_POST['nombre']));
+		$apellido = trim(mysql_real_escape_string(($_POST['apellido']));
+		$nombre_usuario = trim(mysql_real_escape_string(($_POST['nombre_usuario']));
+		$dni = trim(mysql_real_escape_string(($_POST['dni']));
+		$contraseña = trim(mysql_real_escape_string($_POST['contraseña']));
 
-		//Verificar si ya existe un usuario con el nombre
+		$user = $db->query("SELECT * FROM Usuario WHERE nombre_usuario = '" . $nombre_usuario . "'");
 
-		$apellido = trim($_POST['apellido']);
-		$nombre_usuario = trim($_POST['nombre_usuario']);
-		$dni = trim($_POST['dni']);
-		$contraseña = trim($_POST['contraseña']);
-
-		include('db/user_exists.php');
-
-		if(user_exists($nombre_usuario)){
+		if($user->num_rows == 1){
 			echo "El usuario ya existe";
 		} else {
 
@@ -30,15 +27,9 @@ if(!empty($_POST)) {
 			   !empty($contraseña)) {
 				
 				$query = 	"INSERT INTO Usuario (dni, nombre_usuario, contraseña, nombre, apellido, fecha_alta)
-							VALUES (?, ?, ?, ?, ?, NOW())";
+							VALUES ('" . $dni . "', '" . $nombre_usuario . "', '" . $contraseña . "', '" . $nombre . "', '" . $apellido ."', NOW())";
 
-				if($insert = $db->prepare($query)) {
-					echo "<br>Bardeo el insert<br>";
-				}
-				
-				echo "Query: " . var_dump($query);
-
-				$insert->bind_param('issss', $dni, $nombre_usuario, $contraseña, $nombre, $apellido);
+				$db->query($query);
 
 				if($insert->execute()) {
 					$insert->close();
