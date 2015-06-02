@@ -9,17 +9,7 @@
     include("db/connect.php");
 ?>
 
-<!--nav class="red darken-1">
-  <ul class="right hide-on-med-and-down">
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="#!">Second Sidebar Link</a></li>
-  </ul>
-  <ul id="slide-out" class="side-nav">
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="#!">Second Sidebar Link</a></li>
-  </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-</nav-->
+
 <section>
 	<div class="container">
 		<div class="container">
@@ -43,21 +33,6 @@
 				</nav>
 			</div>
 		</div>
-
-		<!--div class="container">
-			<div class="row">
-				<form action="/function/ordenar.php" method="post" class="col s12">
-					<div class="input-field">
-						<select name="criterio">
-							<option value="titulo">Titulo</option>
-							<option value="fecha_final">Fecha de Fin</option>
-							<option value="fecha_inicio">Fecha de Inicio</option>
-							<option value="categoria">Categoria</option>
-						</select>
-					</div>
-				</form>
-			</div>
-		</div-->
 
 		<div class="">
 			<div class="row">

@@ -31,24 +31,48 @@ nav .nav-wrapper {
 	height: 400px;
 }
 
+.container {
+	/*0 5px 11px 0 rgba(0, 0, 0, 0.18)*/
+}
+
 section .container {
 	padding: 2%;
 	margin-top: 5%;
 	background-color: none;
 }
 
+section .container .row .input-field {
+	color: #2BBBAD;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+section .container. .row 
+.button-collapse .mdi-navigation-menu {
+	min-height: 100%;
+
+}
+
 section .container .container {
 	background-color: white;
 	padding-bottom: 5%;
 	margin-bottom: 5%;
+	box-shadow: 0 5px 11px 0;
+}
+
+section .container .container #search {
+	background-color: none;
 }
 
 section .container .container h2 {
 	text-align: center;
+	color: #263238;
 }
 
-.form .container {
+.register-form .container {
 	background-color: white;
+	margin-bottom: 5%;
+	margin-top: 10%;
 }
 
 .login-form {
@@ -62,10 +86,6 @@ section .container .container h2 {
 
 .busqueda {
 	margin-top: 5%;
-}
-
-footer .container {
-	background-color: none;
 }
 
 .form-header {
@@ -85,4 +105,8 @@ footer .container {
 
 form .btn {
 	margin-top: 2px;
+}
+
+footer .container {
+	background-color: none;
 }

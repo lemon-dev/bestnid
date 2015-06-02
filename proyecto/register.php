@@ -31,7 +31,7 @@ if(!empty($_POST)){
 
 ?>
 
-<section class="form">
+<section class="register-form">
 	<div class="container">
 		<div class="row">
 			<header class="form-header">
