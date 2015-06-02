@@ -4,43 +4,28 @@ ini_set('display_errors', 'On');
 $pageTitle = "Bestnid | Registrarme";
 include('include/header.php');
 
-if(!empty($_POST)) {
-	include('db/connect.php');
+if(!empty($_POST)){
+	if(isset($_POST['nombre'], $_POST['apellido'], $_POST['dni'], $_POST['nombre_usuario'], $_POST['password'])){
 
-	if(isset($_POST['nombre'], $_POST['apellido'],
-	 $_POST['nombre_usuario'] , $_POST['dni'], $_POST['contraseña'])) {
+		include('db/connect.php');
 
-		$nombre = trim(mysql_real_escape_string($_POST['nombre']));
-		$apellido = trim(mysql_real_escape_string(($_POST['apellido']));
-		$nombre_usuario = trim(mysql_real_escape_string(($_POST['nombre_usuario']));
-		$dni = trim(mysql_real_escape_string(($_POST['dni']));
-		$contraseña = trim(mysql_real_escape_string($_POST['contraseña']));
+		$result = $db->query("SELECT * FROM Usuario WHERE nombre_usuario = '" . $_POST['nombre_usuario'] . "'");
 
-		$user = $db->query("SELECT * FROM Usuario WHERE nombre_usuario = '" . $nombre_usuario . "'");
+		if($result->num_rows == 0) {
 
-		if($user->num_rows == 1){
-			echo "El usuario ya existe";
-		} else {
+			$query = "INSERT INTO Usuario (id_usuario, dni, nombre_usuario, password, nombre, apellido, fecha_alta)
+						VALUES (NULL, '" . $_POST['dni'] ."', '" . $_POST['nombre_usuario'] . "', '" . $_POST['password'] . "', '" . $_POST['nombre'] . "', '" . $_POST['apellido'] . "', CURRENT_DATE())";
 
-			if(!empty($nombre) && !empty($apellido) &&
-			   !empty($nombre_usuario) && !empty($dni) && 
-			   !empty($contraseña)) {
-				
-				$query = 	"INSERT INTO Usuario (dni, nombre_usuario, contraseña, nombre, apellido, fecha_alta)
-							VALUES ('" . $dni . "', '" . $nombre_usuario . "', '" . $contraseña . "', '" . $nombre . "', '" . $apellido ."', NOW())";
-
-				$db->query($query);
-
-				if($insert->execute()) {
-					$insert->close();
-					$db->close();
-					header('Location: index.php');
-					die();
-				}
+			if($result = $db->query($query)) {
+				header('Location: index.php');
+			} else {
+				echo "Error en el registro";
 			}
+		} else {
+			// Usuario ya existe
 		}
 	} else {
-		echo "No llenaste todos los campos.";
+		// Uno de los campos no fue llenado
 	}
 }
 
@@ -82,8 +67,8 @@ if(!empty($_POST)) {
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
-			          	<input name="contraseña" id="contraseña" type="password" class="validate">
-	          			<label for="contraseña">Password</label>
+			          	<input name="password" id="password" type="password" class="validate">
+	          			<label for="password">Password</label>
 			        </div>
 	     		</div>
 	     		<input type="submit" class="btn right" value="Submit">
