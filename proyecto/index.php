@@ -36,7 +36,7 @@
 		
 	
 		<form method="get" action="function/ordenar.php">
-			<select name="criterio">
+			<select name="criterio" class="browser-default">
 				<option value="titulo">Titulo</option>
 				<option value="fecha_final">Fecha de Fin</option>
 				<option value="fecha_inicio">Fecha de inicio</option>
