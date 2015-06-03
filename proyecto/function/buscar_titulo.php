@@ -18,7 +18,7 @@ include("../db/connect.php");
 				$result = $db->query($query); 
 				while ($row = $result->fetch_object()) {
 					?>
-					<div class="col s4 m6">
+					<div class="col s12 m6">
 			          	<div class="card">
 			            	<div class="card-image">
 			              		<img src="<?php echo $row->imagen_url ?>">

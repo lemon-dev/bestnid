@@ -39,7 +39,7 @@
 	while ($row = $result->fetch_object()) { 
 		//echo'<br>'. $row->titulo . '<br>' . $row->descripcion. '<br>';
 		?>
-		<div class="col s4 m6">
+		<div class="col s12 m6">
           	<div class="card">
             	<div class="card-image">
               		<img src="<?php echo $row->imagen_url ?>">
