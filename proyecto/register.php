@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 $pageTitle = "Bestnid | Registrarme";
 include('include/header.php');
 
-if(!empty($_POST)){
+if(isset($_POST)){
 	if(isset($_POST['nombre'], $_POST['apellido'], $_POST['dni'], $_POST['nombre_usuario'], $_POST['password'])){
 
 		include('db/connect.php');
@@ -40,7 +40,7 @@ if(!empty($_POST)){
 			</header>
 		</div>
 		<div class="row">
-			<form action="" method="post">
+			<form action="" method="post" id="register-form">
 				<div class="row">
 			        <div class="input-field col s12">
 			          	<input name="nombre" id="nombre" type="text">
@@ -71,8 +71,9 @@ if(!empty($_POST)){
 	          			<label for="password">Password</label>
 			        </div>
 	     		</div>
-	     		<input type="submit" class="btn right" value="Submit">
+	     		<input id="register-submit" type="submit" class="btn right" value="Submit">
 			</form>
+			<div class="form-messages"></div>
 		</div>
 	</div>
 </section>
