@@ -79,6 +79,12 @@ if(isset($_POST)){
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
+			          	<input name="valPass" id="valPass" type="password" class="validate">
+	          			<label for="valPass">Repetir password</label>
+			        </div>
+	     		</div>
+	     		<div class="row">
+			        <div class="input-field col s12">
 			          	<input name="tarjeta" id="tarjeta" type="text" class="validate">
 	          			<label for="tarjeta">Num. tarjeta de credito</label>
 			        </div>

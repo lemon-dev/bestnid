@@ -33,6 +33,18 @@
 				</nav>
 			</div>
 		</div>
+		
+	
+		<form method="get" action="function/ordenar.php">
+			<select name="criterio">
+				<option value="titulo">Titulo</option>
+				<option value="fecha_final">Fecha de Fin</option>
+				<option value="fecha_inicio">Fecha de inicio</option>
+				<option value="categoria">Categoria</option>
+
+			</select>
+			<input type="submit" value="Ordenar" >
+		</form>
 
 		<div class="">
 			<div class="row">
@@ -44,7 +56,7 @@
 
 					while ($row = $result->fetch_object()) { ?>
 						
-				        <div class="col s4 m6">
+				        <div class="col s12 m6">
 				          	<div class="card">
 				            	<div class="card-image">
 				              		<img class="responsive-img" src="<?php echo $row->imagen_url ?>">
