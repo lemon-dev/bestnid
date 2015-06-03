@@ -15,7 +15,8 @@
 		<div class="container">
 			<div class="row col m12">	
 				<header>
-					<h2>Subastas del sitio</h2>	
+					<h2>Bestnid!</h2>
+					<p>Un sitio web para subastas distinto, en el cuál lo que más importa no es quien más da, sino quién más necesita.</p>
 				</header>
 			</div>
 
@@ -43,7 +44,7 @@
 				<option value="categoria">Categoria</option>
 
 			</select>
-			<input type="submit" value="Ordenar" >
+			<input type="submit" value="Ordenar" class="btn">
 		</form>
 
 		<div class="">
