@@ -5,7 +5,7 @@ $pageTitle = "Bestnid | Registrarme";
 include('include/header.php');
 
 if(isset($_POST)){
-	if(isset($_POST['nombre'], $_POST['apellido'], $_POST['dni'], $_POST['nombre_usuario'], $_POST['password'])){
+	if(isset($_POST['nombre'], $_POST['apellido'], $_POST['dni'],$_POST['email'], $_POST['nombre_usuario'], $_POST['password'],$_POST['tarjeta'])){
 
 		include('db/connect.php');
 
@@ -13,8 +13,8 @@ if(isset($_POST)){
 
 		if($result->num_rows == 0) {
 
-			$query = "INSERT INTO Usuario (id_usuario, dni, nombre_usuario, password, nombre, apellido, fecha_alta)
-						VALUES (NULL, '" . $_POST['dni'] ."', '" . $_POST['nombre_usuario'] . "', '" . $_POST['password'] . "', '" . $_POST['nombre'] . "', '" . $_POST['apellido'] . "', CURRENT_DATE())";
+			$query = "INSERT INTO Usuario (id_usuario, dni, email, nombre_usuario, password, nombre, apellido, tarjeta, fecha_alta)
+						VALUES (NULL, '" . $_POST['dni'] ."', '" . $_POST['email'] . "' ,'" . $_POST['nombre_usuario'] . "', '" . $_POST['password'] . "', '" . $_POST['nombre'] . "', '" . $_POST['apellido'] ."', '" . $_POST['tarjeta'] . "', CURRENT_DATE())";
 
 			if($result = $db->query($query)) {
 				header('Location: index.php');
@@ -61,6 +61,12 @@ if(isset($_POST)){
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
+			          	<input name="email" id="email" type="text" class="validate">
+	          			<label for="email">E-mail</label>
+			        </div>
+	     		</div>
+	     		<div class="row">
+			        <div class="input-field col s12">
 			          	<input name="nombre_usuario" id="nombre_usuario" type="text" class="validate">
 	          			<label for="nombre_usuario">Username</label>
 			        </div>
@@ -71,6 +77,13 @@ if(isset($_POST)){
 	          			<label for="password">Password</label>
 			        </div>
 	     		</div>
+	     		<div class="row">
+			        <div class="input-field col s12">
+			          	<input name="tarjeta" id="tarjeta" type="text" class="validate">
+	          			<label for="tarjeta">Num. tarjeta de credito</label>
+			        </div>
+	     		</div>
+
 	     		<input id="register-submit" type="submit" class="btn right" value="Submit">
 			</form>
 			<div class="form-messages"></div>
