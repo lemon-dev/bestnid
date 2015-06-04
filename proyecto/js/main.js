@@ -7,58 +7,11 @@ $(document).ready(function() {
 	// Select initialize
 	$('select').material_select();
 
-	// Form submission
-
-	/*
-	$("#register-submit").click(function() {
-		var form = $("#register-form");
-
-		var formMessages = $("#form-messages");
-
-		$($form).submit(function(event) {
-			event.preventDefault();
-		})
-
-		var formData = $(form).serialize();
-
-		$.ajax({
-		    type: 'POST',
-		    url: $(form).attr('action'),
-		    data: formData
-		}).done(function(response) {
-		    
-		    // Make sure that the formMessages div has the 'success' class.
-		    $(formMessages).removeClass('error');
-		    $(formMessages).addClass('success');
-
-		    // Set the message text.
-		    $(formMessages).text(response);
-
-		    // Clear the form.
-		    $('#nombre').val('');
-		    $('#apellido').val('');
-		    $('#dni').val('');
-		    $('#nombre_usuario').val('');
-		    $('#contraseña').val('');
-		}).fail(function(data) {
-		    
-		    // Make sure that the formMessages div has the 'error' class.
-		    $(formMessages).removeClass('success');
-		    $(formMessages).addClass('error');
-
-		    // Set the message text.
-		    if (data.responseText !== '') {
-		        $(formMessages).text(data.responseText);
-		    } else {
-		        $(formMessages).text('Oops!');
-		    }
-		});
-	})*/
-
 	// Form validation
 
-	$("#register-submit").click(function () {
+	$("form").submit(function (event) {
 
+		/*
 		var nombre = document.getElementById("nombre").value;
 		var apellido = document.getElementById("apellido").value;
 		var dni = document.getElementById("dni").value;
@@ -69,16 +22,26 @@ $(document).ready(function() {
 			nombre_usuario == '' || password == '')	{
 			window.alert("Por favor llene todos los campos.");
 		} else {
-			$.ajax({
-				method: "POST",
-				url: "register.php",
-				data: datastring,
-				cache: false,
-				success: function(result){
-					alert(result);
-				}
-			});
+
 		}
+			*/
+
+		formData = $(this).serialize();	
+		
+		$.ajax({
+			method: "POST",
+			url: "function/form_process.php",
+			dataType: 'json',
+			data: formData,
+			cache: false,
+			encode: true,
+			success: function(data){
+				alert(data);
+				$('#register-result').html('');
+				$('#register-result').append(data);
+			}
+		});
+		event.preventDefault();
 		return false;
 	});
 })

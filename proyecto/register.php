@@ -1,35 +1,13 @@
 <?php 
 error_reporting(-1);
 ini_set('display_errors', 'On');
+
 $pageTitle = "Bestnid | Registrarme";
 include('include/header.php');
 
-if(isset($_POST)){
-	if(isset($_POST['nombre'], $_POST['apellido'], $_POST['dni'],$_POST['email'], $_POST['nombre_usuario'], $_POST['password'],$_POST['tarjeta'])){
-
-		include('db/connect.php');
-
-		$result = $db->query("SELECT * FROM Usuario WHERE nombre_usuario = '" . $_POST['nombre_usuario'] . "'");
-
-		if($result->num_rows == 0) {
-
-			$query = "INSERT INTO Usuario (id_usuario, dni, email, nombre_usuario, password, nombre, apellido, tarjeta, fecha_alta)
-						VALUES (NULL, '" . $_POST['dni'] ."', '" . $_POST['email'] . "' ,'" . $_POST['nombre_usuario'] . "', '" . $_POST['password'] . "', '" . $_POST['nombre'] . "', '" . $_POST['apellido'] ."', '" . $_POST['tarjeta'] . "', CURRENT_DATE())";
-
-			if($result = $db->query($query)) {
-				header('Location: index.php');
-			} else {
-				echo "Error en el registro";
-			}
-		} else {
-			// Usuario ya existe
-		}
-	} else {
-		// Uno de los campos no fue llenado
-	}
-}
-
 ?>
+
+<div class="row" id="register-result"></div>
 
 <section class="register-form">
 	<div class="container">
@@ -40,7 +18,7 @@ if(isset($_POST)){
 			</header>
 		</div>
 		<div class="row">
-			<form action="" method="post" id="register-form">
+			<form action="" method="post" id="function/register-form">
 				<div class="row">
 			        <div class="input-field col s12">
 			          	<input name="nombre" id="nombre" type="text">
