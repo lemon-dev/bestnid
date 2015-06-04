@@ -10,6 +10,8 @@
 ?>
 
 
+<div id="form-result"></div>
+
 <section>
 	<div class="container">
 		<div class="container">
@@ -38,7 +40,7 @@
 			<div class="row">
 				<?php
 					$query = "	SELECT 	*
-								FROM	Subasta S INNER JOIN Producto P ON S.id_producto = P.id_producto";
+								FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto";
 
 					($result = $db->query($query)); 
 

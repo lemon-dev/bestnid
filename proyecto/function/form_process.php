@@ -9,15 +9,14 @@ $data		= array();
 include('../db/connect.php');
 
 
-$result = $db->query("SELECT * FROM Usuario WHERE nombre_usuario = '" . $_POST['nombre_usuario'] . "'");
+$result = $db->query("SELECT * FROM usuario WHERE nombre_usuario = '" . $_POST['nombre_usuario'] . "'");
 
 
 
 if($result->num_rows == 0) {
 
-	$query = "INSERT INTO Usuario (id_usuario, dni, email, nombre_usuario, password, nombre, apellido, tarjeta, fecha_alta)
+	$query = "INSERT INTO usuario (id_usuario, dni, email, nombre_usuario, password, nombre, apellido, tarjeta, fecha_alta)
 				VALUES (NULL, '" . $_POST['dni'] ."', '" . $_POST['email'] . "' ,'" . $_POST['nombre_usuario'] . "', '" . $_POST['password'] . "', '" . $_POST['nombre'] . "', '" . $_POST['apellido'] ."', '" . $_POST['tarjeta'] . "', CURRENT_DATE())";
-
 	if(!$result = $db->query($query)) {
 		$errors['db_error'] = 'Error realizando el registro, pruebe nuevamente en unos minutos.';
 	}

@@ -27,42 +27,48 @@ include('include/header.php');
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
-			          	<input name="apellido" id="apellido" type="text" class="validate">
+			          	<input name="apellido" id="apellido" type="text" class="validate" required>
 	          			<label for="apellido">Apellido</label>
 			        </div>
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
-			          <input name="dni" id="dni" type="text" class="validate">
+			          <input name="dni" id="dni" type="number" class="validate" required>
 	          			<label for="dni">DNI (Documento Nacional de Identidad</label>
 			        </div>
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
-			          	<input name="email" id="email" type="text" class="validate">
+			          	<input name="email" id="email" type="email" class="validate" placeholder="Ejemplo: micuenta@mimail.com" required>
 	          			<label for="email">E-mail</label>
 			        </div>
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
-			          	<input name="nombre_usuario" id="nombre_usuario" type="text" class="validate">
+			          	<input name="nombre_usuario" id="nombre_usuario" type="text" class="validate" required>
 	          			<label for="nombre_usuario">Username</label>
 			        </div>
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
-			          	<input name="password" id="password" type="password" class="validate">
+			          	<input name="password" id="password" type="password" class="validate" required>
 	          			<label for="password">Password</label>
 			        </div>
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
-			          	<input name="tarjeta" id="tarjeta" type="text" class="validate">
+			          	<input name="val_password" id="val_password" type="password" class="validate" required>
+	          			<label for="val_password">Password</label>
+			        </div>
+	     		</div>
+	     		<div class="row">
+			        <div class="input-field col s12">
+			          	<input name="tarjeta" id="tarjeta" type="text" class="validate" required>
 	          			<label for="tarjeta">Num. tarjeta de credito</label>
 			        </div>
 	     		</div>
 
-	     		<input id="register-submit" type="submit" class="btn right" value="Submit">
+	     		<input id="register-submit" type="submit" class="btn right" value="Submit"required>
 			</form>
 			<div class="form-messages"></div>
 		</div>
