@@ -42,6 +42,7 @@
 		var email = $.trim($('#email').val());
 		var nombre_usuario = $.trim($('#nombre_usuario').val());
 		var password = $.trim($('#password').val());
+		var val_password = $.trim($('#val_password').val());
 		var tarjeta = $.trim($('#tarjeta').val());
 
 		if(nombre == '' || apellido == '' || dni == '' ||
@@ -71,7 +72,7 @@
 					success: function(data){
 
 						$('#register-result').html('');
-						$('#register-result').append(data);
+						$('#register-result').append(data.errors);
 					
 					}
 				});
