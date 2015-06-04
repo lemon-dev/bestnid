@@ -37,14 +37,20 @@
 		
 	
 		<form method="get" action="function/ordenar.php">
-			<select name="criterio" class="browser-default">
-				<option value="titulo">Titulo</option>
-				<option value="fecha_final">Fecha de Fin</option>
-				<option value="fecha_inicio">Fecha de inicio</option>
-				<option value="categoria">Categoria</option>
+			<div class="row">
+				<div class="col s8 m8 l10">
+					<select name="criterio" class="browser-default">
+						<option value="titulo">Titulo</option>
+						<option value="fecha_final">Fecha de Fin</option>
+						<option value="fecha_inicio">Fecha de inicio</option>
+						<option value="categoria">Categoria</option>
 
-			</select>
-			<input type="submit" value="Ordenar" class="btn">
+					</select>
+				</div>
+				<div class="col s4 m4 l2">
+					<input type="submit" value="Ordenar" class="btn">
+				</div>
+			</div>
 		</form>
 
 		<div class="">
