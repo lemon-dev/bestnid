@@ -7,7 +7,7 @@ include('include/header.php');
 
 ?>
 
-<div class="row" id="register-result"></div>
+<div class="row" id="register-result" class="hiddendiv"></div>
 
 <section class="register-form">
 	<div class="container">
@@ -18,7 +18,7 @@ include('include/header.php');
 			</header>
 		</div>
 		<div class="row">
-			<form action="" method="post" id="function/register-form">
+			<form action="" method="post" id="register-form">
 				<div class="row">
 			        <div class="input-field col s12">
 			          	<input name="nombre" id="nombre" type="text">
@@ -47,6 +47,7 @@ include('include/header.php');
 			        <div class="input-field col s12">
 			          	<input name="nombre_usuario" id="nombre_usuario" type="text" class="validate" required>
 	          			<label for="nombre_usuario">Username</label>
+			        	<span id="user-hint">El nombre de usuario ya existe.</span>
 			        </div>
 	     		</div>
 	     		<div class="row">
@@ -58,7 +59,8 @@ include('include/header.php');
 	     		<div class="row">
 			        <div class="input-field col s12">
 			          	<input name="val_password" id="val_password" type="password" class="validate" required>
-	          			<label for="val_password">Password</label>
+	          			<label for="val_password">Confirmación de contraseña</label>
+	          			<span id="pass-hint">Por favor confirme su contraseña</span>
 			        </div>
 	     		</div>
 	     		<div class="row">
@@ -68,7 +70,7 @@ include('include/header.php');
 			        </div>
 	     		</div>
 
-	     		<input id="register-submit" type="submit" class="btn right" value="Submit"required>
+	     		<input id="register-submit" type="submit" class="btn right form-submit" value="Submit"required>
 			</form>
 			<div class="form-messages"></div>
 		</div>

@@ -20,8 +20,6 @@ if($result->num_rows == 0) {
 	
 	if(!$result = $db->query($query)) {
 		$errors['db_error'] = 'Error realizando el registro, pruebe nuevamente en unos minutos.';
-	} else {
-		header('Location: index.php');
 	}
 
 } else {
@@ -43,5 +41,9 @@ if(!empty($errors)) {
 }
 
 echo json_encode($data);
+
+if($data['success'] == true){
+	header('Location: /index.php');
+}
 
 ?>

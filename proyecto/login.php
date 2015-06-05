@@ -1,32 +1,8 @@
 <?php 
+
 $pageTitle = "Bestnid | Login";
 include("include/header.php");
 include("db/connect.php");
-
-
-if(isset($_POST)){
-
-	if(isset($_POST['nombre_usuario'], $_POST['contraseña'])) {
-		
-		$nombre_usuario = trim($_POST['nombre_usuario']);
-		$contraseña = trim($_POST['contraseña']);
-
-
-		require_once("db/user_exists.php");
-
-		if (user_exists($nombre_usuario,$contraseña)) {
-		 
-			session_start();
-
-			$_SESSION['nombre_usuario'] = $nombre_usuario;
-			header('Location: index.php');
-			die();
-		}else{
-			echo "Usuario o contraseña no valido";
-			//header('Location: login.php');
-		}
-	}
-}
 
 ?>
 
@@ -41,20 +17,22 @@ if(isset($_POST)){
 			</header>
 		</div>
 		<div class="row">
-			<form action="" method="post">
+			<form action="" method="post" id="login-form">
 				<div class="row">
 			        <div class="input-field col s12">
-			          	<input name="nombre_usuario" id="nombre_usuario" type="text" class="validate">
-	          			<label for="nombre_usuario">Username</label>
+			          	<input name="usuario" id="usuario" type="text" class="validate">
+	          			<label for="usuario">Username</label>
+			        	<span id="name-hint">Nombre de usuario incorrecto</span>
 			        </div>
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
-			          	<input name="contraseña" id="contraseña" type="password" class="validate">
-	          			<label for="contraseña">Password</label>
+			          	<input name="password" id="password" type="password" class="validate">
+	          			<label for="password">Password</label>
+	          			<span id="log-pass-hint">Por favor ingrese una contraseña</span>
 			        </div>
 	     		</div>
-	     		<input type="submit" class="btn right" value="Submit">
+	     		<input type="submit" class="btn right form-submit" value="Submit" id="login-submit">
 			</form>
 		</div>
 	</div>

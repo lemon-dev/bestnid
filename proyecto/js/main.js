@@ -1,4 +1,6 @@
-	$(document).ready(function() {
+$("span").hide();
+
+$(document).ready(function() {
     
 	// Side-nav initialize
 	$(".button-collapse").sideNav();  
@@ -8,6 +10,71 @@
 	$('select').material_select();
 
 	// Form validation
+
+	// Loguearse
+
+	// Verifico el nombre de usuario
+	$('#login-submit').submit(function (event) {
+		// Si esta vacio
+		alert("entro");
+		event.preventDefault();
+		var nombre_usuario = $('#usuario').val();
+		var password = $('#password').val();
+
+		if(nombre_usuario == "" || password == ""){
+			alert("Debe llenar todos los campos");
+		} else {
+
+			postData = {
+				nombre: 	nombre_usuario,
+				pass: 		password 
+			};
+
+			$.ajax({
+				method: "POST",
+				url: "/db/ajax_user_validate.php",
+				dataType: 'json',
+				data: postData,
+				encode: true,
+				success: function(){
+
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+		       		alert(xhr.status);
+		        	alert(thrownError);
+		        }
+			})
+		}
+	});
+
+	// Verifico la contraseña
+		// Si esta vacía
+			// La solicito
+		// Sino
+			// Valido con el usuario
+	//
+
+
+
+	$("#usuario").blur(function () {
+		if($(this).val() == '') {
+			$('#name-hint').html('Ingrese su nombre de usuario');
+			$('#name-hint').show();
+		} else {
+			$('#name-hint').hide();
+		}
+	});
+
+	$("#password").blur(function () {
+		if($(this).val() == '') {
+			$('#log-pass-hint').html('Ingrese su contraseña por favor');
+			$('#log-pass-hint').show();
+		} else {
+			$('#log-pass-hint').hide();
+		}
+	});
+
+	// Registrar
 
 	$('#nombre_usuario').blur(function () {
 
@@ -23,7 +90,9 @@
 			encode: true,
 			success: function(error) {
 				if(error.status == "fail") {
-					alert("El usuario "+ error.user + " ya existe");
+					$("#register-form #user-hint").show();
+				} else {
+					$("#register-form #user-hint").hide();
 				}
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
@@ -33,7 +102,11 @@
 		});
 	});
 
-	$("form").submit(function (event) {
+	$("#val_password").blur(function (){
+
+	});
+
+	$("#register-form").submit(function (event) {
 		event.preventDefault();
 
 		var nombre = $.trim($('#nombre').val());
@@ -49,17 +122,20 @@
 			email == '' || nombre_usuario == '' || 
 			password == '' || tarjeta == '') {
 			
+			//Mostrar todos los campos
 			window.alert("Por favor llene todos los campos.");
 		
 		} else {
 
 			if(password != val_password){
-				window.alert("Las contraseñas no coinciden, vuelva a ingresarla");
-				$("#password").html('');
-				$("#val_password").html('');
+				
+				$("#register-form #pass-hint").show();
+				$("#password").val('');
+				$("#val_password").val('');
 			
 			} else {
 
+				$("#register-form #pass-hint").hide();
 				formData = $(this).serialize();	
 		
 				$.ajax({
@@ -70,13 +146,12 @@
 					cache: false,
 					encode: true,
 					success: function(data){
-
-						$('#register-result').html('');
-						$('#register-result').append(data.errors);
-					
+						alert('success');
+						$("#register-form");
 					}
 				});
-				return false;
+
+				window.location.href = 'index.php';
 			}
 		}
 	});
@@ -87,6 +162,7 @@
   	* Please retain this author and license notice!
   	*/
 	
+	/*
 	(function (exports) {
 	    function valOrFunction(val, ctx, args) {
 	        if (typeof val == "function") {
@@ -134,4 +210,5 @@
 	    return 'El email "' + input.value + '" es inválido!';
 	  }
 	});
+	*/
 })

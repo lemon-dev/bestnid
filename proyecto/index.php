@@ -9,9 +9,6 @@
     include("db/connect.php");
 ?>
 
-
-<div id="form-result"></div>
-
 <section>
 	<div class="container">
 		<div class="container">
