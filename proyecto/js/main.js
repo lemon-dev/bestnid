@@ -14,36 +14,38 @@ $(document).ready(function() {
 	// Loguearse
 
 	// Verifico el nombre de usuario
-	$('#login-submit').submit(function (event) {
+	$("#login-form").submit(function (event) {
 		// Si esta vacio
-		alert("entro");
 		event.preventDefault();
+
 		var nombre_usuario = $('#usuario').val();
 		var password = $('#password').val();
 
 		if(nombre_usuario == "" || password == ""){
+			
 			alert("Debe llenar todos los campos");
+		
 		} else {
 
-			postData = {
-				nombre: 	nombre_usuario,
-				pass: 		password 
-			};
+			console.log(nombre_usuario);
 
 			$.ajax({
 				method: "POST",
-				url: "/db/ajax_user_validate.php",
+				url: "db/ajax_user_validate.php",
 				dataType: 'json',
-				data: postData,
+				data: {	action: "user_validate",
+						nombre: nombre_usuario 
+				},
+				cache: false,
 				encode: true,
-				success: function(){
-
+				success: function() {
+					
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
-		       		alert(xhr.status);
-		        	alert(thrownError);
+		       		console.log(xhr.status);
+		        	console.log(thrownError);
 		        }
-			})
+			});
 		}
 	});
 
@@ -102,10 +104,6 @@ $(document).ready(function() {
 		});
 	});
 
-	$("#val_password").blur(function (){
-
-	});
-
 	$("#register-form").submit(function (event) {
 		event.preventDefault();
 
@@ -122,13 +120,12 @@ $(document).ready(function() {
 			email == '' || nombre_usuario == '' || 
 			password == '' || tarjeta == '') {
 			
-			//Mostrar todos los campos
 			window.alert("Por favor llene todos los campos.");
 		
 		} else {
 
 			if(password != val_password){
-				
+				$("#register-form #pass-hint").html('Las contraseñas no coinciden, vuelva  intentarlo');
 				$("#register-form #pass-hint").show();
 				$("#password").val('');
 				$("#val_password").val('');
@@ -146,12 +143,16 @@ $(document).ready(function() {
 					cache: false,
 					encode: true,
 					success: function(data){
-						alert('success');
-						$("#register-form");
+
+						alert(data.success);
+						
+						if(data.success == true){
+							window.location.href = 'register.php?status=success';
+						} else {
+							window.location.href = 'register.php?status=fail';
+						}
 					}
 				});
-
-				window.location.href = 'index.php';
 			}
 		}
 	});

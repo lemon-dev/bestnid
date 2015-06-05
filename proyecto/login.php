@@ -6,18 +6,17 @@ include("db/connect.php");
 
 ?>
 
+<span id="user-exists"></span>
+
 <section class="login-form">
-	<header>	
-		
-	</header>
-	<div class="container">
+	<div class="container form-container">
 		<div class="row">
 			<header class="form-header">
 				<h4>Iniciar Sesi&oacute;n</h4>
 			</header>
 		</div>
 		<div class="row">
-			<form action="" method="post" id="login-form">
+			<form action="function/login-process.php" method="post" id="login-form">
 				<div class="row">
 			        <div class="input-field col s12">
 			          	<input name="usuario" id="usuario" type="text" class="validate">

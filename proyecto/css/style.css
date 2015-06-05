@@ -32,13 +32,16 @@ nav .nav-wrapper {
 }
 
 .container {
-	/*0 5px 11px 0 rgba(0, 0, 0, 0.18)*/
 }
 
 section .container {
 	padding: 2%;
 	margin-top: 5%;
 	background-color: none;
+}
+
+section .container.form-container {
+	box-shadow: 0 5px 11px 0;
 }
 
 section .container .row .input-field {
@@ -73,6 +76,18 @@ section .container .container h2 {
 	background-color: white;
 	margin-bottom: 5%;
 	margin-top: 10%;
+}
+
+#register-result {
+	background-color: white;
+	text-align: center;
+	box-shadow: 0 5px 11px 0;
+	padding: 5%;
+	margin-top: 10%;
+	margin-bottom: 5%;
+}
+
+#register-result a {
 }
 
 .login-form {

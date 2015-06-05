@@ -20,7 +20,7 @@ function user_exists($name) {
 
 if(isset($_POST['action'])) {
 
-	$name = trim($_POST['nombre_usuario']);
+	$name = ($_POST['nombre_usuario']);
 	user_exists($name);
 
 }
