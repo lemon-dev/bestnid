@@ -11,13 +11,6 @@ body {
 	font-family:'Roboto';
 }
 
-nav .nav-wrapper a img {
-	border-style: solid;
-	border-width: 3px;	
-	border-color: #263238;
-	margin-left: 2px; 
-}
-
 nav .nav-wrapper {
 
 }
@@ -57,7 +50,7 @@ section .container. .row
 }
 
 section .container .container {
-	background-color: white;
+	background-color: rgba(255,255,255,0.9);
 	padding-bottom: 5%;
 	margin-bottom: 5%;
 	box-shadow: 0 5px 11px 0;
@@ -70,6 +63,11 @@ section .container .container #search {
 section .container .container h2 {
 	text-align: center;
 	color: #263238;
+}
+
+section .container .container p{
+	font-weight: bold;
+	text-align: center;
 }
 
 .register-form .container {

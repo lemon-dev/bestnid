@@ -9,9 +9,16 @@ $(document).ready(function() {
 	// Select initialize
 	$('select').material_select();
 
+<<<<<<< HEAD
 	// Form validation
 
 	// Loguearse
+=======
+	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+	
+	// Form submission
+>>>>>>> 696ed09a0755423da42c376de4b4cb9be3703fcc
 
 	// Verifico el nombre de usuario
 	$("#login-form").submit(function (event) {

@@ -14,7 +14,8 @@
 		<div class="container">
 			<div class="row col m12">	
 				<header>
-					<h2>Subastas del sitio</h2>	
+					<h2>Bestnid!</h2>
+					<p>Un sitio web para subastas distinto, en el cuál lo que más importa no es quien más da, sino quién más necesita.</p>
 				</header>
 			</div>
 
@@ -32,6 +33,24 @@
 				</nav>
 			</div>
 		</div>
+		
+	
+		<form method="get" action="function/ordenar.php">
+			<div class="row">
+				<div class="col s8 m8 l10">
+					<select name="criterio" class="browser-default">
+						<option value="titulo">Titulo</option>
+						<option value="fecha_final">Fecha de Fin</option>
+						<option value="fecha_inicio">Fecha de inicio</option>
+						<option value="categoria">Categoria</option>
+
+					</select>
+				</div>
+				<div class="col s4 m4 l2">
+					<input type="submit" value="Ordenar" class="btn">
+				</div>
+			</div>
+		</form>
 
 		<div class="">
 			<div class="row">
@@ -43,7 +62,7 @@
 
 					while ($row = $result->fetch_object()) { ?>
 						
-				        <div class="col s4 m6">
+				        <div class="col s12 m6">
 				          	<div class="card">
 				            	<div class="card-image">
 				              		<img class="responsive-img" src="<?php echo $row->imagen_url ?>">

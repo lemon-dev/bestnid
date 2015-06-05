@@ -13,40 +13,46 @@
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<nav class="blue-grey darken-4">
-		<div class="nav-wrapper">
-			<a href="../index.php" class="brand-logo"><img src="/img/logo.png" class="circle responsive-img" alt="Logo"></a>
-			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-			<ul class="right hide-on-med-and-down">	
-			
-			<?php 
-			if($_SESSION){ ?>
+	<div class="navbar-fixed">
+		<nav class="blue-grey darken-4">
+			<div class="nav-wrapper">
+				<div>
+					<a href="../index.php" class="brand-logo">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				</div>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+				<ul class="right hide-on-med-and-down">	
 				
-				<li><a href="#">Ver Perfil</a></li>	
-				<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
+				<?php 
+				if($_SESSION){ ?>
+					
+					<li><a href="#">Ver Perfil</a></li>	
+					<li><a href="../logout.php">Cerrar Sesi&oacute;n</a></li>
 
-			<?php } else { ?>
+				<?php } else { ?>
 
-				<li><a href="register.php">Registrarse</a></li>
-				<li><a href="login.php">Loguearse</a></li>
+					<li><a href="../register.php">Registrarse</a></li>
+					<li><a href="../login.php">Loguearse</a></li>
+					
 				
-			
-			<?php } ?>
-			</ul>
-			<ul class="side-nav" id="mobile-demo">
-			<?php 
-			if($_SESSION){ ?>
-				
-				<li><a href="#">Ver Perfil</a></li>	
-				<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
-
-			<?php } else { ?>
-
-				<li><a href="register.php">Registrarse</a></li>
-				<li><a href="login.php">Loguearse</a></li>
-				
-			
-			<?php } ?>
-			</ul>
-		</div>
-	</nav>
+				<?php } ?>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+							<?php
+							if($_SESSION){ ?>
+								   
+									<li><a href="#">Ver Perfil</a></li>    
+									<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
+	 
+							<?php } else { ?>
+	 
+									<li><a href="register.php">Registrarse</a></li>
+									<li><a href="login.php">Loguearse</a></li>
+								   
+						   
+							<?php } ?>
+				</ul>
+			</div>
+		</nav>
+	</div>
