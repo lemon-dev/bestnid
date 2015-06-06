@@ -28,12 +28,12 @@
 				if($_SESSION){ ?>
 					
 					<li><a href="#">Ver Perfil</a></li>	
-					<li><a href="../logout.php">Cerrar Sesi&oacute;n</a></li>
+					<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
 
 				<?php } else { ?>
 
-					<li><a href="../register.php">Registrarse</a></li>
-					<li><a href="../login.php">Loguearse</a></li>
+					<li><a href="/register.php">Registrarse</a></li>
+					<li><a href="/login.php">Loguearse</a></li>
 					
 				
 				<?php } ?>
@@ -47,8 +47,8 @@
 	 
 							<?php } else { ?>
 	 
-									<li><a href="register.php">Registrarse</a></li>
-									<li><a href="login.php">Loguearse</a></li>
+									<li><a href="/register.php">Registrarse</a></li>
+									<li><a href="/login.php">Loguearse</a></li>
 								   
 						   
 							<?php } ?>

@@ -81,6 +81,8 @@
 				            <div class="card-content">
 								<span class="card-title black-text"><?php echo $row->titulo ?></span>
 				              	<p><?php echo $row->descripcion ?></p>
+				              	<p>La subasta comenz&oacute; el d&iacute;a <?php echo $row->fecha_inicio ?></p>
+			              	<p>La subasta finalize el d&iacute;a <?php echo $row->fecha_final ?></p>
 				            </div>
 				            <div class="card-action">
 				              	<a href="#">Ver Subasta</a>
