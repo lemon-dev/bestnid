@@ -10,7 +10,7 @@
 		</ul>
     </div>
 	
-	<footer class="page-footer red darken-1">
+	<footer class="page-footer grey">
 		<div class="container">
             <div class="row">
 				<div class="col-md-0">	
