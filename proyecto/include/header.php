@@ -14,11 +14,11 @@
 </head>
 <body>
 	<div class="navbar-fixed">
-		<nav class="blue-grey darken-4">
+		<nav class="red darken-1">
 			<div class="nav-wrapper">
 				<div>
-					<a href="../index.php" class="brand-logo">
-						<img src="/img/logo.png" alt="Logo">
+					<a href="/index.php" class="brand-logo">
+						<img src="/img/logo.png" class="circle responsive-img" alt="Logo">
 					</a>
 				</div>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
