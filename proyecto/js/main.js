@@ -164,7 +164,19 @@ $(document).ready(function() {
 	   		$("#dni-hint").show();
 	   	}
 	});
+	$("#tarjeta").blur(function(e) {
+	    var val = $(this).val();
+	   	if (val.match(/[^0-9]/g)) {
 
+	      	$(this).val(val.replace(/[^0-9]/g, ''));
+	      	$('#dni-hint').className = "text-hint warning";
+	      	
+	      	$("#tarjeta-hint").show();
+	   	} else {
+	   		
+	   		$("#dni-hint").hide();
+	   	}
+	});
 	// Registrar
 	// Event handlers para el formulario de registro
 
@@ -220,7 +232,7 @@ $(document).ready(function() {
 
 			if(password != val_password){
 				
-				$("#register-form #pass-hint").html('Las contraseñas no coinciden, vuelva  intentarlo');
+				//$("#register-form #pass-hint").html('Las contraseñas no coinciden, vuelva  intentarlo');
 				$("#register-form #pass-hint").show();
 				$("#password").val('');
 				$("#val_password").val('');

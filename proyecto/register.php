@@ -87,13 +87,14 @@ include('include/header.php');
 				        <div class="input-field col s12">
 				          	<input name="val_password" id="val_password" type="password" class="validate" required>
 		          			<label for="val_password">Confirmación de contraseña</label>
-		          			<!--span id="pass-hint" class="text-hint">Por favor confirme su contraseña</span-->
+		          			<span id="pass-hint" class="text-hint error">* Las contraseñas no coinciden, por favor vuelva a intentarlo</span-->
 				        </div>
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
 				          	<input name="tarjeta" id="tarjeta" type="text" class="validate" required>
 		          			<label for="tarjeta">Num. tarjeta de credito</label>
+		          			<span id="tarjeta-hint" class="text-hint warning">* El num. de la tarjeta solo puede contener numeros,caracteres invalidos han sido omitidos</span>
 				        </div>
 		     		</div>
 
