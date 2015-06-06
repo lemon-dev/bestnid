@@ -60,7 +60,7 @@
 					if ($criterio == "categoria" ){
 						$query = "	SELECT 	*
 								FROM	subasta S INNER JOIN  producto P ON S.id_producto = P.id_producto
-										INNER JOIN Categoria C ON P.id_categoria = C.id_categoria 
+										INNER JOIN categoria C ON P.id_categoria = C.id_categoria 
 								ORDER BY C.nombre ";
 
 					}else{
