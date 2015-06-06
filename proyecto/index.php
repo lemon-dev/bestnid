@@ -1,4 +1,6 @@
 <?php
+	
+	echo ($_SESSION['nombre_usuario']);
    
     error_reporting(-1);
     ini_set('display_errors', 'On');

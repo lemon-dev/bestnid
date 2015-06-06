@@ -20,15 +20,15 @@ include("db/connect.php");
 				<div class="row">
 			        <div class="input-field col s12">
 			          	<input name="usuario" id="usuario" type="text" class="validate">
-	          			<label for="usuario">Username</label>
-			        	<span id="name-hint">Nombre de usuario incorrecto</span>
+	          			<label for="usuario">Nombre de usuario</label>
+			        	<span id="log-name-hint" class="text-hint error">* Por favor ingrese su nombre de usuario</span>
 			        </div>
 	     		</div>
 	     		<div class="row">
 			        <div class="input-field col s12">
 			          	<input name="password" id="password" type="password" class="validate">
-	          			<label for="password">Password</label>
-	          			<span id="log-pass-hint">Por favor ingrese una contraseña</span>
+	          			<label for="password">Contraseña</label>
+	          			<span id="log-pass-hint" class="text-hint error">* Por favor ingrese una contraseña</span>
 			        </div>
 	     		</div>
 	     		<input type="submit" class="btn right form-submit" value="Submit" id="login-submit">

@@ -7,16 +7,35 @@ include("../include/header.php");
 include("../db/connect.php");
 ?>
 <div class="section">
-	<div class="container">
+	<div class="container search-result">
+		<div class="busqueda">
+			<nav class="white">
+				<div class="nav-wrapper">
+				  <form method="get" action="/function/buscar_titulo.php">
+				    <div class="input-field">
+				      <input id="search" name="param_busqueda" type="search" required>
+				      <label for="search"><i class="mdi-action-search black-text"></i></label>
+				      <i class="mdi-navigation-close"></i>
+				    </div>
+				  </form>
+				</div>
+			</nav>
+		</div>
+		<div class="container" id="search-result-title">
+			<header>
+				<h4>Resultado de la busqueda sobre:  "<?php echo $_GET["param_busqueda"] ?>"</h4>
+				<p></p>
+			</header>
+		</div>
 		<div class="row">
 			<?php 
 				$query = " 	SELECT *
-							FROM Subasta S
-							INNER JOIN  Producto P ON S.id_producto = P.id_producto
-							WHERE Titulo LIKE '%" . $_GET["param_busqueda"] . "%'
-				";
+							FROM subasta S
+							INNER JOIN  producto P ON S.id_producto = P.id_producto
+							WHERE titulo LIKE '%" . $_GET["param_busqueda"] . "%'";
 				$result = $db->query($query); 
 				while ($row = $result->fetch_object()) {
+					
 					?>
 					<div class="col s12 m6">
 			          	<div class="card">

@@ -1,4 +1,20 @@
-$("span").hide();
+$(".text-hint").hide();
+
+document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByTagName("INPUT");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("Por favor rellene este campo");
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+});
+
 
 $(document).ready(function() {
     
@@ -25,25 +41,73 @@ $(document).ready(function() {
 		var nombre_usuario = $('#usuario').val();
 		var password = $('#password').val();
 
-		if(nombre_usuario == "" || password == ""){
+		if(nombre_usuario == "" || password == "") {
+
+			if(nombre_usuario == ""){
+				$("#log-name-hint").show();
+			} else {
+				$("#log-name-hint").hide();
+			}
 			
-			alert("Debe llenar todos los campos");
+
+			if(password == ""){
+				$("#log-pass-hint").show();
+			} else {
+				$("#log-pass-hint").hide();
+			}
 		
 		} else {
 
-			console.log(nombre_usuario);
+			$(".text-hint").hide();
+
+			// Debugging
+			// console.log(nombre_usuario);
 
 			$.ajax({
 				method: "POST",
 				url: "db/ajax_user_validate.php",
 				dataType: 'json',
-				data: {	action: "user_validate",
-						nombre: nombre_usuario 
+				data: {	action: 	"user_validate",
+						nombre: 	nombre_usuario,
+						pass: 	 	password
 				},
 				cache: false,
 				encode: true,
-				success: function() {
-					
+				success: function(data) {
+					console.log(data);
+
+					if(data.status == 'fail'){
+
+						// Toast - Cambiar
+						Materialize.toast('Usuario o contraseña incorrecto', 5000);
+						$("#password").val('');
+
+					} else {
+
+						$.ajax({
+							method: 	"POST",
+							url: 		"/function/login-process.php",
+							data: {	action: 	"user_validate",
+									nombre: 	nombre_usuario,
+									pass: 	 	password
+							},
+							cache: false,
+							encode: true,
+							success: function(data) {
+								if(data.status = 'success'){
+									window.location.href = '/index.php';
+								} else {
+									Materialize.toast(data.message, 5000);
+								}
+							},
+							error: function(xhr, ajaxOptions, thrownError) {
+					       		console.log(xhr.status);
+					        	console.log(thrownError);
+			       	 		}
+						})
+
+					}
+
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
 		       		console.log(xhr.status);
@@ -52,15 +116,26 @@ $(document).ready(function() {
 			});
 		}
 	});
+	
+	$("#nombre").blur(function(e) {
+	    var val = $(this).val();
+	   	if (val.match(/[^a-zA-Z]/g)) {
+	       $(this).val(val.replace(/[^a-zA-Z]/g, ''));
+	       $("#name-hint").show();
+	   	} else {
+	   		$("#name-hint").hide();
+	   	}
+	});
 
-	// Verifico la contraseña
-		// Si esta vacía
-			// La solicito
-		// Sino
-			// Valido con el usuario
-	//
-
-
+	$("#apellido").blur(function(e) {
+	    var val = $(this).val();
+	   	if (val.match(/[^a-zA-Z]/g)) {
+	      	$(this).val(val.replace(/[^a-zA-Z]/g, ''));
+	      	$("#lastname-hint").show();
+	   	} else {
+	   		$("#lastname-hint").hide();
+	   	}
+	});
 
 	$("#usuario").blur(function () {
 		if($(this).val() == '') {
@@ -71,16 +146,8 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#password").blur(function () {
-		if($(this).val() == '') {
-			$('#log-pass-hint').html('Ingrese su contraseña por favor');
-			$('#log-pass-hint').show();
-		} else {
-			$('#log-pass-hint').hide();
-		}
-	});
-
 	// Registrar
+	// Event handlers para el formulario de registro
 
 	$('#nombre_usuario').blur(function () {
 
@@ -96,17 +163,21 @@ $(document).ready(function() {
 			encode: true,
 			success: function(error) {
 				if(error.status == "fail") {
+					// El nombre de usuario ya existe
 					$("#register-form #user-hint").show();
 				} else {
+					// El nombre no existe
 					$("#register-form #user-hint").hide();
 				}
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 		        alert(xhr.status);
 		        alert(thrownError);
-		      }
+		    }
 		});
 	});
+
+	// Validación del formulario luego del submit
 
 	$("#register-form").submit(function (event) {
 		event.preventDefault();
@@ -129,6 +200,7 @@ $(document).ready(function() {
 		} else {
 
 			if(password != val_password){
+				
 				$("#register-form #pass-hint").html('Las contraseñas no coinciden, vuelva  intentarlo');
 				$("#register-form #pass-hint").show();
 				$("#password").val('');
@@ -147,8 +219,6 @@ $(document).ready(function() {
 					cache: false,
 					encode: true,
 					success: function(data){
-
-						alert(data.success);
 						
 						if(data.success == true){
 							window.location.href = 'register.php?status=success';

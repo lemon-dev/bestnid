@@ -11,10 +11,6 @@ body {
 	font-family:'Roboto';
 }
 
-nav .nav-wrapper {
-
-}
-
 .card {
 	height: 600px;
 }
@@ -86,6 +82,7 @@ section .container .container p{
 }
 
 #register-result a {
+	background-color: #2BBBAD;
 }
 
 .login-form {
@@ -132,6 +129,39 @@ footer .container {
 	margin-right: 3%;
 }
 
+
+.text-hint {
+	
+}
+
+.text-hint.error {
+	color: red;
+}
+
+.text-hint.warning {
+	color: #EDB140;
+}
+
+.container.search-result {
+	background-color: none;
+	padding: 5%;
+	margin-top: 5%;
+	text-align: center;
+}
+
+.container.search-result .row {
+	margin-top: 5%;
+}
+
+#search-result-title {
+	margin: 5%;
+}
+
+#search-result-title h4 {
+	color: white;
+}
+
+/*
 span {
   border-radius: 5px;
   display: block;
@@ -160,3 +190,4 @@ span:after {
   border-width: 8px;
   margin-top: -8px;
 }
+*/

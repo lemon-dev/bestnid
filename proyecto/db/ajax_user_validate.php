@@ -3,26 +3,48 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
+$data = array();
+$errors = array();
 
-function user_validate($name) {
-		include('connect.php');
+function user_validate($name, $log_password) {
 
-		$result = $db->query("SELECT * FROM usuario WHERE nombre_usuario = '" . $name . "'");
+	include("connect.php");
 
-		if ($result->num_rows == 0) {
-			$error = array('status' => 'success', 'username' => $name);
-			echo json_encode($error);
-		}else{
-			$error = array('status' => 'fail', 'user' => $name);
-			echo json_encode($error);
+	$result = $db->query("SELECT * FROM usuario WHERE nombre_usuario = '" . $name . "'");
+
+	if ($result->num_rows == 0) {
+		
+		$data['status'] = 'fail';
+		//$errors['username'] = $name;
+		$data['message'] = 'El nombre no existe';
+
+	} else {
+
+		$row = $result->fetch_object();
+
+		if($log_password == $row->password) {
+			
+			$data['status'] = 'success';
+
+		} else {
+			
+			$data['status'] = 'fail';
+			$data['message'] = 'La contraseña no es correcta';
+			$data['password'] = $log_password;
+
 		}
-		return true;
+
 	}
+
+	echo json_encode($data);
+	return true;
+}
 
 if(isset($_POST['action'])) {
 
 	$name = trim($_POST['nombre']);
-	validate($name);
+	$log_password = trim($_POST['pass']);
+	user_validate($name, $log_password);
 
 }
 

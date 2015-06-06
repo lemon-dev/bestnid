@@ -8,32 +8,40 @@ $errors = array();
 
 if(isset($_POST)){
 
-	if(isset($_POST['nombre_usuario'], $_POST['contraseña'])) {
+	if(isset($_POST['nombre'], $_POST['pass'])) {
 
-		require_once("../db/sanitize_input.php");
+		include("../db/connect.php");
+
+		$result = $db->query("SELECT * FROM usuario WHERE nombre_usuario = '" . $_POST['nombre'] . "'");
+
+		if ($result->num_rows == 0) {
 		
-		$nombre_usuario = sanitize($_POST['nombre_usuario']);
-		$contraseña = sanitize($_POST['contraseña']);
-
-
-		require_once("db/user_exists.php");
-
-		if (user_exists($nombre_usuario,$contraseña)) {
-		 
-		 	$data['success'] = true;
-			session_start();
-			$_SESSION['nombre_usuario'] = $nombre_usuario;
+			$data['status'] = 'fail';
 		
-		}else{
-			$data['success'] = false;
-			$errors = 'Usuario o contraseña inválido';
+		} else {
+			
+			$row = $result->fetch_object();
+
+			if($_POST['pass'] == $row->password) {
+				$data['status'] = 'success';
+				session_start();
+				$_SESSION['nombre_usuario'] = $_POST['nombre'];
+				$data['session'] = $_SESSION;
+			} else {
+				
+				$data['status'] = 'fail';
+				$data['message'] = 'La contraseña no es correcta';
+				$data['password'] = $_POST['pass'];
+
+			}
 		}
 
+	} else {
+		$data['status'] = 'fail';
+		$data['message'] = 'Campos vacios';
 	}
+
+	echo json_encode($data);
 }
-
-$data['errors'] = $errors;
-
-echo json_encode($data);
 
 ?>

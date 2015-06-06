@@ -14,7 +14,7 @@ include('include/header.php');
 		<div class="row">
 			<h3>Ups :(</h3>
 			<p>Ha habido un problema procesando su solicitud, por favor intente más tarde.</p>
-			<a class="btn center red" href="index.php">Inicio</a>
+			<a class="btn center" href="index.php">Inicio</a>
 		</div>
 	</div>
 
@@ -24,7 +24,7 @@ include('include/header.php');
 		<div class="row">
 			<h3>Se ha registrado con exito!</h3>
 			<p>Inicie sesión para poder disfrutar completamente de nuestro sitio</p>
-			<a class="btn center red" href="login.php">Iniciar Sesi&oacute;n</a>
+			<a class="btn center" href="login.php">Iniciar Sesi&oacute;n</a>
 		</div>
 	</div>
 
@@ -44,25 +44,28 @@ include('include/header.php');
 				<form action="" method="post" id="register-form">
 					<div class="row">
 				        <div class="input-field col s12">
-				          	<input name="nombre" id="nombre" type="text" required>
+				          	<input name="nombre" id="nombre" type="text" class="validate" required>
 		          			<label for="nombre">Nombre</label>
+		          			<span id="name-hint" class="text-hint warning">* El nombre solo puede contener letras, caracteres invalidos han sido borrados.<span>
 				        </div>
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
-				          	<input name="apellido" id="apellido" type="text" required>
+				          	<input name="apellido" id="apellido" type="text" class="validate" required>
 		          			<label for="apellido">Apellido</label>
+		          			<span id="lastname-hint" class="text-hint warning">*El apellido solo puede contener letras, caracteres invalidos han sido borrados<span>
 				        </div>
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
-				          <input name="dni" id="dni" type="number" class="validate" min="1000000"required>
+				          <input name="dni" id="dni" type="number" class="validate" min="10000000" oninvalid="" required>
 		          			<label for="dni">DNI (Documento Nacional de Identidad</label>
+				        	<span id="dni-hint" class="text-hint error">* Por favor ingrese un DNI correcto.</p>
 				        </div>
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
-				          	<input name="email" id="email" type="email" class="validate" placeholder="Ejemplo: micuenta@mimail.com" required>
+				          	<input name="email" id="email" type="email" class="validate active" placeholder="Ejemplo: micuenta@mimail.com" required>
 		          			<label for="email">E-mail</label>
 				        </div>
 		     		</div>
@@ -70,7 +73,8 @@ include('include/header.php');
 				        <div class="input-field col s12">
 				          	<input name="nombre_usuario" id="nombre_usuario" type="text" class="validate" required>
 		          			<label for="nombre_usuario">Username</label>
-				        	<span id="user-hint">El nombre de usuario ya existe.</span>
+		          			<span id="user-hint" class="text-hint error">* El nombre de usuario ya existe</p>
+				        	<!--span id="user-hint">El nombre de usuario ya existe.</span-->
 				        </div>
 		     		</div>
 		     		<div class="row">
@@ -83,7 +87,7 @@ include('include/header.php');
 				        <div class="input-field col s12">
 				          	<input name="val_password" id="val_password" type="password" class="validate" required>
 		          			<label for="val_password">Confirmación de contraseña</label>
-		          			<span id="pass-hint">Por favor confirme su contraseña</span>
+		          			<!--span id="pass-hint" class="text-hint">Por favor confirme su contraseña</span-->
 				        </div>
 		     		</div>
 		     		<div class="row">
@@ -98,63 +102,8 @@ include('include/header.php');
 				<div class="form-messages"></div>
 			</div>
 		</div>
-<<<<<<< HEAD
-	</section>
+</section>
 
 <?php } ?>
-=======
-		<div class="row">
-			<form action="" method="post" id="register-form">
-				<div class="row">
-			        <div class="input-field col s12">
-			          	<input name="nombre" id="nombre" type="text">
-	          			<label for="nombre">Nombre</label>
-			        </div>
-	     		</div>
-	     		<div class="row">
-			        <div class="input-field col s12">
-			          	<input name="apellido" id="apellido" type="text" class="validate">
-	          			<label for="apellido">Apellido</label>
-			        </div>
-	     		</div>
-	     		<div class="row">
-			        <div class="input-field col s12">
-			          <input name="dni" id="dni" type="text" class="validate">
-	          			<label for="dni">DNI (Documento Nacional de Identidad</label>
-			        </div>
-	     		</div>
-	     		<div class="row">
-			        <div class="input-field col s12">
-			          	<input name="email" id="email" type="text" class="validate">
-	          			<label for="email">E-mail</label>
-			        </div>
-	     		</div>
-	     		<div class="row">
-			        <div class="input-field col s12">
-			          	<input name="nombre_usuario" id="nombre_usuario" type="text" class="validate">
-	          			<label for="nombre_usuario">Username</label>
-			        </div>
-	     		</div>
-	     		<div class="row">
-			        <div class="input-field col s12">
-			          	<input name="password" id="password" type="password" class="validate">
-	          			<label for="password">Password</label>
-			        </div>
-	     		</div>
-	     		<div class="row">
-			        <div class="input-field col s12">
-			          	<input name="valPass" id="valPass" type="password" class="validate">
-	          			<label for="valPass">Repetir password</label>
-			        </div>
-	     		</div>
-	     		<div class="row">
-			        <div class="input-field col s12">
-			          	<input name="tarjeta" id="tarjeta" type="text" class="validate">
-	          			<label for="tarjeta">Num. tarjeta de credito</label>
-			        </div>
-	     		</div>
->>>>>>> 696ed09a0755423da42c376de4b4cb9be3703fcc
-
-
 
 <?php include('include/footer.php') ?>
