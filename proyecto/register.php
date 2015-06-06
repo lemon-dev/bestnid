@@ -46,21 +46,21 @@ include('include/header.php');
 				        <div class="input-field col s12">
 				          	<input name="nombre" id="nombre" type="text" class="validate" required>
 		          			<label for="nombre">Nombre</label>
-		          			<span id="name-hint" class="text-hint warning">* El nombre solo puede contener letras, caracteres invalidos han sido borrados.<span>
+		          			<span id="name-hint" class="text-hint warning">* El nombre solo puede contener letras, caracteres invalidos han sido omitidos.<span>
 				        </div>
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
 				          	<input name="apellido" id="apellido" type="text" class="validate" required>
 		          			<label for="apellido">Apellido</label>
-		          			<span id="lastname-hint" class="text-hint warning">*El apellido solo puede contener letras, caracteres invalidos han sido borrados<span>
+		          			<span id="lastname-hint" class="text-hint warning">*El apellido solo puede contener letras, caracteres invalidos han sido omitidos<span>
 				        </div>
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
-				          <input name="dni" id="dni" type="number" class="validate" min="10000000" oninvalid="" required>
+				          <input name="dni" id="dni" type="text" class="validate active"  required>
 		          			<label for="dni">DNI (Documento Nacional de Identidad</label>
-				        	<span id="dni-hint" class="text-hint error">* Por favor ingrese un DNI correcto.</p>
+				        	<span id="dni-hint" class="text-hint warning">* El dni solo puede contener numeros,caracteres invalidos han sido omitidos</span>
 				        </div>
 		     		</div>
 		     		<div class="row">

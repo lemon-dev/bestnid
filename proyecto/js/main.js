@@ -145,6 +145,25 @@ $(document).ready(function() {
 			$('#name-hint').hide();
 		}
 	});
+		
+	$("#dni").blur(function(e) {
+	    var val = $(this).val();
+	   	if (val.match(/[^0-9]/g)) {
+
+	      	$(this).val(val.replace(/[^0-9]/g, ''));
+	      	$('#dni-hint').className = "text-hint warning";
+	      	$('#dni-hint').html("* El DNI solo puede contener numeros,caracteres invalidos han sido omitidos")
+	      	$("#dni-hint").show();
+	   	} else {
+	   		
+	   		$("#dni-hint").hide();
+	   	}
+	   	if (val < 10000000){
+	   		$('#dni-hint').className = "text-hint error";
+	   		$("#dni-hint").html("* Por favor ingrese un DNI valido");
+	   		$("#dni-hint").show();
+	   	}
+	});
 
 	// Registrar
 	// Event handlers para el formulario de registro

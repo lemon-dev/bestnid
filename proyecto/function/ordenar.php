@@ -59,7 +59,7 @@
 					$criterio = $_GET["criterio"];
 					if ($criterio == "categoria" ){
 						$query = "	SELECT 	*
-								FROM	Subasta S INNER JOIN  Producto P ON S.id_producto = P.id_producto
+								FROM	subasta S INNER JOIN  producto P ON S.id_producto = P.id_producto
 										INNER JOIN Categoria C ON P.id_categoria = C.id_categoria 
 								ORDER BY C.nombre ";
 
