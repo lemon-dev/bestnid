@@ -180,9 +180,26 @@ footer .container {
 	margin: 5%;
 }
 
-#search-result-title h4 {
+#search-result-title p {
 	color: white;
 }
+
+/*************************
+Ver Subasta
+*************************/
+
+.ver-subasta {
+	background-color: white;
+}
+
+.ver-subasta img {
+	max-width: 45%;
+}
+
+.subasta-opciones{
+	min-width: 100px;
+}
+
 
 /*
 span {
