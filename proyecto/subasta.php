@@ -31,36 +31,42 @@ include('include/header.php');
 			<img class="responsive-img col m4" src="<?php echo $row->imagen_url ?>" alt="Imagen">
 			<div class="subasta-opciones">
 				<p><?php echo $row->descripcion ?></p>
-				<?php if($row->id_usuario == $_SESSION['id_usuario']){ ?>
+				<?php if($_SESSION){ ?>
 					
-					<a class="waves-effect waves-light btn">Ver Ofertas</a>
+					<?php if($row->id_usuario != $_SESSION['id_usuario']) {  ?>
+
+						<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ofertar</a>
+
+						<div id="modal1" class="modal">
+							<div class="modal-content">
+								<h4 class="center">Ofertar</h4>
+								<div class="row">
+									<form action="function/ofertar-process.php" method="post">
+										<div class="row">
+											<div class="input-field col s12">
+									          	<input name="precio" id="precio" type="number" class="validate" required>
+							          			<label for="precio">Precio</label>
+									        </div>
+									        <div class="input-field col s12">
+									          	<textarea name="necesidad" id="necesidad" class="materialize-textarea" required></textarea>
+	          									<label for="necesidad">Necesidad</label>
+									        </div>
+									        <input type="hidden" name="id_subasta" value="<?php echo $_GET['id_subasta'] ?>">
+							     		</div>	
+										<input id="subasta-submit" type="submit" class="btn right form-submit" value="Ofertar">
+										<a href="#!" class=" modal-action modal-close waves-effect waves-green btn red left">Cancelar</a>
+									</form>
+								</div>
+							</div>
+						</div>
+					<?php } else { ?>
+							<a class="waves-effect waves-light btn">Ver Ofertas</a>
+					<?php } ?>
 				
 				<?php } else { ?>
 					
-					<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ofertar</a>
+					<a class="waves-effect waves-light btn disabled">Ver Ofertas</a>
 
-					<div id="modal1" class="modal">
-						<div class="modal-content">
-							<h4 class="center">Ofertar</h4>
-							<div class="row">
-								<form action="function/ofertar-process.php" method="post">
-									<div class="row">
-										<div class="input-field col s12">
-								          	<input name="precio" id="precio" type="number" class="validate" required>
-						          			<label for="precio">Precio</label>
-								        </div>
-								        <div class="input-field col s12">
-								          	<textarea name="necesidad" id="necesidad" class="materialize-textarea" required></textarea>
-          									<label for="necesidad">Necesidad</label>
-								        </div>
-								        <input type="hidden" name="id_subasta" value="<?php echo $_GET['id_subasta'] ?>">
-						     		</div>	
-									<input id="subasta-submit" type="submit" class="btn right form-submit" value="Ofertar">
-									<a href="#!" class=" modal-action modal-close waves-effect waves-green btn red left">Cancelar</a>
-								</form>
-							</div>
-						</div>
-					</div>
 				<?php } ?>
 			</div>
 		</div>
