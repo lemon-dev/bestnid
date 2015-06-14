@@ -11,27 +11,15 @@
 
 <section>
 	<div class="container">
-		<div class="container">
+		<div class="container bienvenida z-depth-2">
 			<div class="row col m12">	
 				<header>
 					<h2>Bestnid!</h2>
 					<p>Un sitio web para subastas distinto, en el cuál lo que más importa no es quien más da, sino quién más necesita.</p>
 				</header>
 			</div>
-
-			<div class="busqueda">
-				<nav class="white">
-					<div class="nav-wrapper">
-					  <form method="get" action="/function/buscar_titulo.php">
-					    <div class="input-field">
-					      <input id="search" name="param_busqueda" type="search" required>
-					      <label for="search"><i class="mdi-action-search black-text"></i></label>
-					      <i class="mdi-navigation-close"></i>
-					    </div>
-					  </form>
-					</div>
-				</nav>
-			</div>
+			
+			<?php include('include/search_bar.php') ?>
 		</div>
 		
 	
@@ -52,7 +40,7 @@
 			</div>
 		</form>
 
-		<div class="">
+		<div class="container subastas">
 			<div class="row">
 				<?php
 					$query = "	SELECT 	*
