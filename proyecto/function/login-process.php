@@ -26,6 +26,9 @@ if(isset($_POST)){
 				$data['status'] = 'success';
 				session_start();
 				$_SESSION['nombre_usuario'] = $_POST['nombre'];
+				$_SESSION['id_usuario']=$row->id_usuario;
+				$_SESSION['apellido']=$row->apellido;
+				$_SESSION['nombre']=$row->nombre;
 				$data['session'] = $_SESSION;
 			} else {
 				
