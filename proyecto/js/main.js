@@ -273,12 +273,14 @@ $(document).ready(function() {
 	});
 //validacion de formulario de  crear subasta luego del submit
 	$("#subasta-form").submit(function (event) {
+		console.log("Hello");
 		event.preventDefault();
 
 		var subastaTitulo = $.trim($('#subastaTitulo').val());
 		var subastaImagenUrl = $.trim($('#subastaImagenUrl').val());
 		var subastaDesc = $.trim($('#subastaDesc').val());
 		var subastaFechaFin = $('#subastaFechaFin').val();
+		var subastaCategorias = $('#subastaCategorias').val();
 		
 
 		if(subastaTitulo == '' || subastaImagenUrl == '' || subastaDesc == '' ||
@@ -306,8 +308,13 @@ $(document).ready(function() {
 							window.location.href = 'test-subasta.php?status=success';
 						} else {
 							window.location.href = 'test-subasta.php?status=fail';
-						}
-					}
+						}//console.log(data);
+
+					},
+					error: function (xhr, ajaxOptions, thrownError) {
+				        alert(xhr.status);
+				        alert(thrownError);
+				    }
 				});
 			
 		}

@@ -4,7 +4,15 @@ ini_set('display_errors', 'On');
 
 $pageTitle = "Bestnid | Crear subasta";
 include('include/header.php');
+ include("db/connect.php");
+
+
+
 ?>
+<?php 
+	$query= "SELECT * FROM categoria ";
+	$result = $db->query($query);
+ ?>
 
 <?php if(isset($_GET['status'])){ ?>
 
@@ -43,12 +51,22 @@ include('include/header.php');
 				</header>
 			</div>
 			<div class="row">
-				<form action="" method="post" id="crearSubasta-form">
+				<form action="" method="post" id="subasta-form">
 					<div class="row">
 				        <div class="input-field col s12">
 				          	<input name="subastaTitulo" id="subastaTitulo" type="text" class="validate" required>
 		          			<label for="subastaTitulo">Titulo</label>
 				        </div>
+		     		</div>
+		     		<div class= "row">
+		     			<div class="input-field col s12">
+		     				<select name="subastaCategorias" id="subastaCategorias">
+							<?php 
+								while ($row = $result->fetch_object()) { ?>
+								<option value="<?php echo $row->id_categoria ?>"><?php echo $row->nombre ?></option>
+							<?php } ?>
+							</select>
+						</div>
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
@@ -56,26 +74,18 @@ include('include/header.php');
 		          			<label for="subastaImagenUrl">Url de la imagen</label>
 				        </div>
 		     		</div>
-		     		  <div class="row">
-					    <form class="col s12">
-					      <div class="row">
-					        <div class="input-field col s12">
-					          <textarea id="subastaDesc" name="subastaDesc" class="materialize-textarea" required></textarea>
-					          <label for="subastaDesc">descripcion</label>
-					        </div>
-					      </div>
-					    </form>
-					  </div>
+					<div class="row">
+						<div class="input-field col s12">
+						  <textarea id="subastaDesc" name="subastaDesc" class="materialize-textarea validate " required></textarea>
+						  <label for="subastaDesc">Descripcion</label>
+						</div>
+					</div>
 		     		<div class="row">
-		     			<label for="subastaFechafin">fecha de fializacion de la subasta</label>
+		     			<label for="subastaFechafin">Fecha de finalizacion de la subasta</label>
 				        <div class="input-field col s12">
-
 				          	<input name="subastaFechaFin" type="date" class="validate  ">
-		          			
 				        </div>
 		     		</div>
-		     		
-
 		     		<input id="crearSubasta-submit" type="submit" class="btn right form-submit" value="Submit"required>
 				</form>
 				<div class="form-messages"></div>
