@@ -271,6 +271,43 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+//validacion campos  de formulario para crear subasta
+
+function ValidURL(str) {
+	 var pattern = /^(http|https|ftp)\:\/\/[a-z0-9\.-]+\.[a-z]{2,4}/gi;
+	  if(str.match(pattern))
+        return true;
+    else
+        return false;
+
+}
+function checkImgURL(url) {
+    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+}
+	/*$("#tarjeta").blur(function(e) {
+	    var val = $(this).val();
+	   	if (val.match(/[^0-9]/g)) {
+
+	      	$(this).val(val.replace(/[^0-9]/g, ''));
+	      	$('#dni-hint').className = "text-hint warning";
+	      	
+	      	$("#tarjeta-hint").show();
+	   	} else {
+	   		
+	   		$("#dni-hint").hide();
+	   	}
+	});*/
+$('#subastaImagenUrl').blur(function(){
+	var val = $(this).val();
+	if (ValidURL(val) && checkImgURL(val)){
+		$('#subastaImagenUrl-hint').hide();
+	}else{
+		$('#subastaImagenUrl-hint').show();
+	}
+});
+
+
 //validacion de formulario de  crear subasta luego del submit
 	$("#subasta-form").submit(function (event) {
 		console.log("Hello");

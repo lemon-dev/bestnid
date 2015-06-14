@@ -72,6 +72,7 @@ include('include/header.php');
 				        <div class="input-field col s12">
 				          	<input name="subastaImagenUrl" id="subastaImagenUrl" type="text" class="validate" required>
 		          			<label for="subastaImagenUrl">Url de la imagen</label>
+		          			<span id="subastaImagenUrl-hint" class="text-hint error">* Por favor ingrese una url valido</p>
 				        </div>
 		     		</div>
 					<div class="row">
