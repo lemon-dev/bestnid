@@ -30,6 +30,15 @@ $(document).ready(function() {
 	// Loguearse
 	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
+    	
+
+    	//inicializacion del date picker
+
+
+     $('.datepicker').pickadate({
+    		selectMonths: true, // Creates a dropdown to control month
+    		selectYears:15 // Creates a dropdown of 15 years to control year
+  		});
 	
 	// Form submission
 
@@ -116,6 +125,7 @@ $(document).ready(function() {
 			});
 		}
 	});
+//validacion campos del register
 	
 	$("#nombre").blur(function(e) {
 	    var val = $(this).val();
@@ -259,6 +269,47 @@ $(document).ready(function() {
 					}
 				});
 			}
+		}
+	});
+//validacion de formulario de  crear subasta luego del submit
+	$("#subasta-form").submit(function (event) {
+		event.preventDefault();
+
+		var subastaTitulo = $.trim($('#subastaTitulo').val());
+		var subastaImagenUrl = $.trim($('#subastaImagenUrl').val());
+		var subastaDesc = $.trim($('#subastaDesc').val());
+		var subastaFechaFin = $('#subastaFechaFin').val();
+		
+
+		if(subastaTitulo == '' || subastaImagenUrl == '' || subastaDesc == '' ||
+			subastaFechaFin =='') {
+			
+			window.alert("Por favor llene todos los campos.");
+		
+		} else {
+
+
+
+				
+				formData = $(this).serialize();	
+		
+				$.ajax({
+					method: "POST",
+					url: "function/crearSubasta_process.php",
+					dataType: 'json',
+					data: formData,
+					cache: false,
+					encode: true,
+					success: function(data){
+						
+						if(data.success == true){
+							window.location.href = 'test-subasta.php?status=success';
+						} else {
+							window.location.href = 'test-subasta.php?status=fail';
+						}
+					}
+				});
+			
 		}
 	});
 

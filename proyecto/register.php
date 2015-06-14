@@ -32,7 +32,7 @@ include('include/header.php');
 
 <?php } else {?>
 	
-	<section class="register-form">
+	<section class="form">
 		<div class="container form-container">
 			<div class="row">
 				<header class="form-header">
@@ -58,7 +58,7 @@ include('include/header.php');
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
-				          <input name="dni" id="dni" type="text" class="validate active"  required>
+				          <input name="dni" id="dni" type="text" class="validate active" placeholder="Ejemplo: xx.xxx.xxx"  required>
 		          			<label for="dni">DNI (Documento Nacional de Identidad</label>
 				        	<span id="dni-hint" class="text-hint warning">* El dni solo puede contener numeros,caracteres invalidos han sido omitidos</span>
 				        </div>
@@ -92,7 +92,7 @@ include('include/header.php');
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
-				          	<input name="tarjeta" id="tarjeta" type="text" class="validate" required>
+				          	<input name="tarjeta" id="tarjeta" type="text" class="validate" placeholder="Ejemplo: xxxx xxxx xxxx" required>
 		          			<label for="tarjeta">Num. tarjeta de credito</label>
 		          			<span id="tarjeta-hint" class="text-hint warning">* El num. de la tarjeta solo puede contener numeros,caracteres invalidos han sido omitidos</span>
 				        </div>
