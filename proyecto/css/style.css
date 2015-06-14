@@ -200,6 +200,11 @@ Ver Subasta
 	min-width: 100px;
 }
 
+.modal-footer {
+	margin: 0 auto;
+	margin-bottom: 2%;
+}
+
 
 /*
 span {
