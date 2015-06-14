@@ -342,9 +342,9 @@ $('#subastaImagenUrl').blur(function(){
 					success: function(data){
 						
 						if(data.success == true){
-							window.location.href = 'test-subasta.php?status=success';
+							window.location.href = 'publicarSubasta.php?status=success';
 						} else {
-							window.location.href = 'test-subasta.php?status=fail';
+							window.location.href = 'publicarSubasta.php?status=fail';
 						}//console.log(data);
 
 					},

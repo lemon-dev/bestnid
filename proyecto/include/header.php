@@ -26,9 +26,10 @@
 				
 				<?php 
 				if($_SESSION){ ?>
-					
+					<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
 					<li><a href="#">Ver Perfil</a></li>	
 					<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
+
 
 				<?php } else { ?>
 

@@ -38,26 +38,28 @@ if(isset($_POST)){
 		if(!$result = $db->query($query)) {
 			$errors['db_error_prod'] = 'Error registrando el producto.';
 		}
-		$idProd=$db->insert_id;	 //guardamos el id del ultimo product insertado en la base de datos;
+		$id_producto=$db->insert_id;	 //guardamos el id del ultimo product insertado en la base de datos;
 		
 		$query = " INSERT INTO subasta (id_subasta, id_producto, id_usuario, titulo, fecha_final, descripcion, fecha_inicio)
-					VALUES (NULL,'". $idProd ."', '" . $_SESSION['id_usuario'] . "', '".$subastaTitulo."', ' ".$subastaFechaFin."' , '".$subastaDesc."', CURRENT_DATE())";
+					VALUES (NULL,'". $id_producto ."', '" . $_SESSION['id_usuario'] . "', '".$subastaTitulo."', ' ".$subastaFechaFin."' , '".$subastaDesc."', CURRENT_DATE())";
 
 		//$errors['db'] = $consulta;
 		if(!$result = $db->query($query)) {
 			$errors['db_error_subasta'] = 'Error registrando la subasta.';
 		}
-		
+		$id_subasta=$db->insert_id;
 
 		if(!empty($errors)) {
 			
 			$data['success'] = false;
 		    $data['errors']  = $errors;
 
+
 		} else {
 
 			$data['success'] = true;
 		    $data['message'] = 'Se ha registrado la subasta con exito!';
+		    $data['id_subasta'] = $id_subasta;
 
 		}
 
