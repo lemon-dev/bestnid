@@ -42,7 +42,7 @@ include("../db/connect.php");
 			              	<p>La subasta finalize el d&iacute;a <?php echo $row->fecha_final ?></p>
 			            </div>
 			            <div class="card-action">
-			              	<a href="#">Ver Subasta</a>
+			              	<a href="/subasta.php?id_subasta=<?php echo $row->id_subasta ?>">Ver Subasta</a>
 			            </div>
 			          </div>
 			        </div>	  

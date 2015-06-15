@@ -8,6 +8,7 @@ if(isset($_GET['id_subasta'])){
 	
 	$query = "	SELECT 	*
 				FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
+								  INNER JOIN categoria C ON P.id_categoria = C.id_categoria
 				WHERE	S.id_subasta = " . $_GET['id_subasta'];
 
 	$result = $db->query($query);
@@ -34,6 +35,7 @@ include('include/header.php');
 			<li class="col s12 m6 l6">
 				<div class="subasta-opciones">
 					<p class="descripcion"><?php echo $row->descripcion ?></p>
+					<p>Categoria : <?php echo $row->nombre ?></p>
 					<p>Fecha de Inicio: <?php echo $row->fecha_inicio ?></p>
 					<p>Fecha de Fin: <?php echo $row->fecha_final ?></p>
 					<?php if($_SESSION){ ?>
