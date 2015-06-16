@@ -50,7 +50,7 @@
 
 					while ($row = $result->fetch_object()) { ?>
 						
-				        <div class="col s12 m6">
+				        <div class="col s12 m12 l6">
 				          	<div class="card">
 				            	<div class="card-image">
 				              		<img class="responsive-img" src="<?php echo $row->imagen_url ?>">

@@ -104,7 +104,10 @@ $(document).ready(function() {
 							encode: true,
 							success: function(data) {
 								if(data.status = 'success'){
+									// Acá modificar para redirección
+									
 									window.location.href = '/index.php';
+									
 								} else {
 									Materialize.toast(data.message, 5000);
 								}

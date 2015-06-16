@@ -73,6 +73,7 @@ include('include/header.php');
 					<?php } else { ?>
 						
 						<a class="waves-effect waves-light btn disabled">Ver Ofertas</a>
+						<span class="not-registered warning"> * Haga <a href="/login.php?redirect_to=<?php echo $_GET['id_subasta'] ?>">click aquí</a> para iniciar sesión y poder Ofertar.</span>
 
 					<?php } ?>
 				</div>
@@ -80,15 +81,15 @@ include('include/header.php');
 		</ul>
 		<ul class="collapsible popout" data-collapsible="accordion">
 			<li>
-				<div class="collapsible-header"><i class="mdi-communication-messenger"></i>First</div>
+				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta1</div>
 				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 			</li>
 			<li>
-				<div class="collapsible-header"><i class="mdi-communication-messenger"></i>Second</div>
+				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta2</div>
 				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 			</li>
 			<li>
-				<div class="collapsible-header"><i class="mdi-communication-messenger"></i>Third</div>
+				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta3</div>
 				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 			</li>
 		</ul>

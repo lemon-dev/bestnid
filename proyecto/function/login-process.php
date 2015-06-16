@@ -6,6 +6,15 @@ ini_set('display_errors', 'On');
 $data = array();
 $errors = array();
 
+/*
+if(isset($_GET['redirect_to'])){
+	$data['redirect'] = 'true';
+	$data['redirect_to'] = $_GET['redirect_to'];
+} else {
+	$data['redirect'] = 'false'; 
+}
+*/
+
 if(isset($_POST)){
 
 	if(isset($_POST['nombre'], $_POST['pass'])) {
