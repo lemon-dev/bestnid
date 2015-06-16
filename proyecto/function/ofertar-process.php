@@ -19,7 +19,7 @@ if(isset($_POST)){
 		$query = "	INSERT INTO oferta (id_oferta, id_usuario, id_subasta, necesidad, precio)
 					VALUES (NULL, '" . $_SESSION['id_usuario'] . "', '" . $id_subasta . "', '" . $necesidad . "', '" . $precio . "')";
 
-		include('../db/connect.php');
+		require_once('../db/connect.php');
 
 		if($result = $db->query($query)){
 			header('Location: /index.php');

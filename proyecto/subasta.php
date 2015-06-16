@@ -48,15 +48,18 @@ include('include/header.php');
 								<div class="modal-content">
 									<h4 class="center">Ofertar</h4>
 									<div class="row">
-										<form action="function/ofertar-process.php" method="post">
+										<form id="ofertar-form" action="function/ofertar-process.php" method="post">
 											<div class="row">
 												<div class="input-field col s12">
 										          	<input name="precio" id="precio" type="number" class="validate" required>
 								          			<label for="precio">Precio</label>
+								          			<span id="precio-invalido" class="text-hint error"></span>
+								          			<!--p class="instruction">* De un precio en pesos argentinos a su oferta.</p-->
 										        </div>
 										        <div class="input-field col s12">
 										          	<textarea name="necesidad" id="necesidad" class="materialize-textarea" required></textarea>
 		          									<label for="necesidad">Necesidad</label>
+		          									<!--p class="instruction">* El subastador elegir&aacute; se&uacute;n la necesidad, ingrese su necesidad a continuación.</p-->
 										        </div>
 										        <input type="hidden" name="id_subasta" value="<?php echo $_GET['id_subasta'] ?>">
 								     		</div>	

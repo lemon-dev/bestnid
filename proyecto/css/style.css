@@ -144,15 +144,17 @@ FORMULARIOS: MENSAJES
 	color: #263238;
 }
 
-.form-submit {
-	margin-right: 3%;
-}
-
 
 /**********************************
 FORMULARIOS: HINTS
 ***********************************/
 
+.instruction {
+	line-height: 1em;
+	margin: 0 auto; 
+	margin-bottom: 20px;
+	color: #4caf50;
+}
 
 .text-hint {
 	
@@ -201,10 +203,6 @@ VER SUBASTA
 	color: 263238;
 }
 
-.subasta-opciones a {
-	margin-top: 5%;
-}
-
 .subasta-opciones .descripcion {
 	font-weight: bold;
 	font-size: 1.5em;
@@ -251,4 +249,5 @@ COLORES
 	Amarillo: 			#EDB140;
 	Rojo advertencia:	red;
 	Rojo principal: 	#ee6e73;
+	Verde exito: 		#4caf50;
 */
