@@ -125,7 +125,8 @@ $(document).ready(function() {
 			});
 		}
 	});
-//validacion campos del register
+	
+	//validacion campos del register
 	
 	$("#nombre").blur(function(e) {
 	    var val = $(this).val();
@@ -174,6 +175,7 @@ $(document).ready(function() {
 	   		$("#dni-hint").show();
 	   	}
 	});
+	
 	$("#tarjeta").blur(function(e) {
 	    var val = $(this).val();
 	   	if (val.match(/[^0-9]/g)) {
@@ -187,6 +189,7 @@ $(document).ready(function() {
 	   		$("#dni-hint").hide();
 	   	}
 	});
+	
 	// Registrar
 	// Event handlers para el formulario de registro
 

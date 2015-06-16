@@ -12,7 +12,7 @@
 
 <section>
 	<div class="container">
-		<div class="container">
+		<div class="container bienvenida z-depth-2">
 			<div class="row col m12">	
 				<header>
 					<h2>Bestnid!</h2>

@@ -10,7 +10,7 @@ include('include/header.php');
 
 	<?php if($_GET['status'] == 'fail') {?>
 
-	<div class="container" id="register-result">
+	<div class="container operation-result" id="register-result">
 		<div class="row">
 			<h3>Ups :(</h3>
 			<p>Ha habido un problema procesando su solicitud, por favor intente más tarde.</p>
@@ -20,7 +20,7 @@ include('include/header.php');
 
 	<?php } else {?>
 	
-	<div class="container" id="register-result">
+	<div class="container operation-result" id="register-result">
 		<div class="row">
 			<h3>Se ha registrado con exito!</h3>
 			<p>Inicie sesión para poder disfrutar completamente de nuestro sitio</p>
