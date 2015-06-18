@@ -54,12 +54,10 @@ include('include/header.php');
 										          	<input name="precio" id="precio" type="number" class="validate" required>
 								          			<label for="precio">Precio</label>
 								          			<span id="precio-invalido" class="text-hint error"></span>
-								          			<!--p class="instruction">* De un precio en pesos argentinos a su oferta.</p-->
 										        </div>
 										        <div class="input-field col s12">
 										          	<textarea name="necesidad" id="necesidad" class="materialize-textarea" required></textarea>
 		          									<label for="necesidad">Necesidad</label>
-		          									<!--p class="instruction">* El subastador elegir&aacute; se&uacute;n la necesidad, ingrese su necesidad a continuación.</p-->
 										        </div>
 										        <input type="hidden" name="id_subasta" value="<?php echo $_GET['id_subasta'] ?>">
 								     		</div>	
@@ -82,20 +80,38 @@ include('include/header.php');
 				</div>
 			</li>
 		</ul>
-		<ul class="collapsible popout" data-collapsible="accordion">
-			<li>
-				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta1</div>
-				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-			</li>
-			<li>
-				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta2</div>
-				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-			</li>
-			<li>
-				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta3</div>
-				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-			</li>
-		</ul>
+		<div class="container consultas">
+			<ul class="collapsible" data-collapsible="accordion">
+				<?php 
+
+				require_once('db/connect.php');
+
+				$query = " SELECT * FROM consulta WHERE id_subasta=" .  $_GET['id_subasta'];
+
+				if(!$result = $db->query($query)){
+					echo ':(';
+					die();
+				}
+
+				while ($row = $result->fetch_object()){ ?>
+					
+
+					<li>
+						<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i><?php echo $row->cuerpo ?></div>
+						<div class="collapsible-body"><p>Respuesta</p></div>
+					</li>
+
+				<?php } ?>
+			</ul>
+			<div class="container consultar-form-container">
+			<form id="consultar-form" method="post" action="/function/consultar-process.php">
+				<div class="input-field col s12 m12 l12">
+					<textarea name="consulta" id="consulta" class="materialize-textarea validate active" placeholder="Escriba aquí su consulta..." required></textarea>
+				</div>
+				<input type="hidden" name="id_subasta" value="<?php echo $_GET['id_subasta'] ?>">
+				<input id="consulta-submit" type="submit" class="btn right form-submit" value="Ofertar">
+			</form>
+		</div>	
 	</div>
 </section>
 

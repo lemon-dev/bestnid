@@ -192,7 +192,7 @@ VER SUBASTA
 }
 
 .ver-subasta img {
-	/*border: 3px solid #263238;*/
+	border: 3px solid #263238;
 }
 
 .consulta .mdi-communication-messenger {
@@ -220,6 +220,19 @@ VER SUBASTA
 .modal-footer {
 	margin: 0 auto;
 	margin-top: 2%;
+}
+
+.container.consultas {
+	margin-bottom: 10%;
+}
+
+.container.consultar-form-container {
+	margin: 0;
+	padding: 0;
+}
+
+#consultar-form textarea{
+	border: 3px solid #26a69a;
 }
 
 
