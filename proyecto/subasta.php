@@ -75,7 +75,7 @@ include('include/header.php');
 					
 					<?php } else { ?>
 						
-						<a class="waves-effect waves-light btn disabled">Ver Ofertas</a>
+						<a class="waves-effect waves-light btn disabled">Ofertar</a>
 						<span class="not-registered warning"> * Haga <a href="/login.php?redirect_to=<?php echo $_GET['id_subasta'] ?>">click aquí</a> para iniciar sesión y poder Ofertar.</span>
 
 					<?php } ?>
