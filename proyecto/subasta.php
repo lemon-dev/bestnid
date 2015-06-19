@@ -81,7 +81,6 @@ include('include/header.php');
 			</li>
 		</ul>
 		<div class="container consultas">
-			<ul class="collapsible" data-collapsible="accordion">
 				<?php 
 
 				require_once('db/connect.php');
@@ -91,6 +90,10 @@ include('include/header.php');
 				if(!$result = $db->query($query)){
 					echo ':(';
 					die();
+				}
+
+				if($result->num_rows > 0){
+					echo '<ul class="collapsible" data-collapsible="accordion">';
 				}
 
 				while ($row = $result->fetch_object()){ ?>
@@ -106,7 +109,7 @@ include('include/header.php');
 			<div class="container consultar-form-container">
 			<form id="consultar-form" method="post" action="/function/consultar-process.php">
 				<div class="input-field col s12 m12 l12">
-					<textarea name="consulta" id="consulta" class="materialize-textarea validate active" placeholder="Escriba aquí su consulta..." required></textarea>
+					<textarea name="consulta" id="consulta" class="materialize-textarea validate active center" placeholder="Escriba aquí su consulta..." required></textarea>
 				</div>
 				<input type="hidden" name="id_subasta" value="<?php echo $_GET['id_subasta'] ?>">
 				<input id="consulta-submit" type="submit" class="btn right form-submit" value="Ofertar">
