@@ -213,6 +213,18 @@ VER SUBASTA
 	margin-bottom: 2%;
 }
 
+/**********************************
+VER PERFIL
+***********************************/
+
+#perfilTitulo{
+	text-align: center;
+}
+
+.perfil{
+	background-color: #e0e0e0;
+}
+
 
 /**********************************
 BUSCAR POR TITULO

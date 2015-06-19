@@ -31,6 +31,13 @@ $(document).ready(function() {
 	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     	
+    //Parametros enviados desde ver perfil a editar precio
+    $('.abrirEditarPrecio').leanModal();
+	    $(document).on("click", ".abrirEditarPrecio", function () {
+		    var miIdOferta = $(this).data('id');
+		    $(".modal-content #idOferta").val( miIdOferta );
+		}
+	);
 
     	//inicializacion del date picker
 

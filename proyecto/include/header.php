@@ -27,7 +27,7 @@
 				<?php 
 				if($_SESSION){ ?>
 					<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
-					<li><a href="#">Ver Perfil</a></li>	
+					<li><a href="/verPerfil.php">Ver Perfil</a></li>	
 					<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
 
 
@@ -38,12 +38,13 @@
 					
 				
 				<?php } ?>
+				<!--seccion para mobiles-->
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
 							<?php
 							if($_SESSION){ ?>
 								   
-									<li><a href="#">Ver Perfil</a></li>    
+									<li><a href="/verPerfil.php">Ver Perfil</a></li>    
 									<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
 	 
 							<?php } else { ?>
