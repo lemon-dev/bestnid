@@ -51,7 +51,13 @@ if($_SESSION && ($_SESSION['id_usuario'] == $subasta->id_usuario)){
 								<form action="/function/oferta-exitosa-process.php" method="post">
 									<input type="hidden" name="id_oferta" value="<?php echo $oferta->id_oferta ?>">
 									<input type="hidden" name="id_subasta" value="<?php echo $_GET['id_subasta'] ?>">
-									<button class="btn waves-effect waves-light right" type="submit" name="action">Elegir
+									<button class="btn waves-effect waves-light right" type="submit" name="action" onclick="confirmElection()">
+									<script>
+										function confirmElection(){
+											confirm("¿Seguro que desea elegir esta oferta como la ganadora?");
+										}
+									</script>
+									Elegir
     									<i class="mdi-action-done right"></i>
   									</button>
 								</form>
