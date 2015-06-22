@@ -4,20 +4,7 @@ ini_set('display_errors', 'On');
 
 include('db/connect.php');
 
-function subastaConID($id_subasta){
-	include('db/connect.php');
-	
-	$query = "	SELECT 	*
-				FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
-								  INNER JOIN categoria C ON P.id_categoria = C.id_categoria
-				WHERE	S.id_subasta = " . $id_subasta;
-
-	$result = $db->query($query);
-
-	$row = $result->fetch_object();
-
-	return $row;
-}	
+include('db/functions.php');	
 
 function yaOferto($id_usuario, $id_subasta){
 	include('db/connect.php');
@@ -120,7 +107,7 @@ function respuestaParaConsulta($id_consulta){
 								<span class="not-registered warning"> * Usted ya ha ofertado en esta subasta, para ver sus ofertas haga <a href="/verPerfil.php">click aquí</a>.</span>
 						<?php } ?>
 				<?php	} else { ?>
-							<a class="waves-effect waves-light btn">Ver Ofertas</a>
+							<a class="waves-effect waves-light btn" href="ofertas.php?id_subasta=<?php echo $_GET['id_subasta']?>">Ver Ofertas</a>
 				<?php } ?>
 					
 					<?php } else { ?>
@@ -133,7 +120,6 @@ function respuestaParaConsulta($id_consulta){
 			</li>
 		</ul>
 	</section>
-	<br class="break">
 	<section class="container consultas">
 		<div class="container">
 

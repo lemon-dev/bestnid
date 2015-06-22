@@ -390,6 +390,59 @@ BUSCAR POR TITULO
 
 
 /**********************************
+OFERTAS
+***********************************/
+
+.container.ofertas{
+	background-color: #e0e0e0;
+	color: #263238;
+	margin-bottom: 20%;
+	margin-top: 20%;
+	font-size: 1.25em;
+}
+
+.container.ofertas h4 {
+	margin-bottom: 5%;
+}
+
+.containter.ofertas p {
+	display: inline;
+
+}
+
+.container.ofertas .ofertador {
+
+}
+
+.container.ofertas .card-panel {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+
+/**********************************
+OFERTAS: OFERTA GANADORA
+***********************************/
+
+.container.oferta-ganadora {
+	background-color: #e0e0e0;
+	color: #263238;
+	margin-bottom: 20%;
+	margin-top: 20%;
+	font-size: 1.25em;
+}
+
+#finalizada-header {
+	color: white;
+	font-size: 1.25em;
+	min-width: 100%;
+	background-color: #4caf50;
+	padding: 2.5% 2.5% 2.5% 2.5%;
+}
+
+
+
+/**********************************
 COLORES
 ***********************************/
 
