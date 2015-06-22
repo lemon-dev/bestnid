@@ -21,6 +21,10 @@ main {
 	font-family:'Roboto';
 }
 
+.break {
+	color: black;
+}
+
 
 /**********************************
 HEADER
@@ -44,7 +48,7 @@ HOME
 ***********************************/
 
 .card {
-	height: 600px;
+	min-height: 600px;
 }
 
 .card img {
@@ -183,21 +187,60 @@ FORMULARIOS: HINTS
 VER SUBASTA
 ***********************************/
 
+
+/**********************************
+VER SUBASTA: GENERAL
+***********************************/
+
+
 .ver-subasta {
-	background-color: white;
+	background-color: #e0e0e0;
 }
 
 .ver-subasta h3 {
 	color: #263238;
 }
 
-.ver-subasta img {
-	border: 3px solid #263238;
+.ver-subasta-header {
+	min-width: 100%;
+
 }
 
-.consulta .mdi-communication-messenger {
-	color: #4caf50;
+#subasta {
+	padding-right: 0;
+	padding-left: 0;
+	margin-top: 10%;
+	background-color: white;
 }
+
+#subasta h3 {
+	background-color: #4caf50;
+	color: white;
+	margin: 0;
+	margin-top: 8%;
+}
+
+.wrapper {
+	padding-bottom: 15%;
+	margin: 0 auto;
+}
+
+
+/**********************************
+VER SUBASTA: IMAGEN
+***********************************/
+
+
+.ver-subasta img {
+	border: 3px solid #263238;
+	max-height: 280px;
+}
+
+
+/**********************************
+VER SUBASTA: INFO
+***********************************/
+
 
 .subasta-opciones {
 	color: 263238;
@@ -217,13 +260,33 @@ VER SUBASTA
 	color: #ee6e73;
 }
 
+.subasta {
+	min-width: 100%;
+	padding: 5% 5% 5% 5%;
+}
+
+
+/**********************************
+VER SUBASTA: OFERTAR/VER OFERTAS
+***********************************/
+
+
 .modal-footer {
 	margin: 0 auto;
 	margin-top: 2%;
 }
 
-.container.consultas {
-	margin-bottom: 10%;
+
+/**********************************
+VER SUBASTA: CONSULTAS
+***********************************/
+
+
+.consultas {
+	margin: 0;
+	padding: 5% 5% 10% 5%;
+	min-width: 100%;
+	background-color: #e0e0e0;
 }
 
 .container.consultar-form-container {
@@ -231,13 +294,66 @@ VER SUBASTA
 	padding: 0;
 }
 
-#consultar-form textarea{
-	border: 3px solid #26a69a;
+#respuesta-form {
+	margin: 0 auto;
+	text-align: inherit;
 }
 
-#consulta {
-	
+.dialogo.consulta,
+.dialogo.respuesta {
+	margin: 0 auto;
+	margin-top: 5%;
+	padding-left: 5%;
+	padding-left: 5%;
+	text-indent: 5px;
+	background-color: white;
 }
+
+.dialogo .mdi-communication-messenger {
+
+	margin-right: 2.5%;
+	margin-top: 5%;
+	color: #4caf50;
+	width: 80px;
+	height: 80px;
+}
+
+.consulta .mdi-communication-messenger {
+	color: #EDB140;
+}
+
+.dialogo.respuesta {
+	margin-left: 10%;
+}
+
+.respuesta .mdi-communication-messenger {
+	color: #4caf50;
+}
+
+#cuerpo-consulta {
+	background-color: white;
+	margin: 0 auto;
+}
+
+#cuerpo-respuesta {
+	background-color: white;
+	margin: 0 auto;
+}
+
+#respuesta-submit {
+	margin-top: 2.5%;
+	margin-bottom: 2.5%;
+}
+
+#consulta-submit {
+	margin-top: 2.5%;
+}
+
+.mdi-content-reply {
+	color: #26a69a;
+}
+
+
 
 /**********************************
 VER PERFIL
@@ -265,6 +381,11 @@ BUSCAR POR TITULO
 
 #search-result-title h4 {
 	line-height: 1.25em;
+}
+
+#modificar-monto {
+	margin-top: 18%;
+	margin-bottom: 18%;
 }
 
 

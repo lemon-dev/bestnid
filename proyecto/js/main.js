@@ -27,6 +27,17 @@ $(document).ready(function() {
 	// Select initialize
 	$('select').material_select();
 
+	// Tener el formulario de respuesta oculto por defecto
+	$('.wrapper').hide();
+
+	// Toggle del formulario de respuesta
+	$('.responder').click(function(event){
+		event.preventDefault();
+		var id_consulta = $(this).data('idconsulta');
+		var form_id = '#respuesta-form-'.concat(id_consulta);
+		$(form_id).toggle('normal');
+	});
+
 	// Form validation
 
 	// Loguearse
@@ -397,12 +408,6 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#ofertar-form").submit(function (event) {
-		event.preventDefault();
-
-		
-
-	});
 
 	/**
   	* @author ComFreek
