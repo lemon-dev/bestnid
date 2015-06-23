@@ -23,8 +23,7 @@ if(isset($_POST)){
 		$subastaImagenUrl = sanitize($_POST['subastaImagenUrl']);
 		$subastaDesc = sanitize($_POST['subastaDesc']);
 		$subastaCategorias=$_POST['subastaCategorias'];
-		$subastaFechaFin=$_POST['subastaFechaFin'];
-		
+		$subastaDias=$_POST['subastaFechaFin'];
 		
 
 
@@ -41,7 +40,7 @@ if(isset($_POST)){
 		$id_producto=$db->insert_id;	 //guardamos el id del ultimo product insertado en la base de datos;
 		
 		$query = " INSERT INTO subasta (id_subasta, id_producto, id_usuario, titulo, fecha_final, descripcion, fecha_inicio)
-					VALUES (NULL,'". $id_producto ."', '" . $_SESSION['id_usuario'] . "', '".$subastaTitulo."', ' ".$subastaFechaFin."' , '".$subastaDesc."', CURRENT_DATE())";
+					VALUES (NULL,'". $id_producto ."', '" . $_SESSION['id_usuario'] . "', '".$subastaTitulo."', DATE_ADD(CURRENT_DATE(), INTERVAL '".$subastaDias."'  DAY) , '".$subastaDesc."', CURRENT_DATE())";
 
 		//$errors['db'] = $consulta;
 		if(!$result = $db->query($query)) {

@@ -81,12 +81,12 @@ include('include/header.php');
 						  <label for="subastaDesc">Descripcion</label>
 						</div>
 					</div>
-		     		<div class="row">
-		     			<label for="subastaFechafin">Fecha de finalizacion de la subasta</label>
-				        <div class="input-field col s12">
-				          	<input name="subastaFechaFin" type="date" class="validate  ">
-				        </div>
-		     		</div>
+		     		<div class="row">		     			
+		     		    <div class="range-field col s12">
+		     		    	<label for="subastaFechafin">Duración de la subasta (entre 15 y 30)</label>
+					    	<input type="range" name="subastaFechaFin" id="test5" min="15" max="30" />
+					    </div> 
+					</div>
 		     		<input id="crearSubasta-submit" type="submit" class="btn right form-submit" value="Submit"required>
 				</form>
 				<div class="form-messages"></div>

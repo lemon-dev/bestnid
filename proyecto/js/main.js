@@ -33,15 +33,33 @@ $(document).ready(function() {
     	
     //Parametros enviados desde ver perfil a editar precio
     $('.abrirEditarPrecio').leanModal();
-	    $(document).on("click", ".abrirEditarPrecio", function () {
-		    var miIdOferta = $(this).data('id');
-		    $(".modal-content #idOferta").val( miIdOferta );
-		}
-	);
+	    
+	$(document).on("click", ".abrirEditarPrecio", function () {
+	    var miIdOferta = $(this).data('id');
+	    $(".modal-content #idOferta").val( miIdOferta );
+	});
 
-    	//inicializacion del date picker
+	//Parametros enviados desde perfil a eliminar subasta
+	$('.abrirEliminarSubasta').leanModal();
+
+	$(document).on("click", ".abrirEliminarSubasta", function () {
+	    var miIdSubasta = $(this).data('id');
+	    $(".modal-content #idSubasta").val( miIdSubasta );
+	    console.log(miIdSubasta);
+	});
+
+	//Parametros enviados desde perfil a eliminar oferta
+	$('.abrirEliminarOferta').leanModal();
+
+	$(document).on("click", ".abrirEliminarOferta", function () {
+	    var miIdOferta = $(this).data('id');
+	    $(".modal-content #idOferta").val( miIdOferta );
+	    console.log(miIdOferta);
+	});
 
 
+
+    //inicializacion del date picker
      $('.datepicker').pickadate({
     		selectMonths: true, // Creates a dropdown to control month
     		selectYears:15 // Creates a dropdown of 15 years to control year
