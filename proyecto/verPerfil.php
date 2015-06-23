@@ -34,7 +34,11 @@
 									</div>
 								</div>
 								<p><?php echo $row->descripcion ?></p>
-								<p>Estado</p>
+								<p><?php if($row->fecha_final>date('Y-m-d')){
+									echo "Activa";
+									}else{
+										echo "Finalizada";
+									}?></p>
 						</div>
 					<?php } ?>
 				</div>
@@ -73,7 +77,11 @@
 									</a>
 								</div>
 							</div>
-							<p>Estado</p>
+							<p><?php if($row->fecha_final>date('Y-m-d')){
+									echo "Activa";
+									}else{
+										echo "Finalizada";
+									}?></p>
 						</div>
 					<?php } ?>
 				</div>
