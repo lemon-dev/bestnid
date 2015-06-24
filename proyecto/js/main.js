@@ -57,9 +57,28 @@ $(document).ready(function() {
 	    console.log(miIdOferta);
 	});
 
+	//Parametros enviados desde perfil a modificar subasta
+	$('.abrirEditarSubasta').leanModal();
 
+	$(document).on("click", ".abrirEditarSubasta", function () {
+	    var miIdSubasta = $(this).data('idsubasta');
+	    $(".modal-content #idSubasta").val( miIdSubasta );
+	    console.log(miIdSubasta);
+	    var miTitulo = $(this).data('titulo');
+	    $(".modal-content #subastaTitulo").val( miTitulo );
+	    console.log(miTitulo);
+	    var miUrl = $(this).data('url');
+	    $(".modal-content #subastaImagenUrl").val( miUrl );
+	    console.log(miUrl);
+	    var miDescripcion = $(this).data('descripcion');
+	    $(".modal-content #subastaDesc").val( miDescripcion);
+	    console.log(miDescripcion);
+	    var miIdProducto = $(this).data('idproducto');
+	    $(".modal-content #idProducto").val( miIdProducto );
+	    console.log(miIdProducto);
+ 	});
 
-    //inicializacion del date picker
+    //miT del date picker
      $('.datepicker').pickadate({
     		selectMonths: true, // Creates a dropdown to control month
     		selectYears:15 // Creates a dropdown of 15 years to control year

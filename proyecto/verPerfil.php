@@ -14,7 +14,8 @@
 					<h4>Subastas</h4>			
 					<?php  
 					$query = "SELECT *
-							  FROM subasta S WHERE S.id_usuario='".$_SESSION["id_usuario"]."' ";
+							  FROM subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
+							  WHERE S.id_usuario='".$_SESSION["id_usuario"]."' ";
 
 					($result = $db->query($query));
 
@@ -34,6 +35,14 @@
 									</div>
 								</div>
 								<p><?php echo $row->descripcion ?></p>
+								<div class="col s12 m12 l12">
+									<a class="waves-effect waves-light btn  abrirEditarSubasta" 
+									data-idsubasta="<?php echo $row->id_subasta ?>" data-titulo="<?php echo $row->titulo ?>" 
+									data-url="<?php echo $row->imagen_url ?>" data-descripcion="<?php echo $row->descripcion ?>" 
+									data-idproducto="<?php echo $row->id_producto ?>" href="#modalEditarSubasta">
+										<i class="mdi-editor-mode-edit "></i>
+									</a>
+								</div>
 								<p><?php if($row->fecha_final>date('Y-m-d')){
 									echo "Activa";
 									}else{
@@ -137,6 +146,54 @@
 					</div>
 					<input id="subasta-submit" type="submit" class="btn right green form-submit" value="Aceptar">
 					<a href="#!" class=" modal-action modal-close btn red left">Cancelar</a>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- modal de modificar subasta -->
+	<div id="modalEditarSubasta" class="modal">
+		<?php 	$query= "SELECT * FROM categoria";
+				$resultCat = $db->query($query); ?>
+		<div class="modal-content">
+			<h4 class="center">Modificar Subasta</h4>
+			<div class="row">
+				<form action="function/subastaEditar.php" method="post">
+					<div class="row">
+						<label for="subastaTitulo">Titulo</label>
+				        <div class="input-field col s12">
+				          	<input name="subastaTitulo" id="subastaTitulo" type="text" class="validate" required>		  	
+				        </div>
+		     		</div>
+		     		<div class= "row">
+		     			<div class="input-field col s12">
+		     				<select name="subastaCategorias" id="subastaCategorias">
+							<?php 
+								while ($row = $resultCat->fetch_object()) { ?>
+								<option value="<?php echo $row->id_categoria ?>"><?php echo $row->nombre ?></option>
+							<?php } ?>
+							</select>
+						</div>
+		     		</div>
+		     		<div class="row">
+		     			<label for="subastaImagenUrl">Url de la imagen</label>
+				        <div class="input-field col s12">
+				          	<input name="subastaImagenUrl" id="subastaImagenUrl" type="text" class="validate" required>
+		          			<span id="subastaImagenUrl-hint" class="text-hint error">* Por favor ingrese una url valido</p>
+				        </div>
+		     		</div>
+					<div class="row">
+					    <label for="subastaDesc">Descripcion</label>
+						<div class="input-field col s12">
+						  <textarea id="subastaDesc" name="subastaDesc" class="materialize-textarea validate " required></textarea>
+						</div>
+					</div>
+					<input type="hidden" name="idSubasta" id="idSubasta" value=""/>
+					<input type="hidden" name="idProducto" id="idProducto" value=""/>
+					<div class="modal-footer">
+						<input id="subasta-submit" type="submit" class="btn right green form-submit" value="Aceptar">
+						<a href="#!" class=" modal-action modal-close btn red left">Cancelar</a>
+					</div>
 				</form>
 			</div>
 		</div>

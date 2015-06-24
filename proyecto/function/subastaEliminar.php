@@ -18,11 +18,6 @@
 				$idProducto=$row->id_producto;
 			}
 
-			//borramos el producto que pertenece a la subasta
-			$query ="DELETE FROM producto WHERE id_producto ='".$idProducto."'";
-
-			$result = $db->query($query);
-
 			//borramos todas las ofertas que pertenecen a la subasta
 			$query="DELETE FROM oferta WHERE id_subasta ='".$_POST['idSubasta']."'";
 
@@ -30,6 +25,11 @@
 
 			//finalmente borramos la subasta 
 			$query =" DELETE FROM subasta WHERE id_subasta ='".$_POST['idSubasta']."'"; 
+
+			$result = $db->query($query);
+
+			//borramos el producto que pertenece a la subasta
+			$query ="DELETE FROM producto WHERE id_producto ='".$idProducto."'";
 			
 			if($result = $db->query($query)){
 				header('Location: /verPerfil.php');
