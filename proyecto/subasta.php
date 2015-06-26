@@ -134,13 +134,23 @@ function respuestaParaConsulta($id_consulta){
 				while ($consulta = $consulta_query->fetch_object()){ ?>
 					
 					<li>
-						<div class="collection-item dialogo consulta z-depth-2" data-consultaId="<?php echo $consulta->id_consulta ?>"><i class="mdi-communication-messenger small"></i><?php echo $consulta->cuerpo ?>
-						<?php 
-							$respuesta_query = respuestaParaConsulta($consulta->id_consulta);
-							if($_SESSION){
-								if($_SESSION['id_usuario'] == $subasta->id_usuario && $respuesta_query->num_rows == 0){ ?>
-									<a class="responder" href="" data-idConsulta="<?php echo $consulta->id_consulta ?>"><i class="mdi-content-reply right small"></i></a>
-						<?php } }?>
+						<div class="collection-item dialogo consulta z-depth-2 row" data-consultaId="<?php echo $consulta->id_consulta ?>">
+							<div class="col m12 l12">
+								<div class="col m10 l10">
+									<i class="mdi-communication-messenger small"></i>
+									<?php echo $consulta->cuerpo ?>
+								</div>
+								<?php 
+									$respuesta_query = respuestaParaConsulta($consulta->id_consulta);
+									if($_SESSION){
+										if($_SESSION['id_usuario'] == $subasta->id_usuario && $respuesta_query->num_rows == 0){ ?>
+										<div class="col m2 l2">	
+											<a class="responder right" href="" data-idConsulta="<?php echo $consulta->id_consulta ?>">
+												<i class="mdi-content-reply right small"></i>
+											</a>
+										</div>	
+								<?php } }?>
+							</div>
 						</div>
 						
 						<div class="input-field col s12 m12 l12">

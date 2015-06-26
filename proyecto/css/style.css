@@ -283,14 +283,14 @@ VER SUBASTA: CONSULTAS
 
 
 .consultas {
-	margin: 0;
-	padding: 5% 5% 10% 5%;
+	margin: 0 auto;
+	padding: 0% 5% 10% 5%;
 	min-width: 100%;
 	background-color: #e0e0e0;
 }
 
 .container.consultar-form-container {
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 }
 
