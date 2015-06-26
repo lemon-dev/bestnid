@@ -11,8 +11,8 @@ if(isset($_POST)){
 
 	if(isset($_POST['consulta'], $_POST['id_subasta'])){
 		
-		$query = "	INSERT INTO consulta (id_consulta, id_subasta, cuerpo)
-					VALUES (NULL, '" . $_POST['id_subasta'] . "', '" . $_POST['consulta'] . "')";
+		$query = "	INSERT INTO consulta (id_consulta, id_subasta, cuerpo, fecha)
+					VALUES (NULL, '" . $_POST['id_subasta'] . "', '" . $_POST['consulta'] . "', CURRENT_DATE())";
 
 		require_once('../db/connect.php');
 
