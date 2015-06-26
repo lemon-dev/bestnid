@@ -387,12 +387,12 @@ $('#subastaImagenUrl').blur(function(){
 					cache: false,
 					encode: true,
 					success: function(data){
-						
+						alert(data.id_subasta);
 						if(data.success == true){
-							window.location.href = 'publicarSubasta.php?status=success';
+							window.location.href = "publicarSubasta.php?id_subasta="+data.id_subasta+"&status=success";
 						} else {
-							window.location.href = 'publicarSubasta.php?status=fail';
-						}//console.log(data);
+							window.location.href = "publicarSubasta.php?id_subasta="+data.id_subasta+"&status=fail";
+						}
 
 					},
 					error: function (xhr, ajaxOptions, thrownError) {

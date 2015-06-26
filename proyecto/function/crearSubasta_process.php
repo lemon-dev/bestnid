@@ -59,6 +59,7 @@ if(isset($_POST)){
 			$data['success'] = true;
 		    $data['message'] = 'Se ha registrado la subasta con exito!';
 		    $data['id_subasta'] = $id_subasta;
+		    
 
 		}
 

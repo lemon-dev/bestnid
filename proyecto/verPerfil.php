@@ -6,7 +6,11 @@
 ?>
 	<section>
 		<div class="container perfil">
-			<h2 id="perfilTitulo">Perfil de <?php echo $_SESSION['nombre_usuario'] ?></h2>
+			<div class="row">
+				<header class="form-header">
+					<h2 id="perfilTitulo">Perfil de <?php echo $_SESSION['nombre'], " " ,$_SESSION['apellido'] ?></h2>
+				</header>
+			</div>
 			<div class="row">
 				
 				<!--COLUMNA DE SUBASTAS-->
@@ -15,13 +19,14 @@
 					<?php  
 					$query = "SELECT *
 							  FROM subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
-							  WHERE S.id_usuario='".$_SESSION["id_usuario"]."' ";
+							  WHERE S.id_usuario='".$_SESSION["id_usuario"]."' 
+							  ORDER BY fecha_final DESC";
 
 					($result = $db->query($query));
 
-					while($row = $result->fetch_object()){ ?>
-						
-						<div class="card-panel grey lighten-5 z-depth-1">
+					if($result->num_rows > 0){
+						while($row = $result->fetch_object()){ ?>							
+							<div class="card-panel grey lighten-5 z-depth-1">
 								<div class="row">
 									<div class="col s6 m6 l9">
 										<a href="subasta.php?id_subasta=<?php echo $row->id_subasta ?>">
@@ -35,19 +40,30 @@
 									</div>
 								</div>
 								<p><?php echo $row->descripcion ?></p>
-								<div class="col s12 m12 l12">
-									<a class="waves-effect waves-light btn  abrirEditarSubasta" 
-									data-idsubasta="<?php echo $row->id_subasta ?>" data-titulo="<?php echo $row->titulo ?>" 
-									data-url="<?php echo $row->imagen_url ?>" data-descripcion="<?php echo $row->descripcion ?>" 
-									data-idproducto="<?php echo $row->id_producto ?>" href="#modalEditarSubasta">
-										<i class="mdi-editor-mode-edit "></i>
-									</a>
+								<div class="row">
+									<div class="col s6 m6 l9">
+										<p></p>
+									</div>
+									<div class="col s6 m6 l3">
+										<a class="waves-effect waves-light btn  abrirEditarSubasta" 
+										data-idsubasta="<?php echo $row->id_subasta ?>" data-titulo="<?php echo $row->titulo ?>" 
+										data-url="<?php echo $row->imagen_url ?>" data-descripcion="<?php echo $row->descripcion ?>" 
+										data-idproducto="<?php echo $row->id_producto ?>" href="#modalEditarSubasta">
+											<i class="mdi-editor-mode-edit "></i>
+										</a>
+									</div>
 								</div>
-								<p><?php if($row->fecha_final>date('Y-m-d')){
-									echo "Activa";
+								<p>Estado: <?php if($row->fecha_final>date('Y-m-d')){
+									echo "activa.";
 									}else{
-										echo "Finalizada";
+										echo "finalizada.";
 									}?></p>
+							</div>
+						<?php }
+					}
+					else{ ?>
+						<div class="card-panel grey lighten-5 z-depth-1">
+							<h5>No has realizado ninguna subasta.</h5>
 						</div>
 					<?php } ?>
 				</div>
@@ -57,40 +73,49 @@
 					<h4>Ofertas</h4>
 					<?php  
 					$query = "SELECT *
-							  FROM oferta F INNER JOIN subasta S ON F.id_subasta=S.id_subasta WHERE  F.id_usuario='".$_SESSION["id_usuario"]."' ";
+							  FROM oferta F INNER JOIN subasta S ON F.id_subasta=S.id_subasta 
+							  WHERE  F.id_usuario='".$_SESSION["id_usuario"]."' 
+							  ORDER BY fecha_final DESC";
 
 					($result = $db->query($query));
 
-					while($row = $result->fetch_object()){ ?>
+					if($result->num_rows > 0){
+						while($row = $result->fetch_object()){ ?>
+							<div class="card-panel grey lighten-5 z-depth-1">
+								<div class="row">
+									<div class="col s6 m6 l9">
+										<a href="subasta.php?id_subasta=<?php echo $row->id_subasta ?>">
+											<h5><?php echo $row->titulo ?></h5>
+										</a>
+									</div>
+									<div class="col s6 m6 l3 ">
+										<a class="waves-effect waves-light red btn abrirEliminarOferta" data-id="<?php echo $row->id_oferta ?>" href="#modalEliminarOferta">
+											<i class="mdi-navigation-cancel "></i>
+										</a>
+									</div>
+								</div>
+								<p><?php echo $row->necesidad ?></p>
+								<div class="row">
+									<div class="col s6 m6 l9">
+										<p>Monto: $<?php echo $row->precio ?></p>
+									</div>
+									<div class="col s6 m6 l3">
+										<a class="waves-effect waves-light btn  abrirEditarPrecio" data-id="<?php echo $row->id_oferta ?>" href="#modalPrecio">
+											<i class="mdi-editor-mode-edit "></i>
+										</a>
+									</div>
+								</div>
+								<p>Estado: <?php if($row->fecha_final>date('Y-m-d')){
+										echo "activa.";
+										}else{
+											echo "pendiente.";
+										}?></p>
+							</div>
+						<?php } 
+					}
+					else{ ?>
 						<div class="card-panel grey lighten-5 z-depth-1">
-							<div class="row">
-								<div class="col s6 m6 l9">
-									<a href="subasta.php?id_subasta=<?php echo $row->id_subasta ?>">
-										<h5><?php echo $row->titulo ?></h5>
-									</a>
-								</div>
-								<div class="col s6 m6 l3 ">
-									<a class="waves-effect waves-light red btn abrirEliminarOferta" data-id="<?php echo $row->id_oferta ?>" href="#modalEliminarOferta">
-										<i class="mdi-navigation-cancel "></i>
-									</a>
-								</div>
-							</div>
-							<p><?php echo $row->necesidad ?></p>
-							<div class="row">
-								<div class="col s6 m6 l9">
-									<p>Monto: $<?php echo $row->precio ?></p>
-								</div>
-								<div class="col s6 m6 l3">
-									<a class="waves-effect waves-light btn  abrirEditarPrecio" data-id="<?php echo $row->id_oferta ?>" href="#modalPrecio">
-										<i class="mdi-editor-mode-edit "></i>
-									</a>
-								</div>
-							</div>
-							<p><?php if($row->fecha_final>date('Y-m-d')){
-									echo "Activa";
-									}else{
-										echo "Finalizada";
-									}?></p>
+							<h5>No has realizado ninguna oferta.</h5>
 						</div>
 					<?php } ?>
 				</div>

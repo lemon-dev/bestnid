@@ -34,7 +34,7 @@
 				<?php } else { ?>
 
 					<li><a href="/register.php">Registrarse</a></li>
-					<li><a href="/login.php">Loguearse</a></li>
+					<li><a href="/login.php">Iniciar Sesi&oacute;n</a></li>
 					
 				
 				<?php } ?>
@@ -43,14 +43,14 @@
 				<ul class="side-nav" id="mobile-demo">
 							<?php
 							if($_SESSION){ ?>
-								   
+								   	<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
 									<li><a href="/verPerfil.php">Ver Perfil</a></li>    
 									<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
 	 
 							<?php } else { ?>
 	 
 									<li><a href="/register.php">Registrarse</a></li>
-									<li><a href="/login.php">Loguearse</a></li>
+									<li><a href="/login.php">Iniciar Sesi&oacute;n</a></li>
 								   
 						   
 							<?php } ?>

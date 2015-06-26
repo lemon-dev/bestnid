@@ -18,7 +18,7 @@ include('include/header.php');
 
 	<?php if($_GET['status'] == 'fail') {?>
 
-	<div class="container" id="crearSubasta-result">
+	<div class="container operation-result" id="crearSubasta-result">
 		<div class="row">
 			<h3>Ups :(</h3>
 			<p>Ha habido un problema procesando su solicitud, por favor intente más tarde.</p>
@@ -28,10 +28,10 @@ include('include/header.php');
 
 	<?php } else {?>
 	
-	<div class="container" id="crearSubasta-result">
+	<div class="container operation-result" id="crearSubasta-result">
 		<div class="row">
 			<h3>Se ha creado la subasta con exito!</h3>
-			<a class="btn center" href="index.php">Inicio</a>
+			<a class="btn center" href="subasta.php?id_subasta=<?php echo $_GET['id_subasta'] ?>">Inicio</a>
 
 		</div>
 	</div>
