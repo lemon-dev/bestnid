@@ -7,15 +7,17 @@
 		</a>
 		<ul>
 			<?php if($_SESSION){ ?>
-				<li><a href="/publicarSubasta.php" class="btn-floating waves-effect waves-light yellow darken-1"><i class="large mdi-content-create"></i></a></li>
-				<li><a href="/verPerfil.php" class="btn-floating waves-effect waves-light green"><i class="large mdi-social-person"></i></a></li>
-		 		<li><a href="/logout.php" class="btn-floating waves-effect waves-light red"><i class="large mdi-action-lock"></i></a></li>
-		 		<li><a href="/index.php" class="btn-floating waves-effect waves-light blue"><i class="large mdi-action-home"></i></a></li>
+				<li><a href="#modal2" class="btn-floating waves-effect waves-light purple modal-trigger"><i class="large mdi-action-info"></i></a></li>
+				<li><a href="/publicarSubasta.php" class="btn-floating waves-effect waves-light yellow darken-2"><i class="large mdi-content-create"></i></a></li>
+				<li><a href="/verPerfil.php" class="btn-floating waves-effect waves-light green darken-1"><i class="large mdi-social-person"></i></a></li>
+		 		<li><a href="/logout.php" class="btn-floating waves-effect waves-light red darken-1"><i class="large mdi-action-lock"></i></a></li>
+		 		<li><a href="/index.php" class="btn-floating waves-effect waves-light blue darken-1"><i class="large mdi-action-home"></i></a></li>
 							
 			<?php } else { ?>
-				<li><a href="/register.php" class="btn-floating waves-effect waves-light red"><i class="large mdi-communication-vpn-key"></i></a></li>
-				<li><a href="/login.php" class="btn-floating waves-effect waves-light green"><i class="large mdi-action-lock-open"></i></a></li>
-		 		<li><a href="/index.php" class="btn-floating waves-effect waves-light blue"><i class="large mdi-action-home"></i></a></li>
+				<li><a href="#modal2" class="btn-floating waves-effect waves-light purple modal-trigger"><i class="large mdi-action-info-outline"></i></a></li>
+				<li><a href="/register.php" class="btn-floating waves-effect waves-light red darken-1"><i class="large mdi-communication-vpn-key"></i></a></li>
+				<li><a href="/login.php" class="btn-floating waves-effect waves-light green darken-1"><i class="large mdi-action-lock-open"></i></a></li>
+		 		<li><a href="/index.php" class="btn-floating waves-effect waves-light blue darken-1"><i class="large mdi-action-home"></i></a></li>
 			<?php } ?>
 		</ul>
     </div>
@@ -43,6 +45,17 @@
 		<div class="modal-content">
 		  <h4 class="center">Términos y condiciones</h4>
 		  <p>Bestnid no poseerá ningún tipo de control de contenidos, no se hace responsable del contenido publicado en la página y tampoco es un objetivo mantener seguimiento de los subastadores ni ofertadores debido a la filosofía del negocio y sus dueños.</p>
+		</div>
+		<div class="modal-footer">
+		  <a href="#!" class="modal-action modal-close waves-effect waves-teal btn-flat ">Cerrar</a>
+		</div>
+	</div>
+
+	<!-- modal de información acerca de la página -->
+	<div id="modal2" class="modal">
+		<div class="modal-content">
+		  <h4 class="center">Información acerca de la página</h4>
+		  <p>Bestnid es considerado un remate, pero un tanto particular. En Bestnid el bien subastado no se adjudica al postor que más dinero haya ofrecido por él, sino que cada postor comunica por qué necesita dicho producto, y el subastador elegirá un ganador.</p>
 		</div>
 		<div class="modal-footer">
 		  <a href="#!" class="modal-action modal-close waves-effect waves-teal btn-flat ">Cerrar</a>
