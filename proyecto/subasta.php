@@ -48,15 +48,18 @@ include('include/header.php');
 								<div class="modal-content">
 									<h4 class="center">Ofertar</h4>
 									<div class="row">
-										<form action="function/ofertar-process.php" method="post">
+										<form id="ofertar-form" action="function/ofertar-process.php" method="post">
 											<div class="row">
 												<div class="input-field col s12">
 										          	<input name="precio" id="precio" type="number" class="validate" required>
 								          			<label for="precio">Precio</label>
+								          			<span id="precio-invalido" class="text-hint error"></span>
+								          			<!--p class="instruction">* De un precio en pesos argentinos a su oferta.</p-->
 										        </div>
 										        <div class="input-field col s12">
 										          	<textarea name="necesidad" id="necesidad" class="materialize-textarea" required></textarea>
 		          									<label for="necesidad">Necesidad</label>
+		          									<!--p class="instruction">* El subastador elegir&aacute; se&uacute;n la necesidad, ingrese su necesidad a continuación.</p-->
 										        </div>
 										        <input type="hidden" name="id_subasta" value="<?php echo $_GET['id_subasta'] ?>">
 								     		</div>	
@@ -72,7 +75,8 @@ include('include/header.php');
 					
 					<?php } else { ?>
 						
-						<a class="waves-effect waves-light btn disabled">Ver Ofertas</a>
+						<a class="waves-effect waves-light btn disabled">Ofertar</a>
+						<span class="not-registered warning"> * Haga <a href="/login.php?redirect_to=<?php echo $_GET['id_subasta'] ?>">click aquí</a> para iniciar sesión y poder Ofertar.</span>
 
 					<?php } ?>
 				</div>
@@ -80,15 +84,15 @@ include('include/header.php');
 		</ul>
 		<ul class="collapsible popout" data-collapsible="accordion">
 			<li>
-				<div class="collapsible-header"><i class="mdi-communication-messenger"></i>First</div>
+				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta1</div>
 				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 			</li>
 			<li>
-				<div class="collapsible-header"><i class="mdi-communication-messenger"></i>Second</div>
+				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta2</div>
 				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 			</li>
 			<li>
-				<div class="collapsible-header"><i class="mdi-communication-messenger"></i>Third</div>
+				<div class="collapsible-header consulta"><i class="mdi-communication-messenger"></i>Consulta3</div>
 				<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
 			</li>
 		</ul>

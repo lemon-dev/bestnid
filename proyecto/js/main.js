@@ -1,5 +1,7 @@
 $(".text-hint").hide();
 
+
+// Modificar mensajes de validación HTML5
 document.addEventListener("DOMContentLoaded", function() {
     var elements = document.getElementsByTagName("INPUT");
     for (var i = 0; i < elements.length; i++) {
@@ -48,6 +50,7 @@ $(document).ready(function() {
 	    console.log(miIdSubasta);
 	});
 
+
 	//Parametros enviados desde perfil a eliminar oferta
 	$('.abrirEliminarOferta').leanModal();
 
@@ -78,15 +81,18 @@ $(document).ready(function() {
 	    console.log(miIdProducto);
  	});
 
-    //miT del date picker
-     $('.datepicker').pickadate({
-    		selectMonths: true, // Creates a dropdown to control month
-    		selectYears:15 // Creates a dropdown of 15 years to control year
-  		});
+    // Inicializacion del date picker
+    $('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears:15 // Creates a dropdown of 15 years to control year
+	});
+
 	
+	
+
 	// Form submission
 
-	// Verifico el nombre de usuario
+	// Control sobre el formulario de Login
 	$("#login-form").submit(function (event) {
 		// Si esta vacio
 		event.preventDefault();
@@ -148,7 +154,10 @@ $(document).ready(function() {
 							encode: true,
 							success: function(data) {
 								if(data.status = 'success'){
+									// Acá modificar para redirección desde una subasta
+									// Ir a subasta.php y login-process
 									window.location.href = '/index.php';
+									
 								} else {
 									Materialize.toast(data.message, 5000);
 								}
@@ -170,8 +179,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	//validacion campos del register
-	
+	// Validar que en el apellido no se pueden ingresar caracteres
 	$("#nombre").blur(function(e) {
 	    var val = $(this).val();
 	   	if (val.match(/[^a-zA-Z]/g)) {
@@ -182,6 +190,7 @@ $(document).ready(function() {
 	   	}
 	});
 
+	// Validar que en el apellido no se puedan ingresar caracteres
 	$("#apellido").blur(function(e) {
 	    var val = $(this).val();
 	   	if (val.match(/[^a-zA-Z]/g)) {
@@ -192,6 +201,7 @@ $(document).ready(function() {
 	   	}
 	});
 
+	// Confirmar que se haya ingresado el nombre de usuario
 	$("#usuario").blur(function () {
 		if($(this).val() == '') {
 			$('#name-hint').html('Ingrese su nombre de usuario');
@@ -201,6 +211,7 @@ $(document).ready(function() {
 		}
 	});
 		
+	// Validación del DNI
 	$("#dni").blur(function(e) {
 	    var val = $(this).val();
 	   	if (val.match(/[^0-9]/g)) {
@@ -220,6 +231,7 @@ $(document).ready(function() {
 	   	}
 	});
 	
+	// Validación de tarjetas
 	$("#tarjeta").blur(function(e) {
 	    var val = $(this).val();
 	   	if (val.match(/[^0-9]/g)) {
@@ -234,9 +246,11 @@ $(document).ready(function() {
 	   	}
 	});
 	
-	// Registrar
-	// Event handlers para el formulario de registro
 
+	//	REGISTRAR
+	// 	Event handlers para el formulario de registro
+
+	//	Validación en tiempo real de nombre de usuario
 	$('#nombre_usuario').blur(function () {
 
 		nombre_usuario = $('#nombre_usuario').val();
@@ -265,8 +279,7 @@ $(document).ready(function() {
 		});
 	});
 
-	// Validación del formulario luego del submit
-
+	// 	Validación del formulario luego del submit
 	$("#register-form").submit(function (event) {
 		event.preventDefault();
 
@@ -319,19 +332,33 @@ $(document).ready(function() {
 		}
 	});
 
-//validacion campos  de formulario para crear subasta
+	//	Validación campos  de formulario para crear subasta
 
-function ValidURL(str) {
-	 var pattern = /^(http|https|ftp)\:\/\/[a-z0-9\.-]+\.[a-z]{2,4}/gi;
-	  if(str.match(pattern))
-        return true;
-    else
-        return false;
+	//	Validar URL
 
-}
-function checkImgURL(url) {
-    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
-}
+	$('#subastaImagenUrl').blur(function(){
+		var val = $(this).val();
+		if (ValidURL(val) && checkImgURL(val)){
+			$('#subastaImagenUrl-hint').hide();
+		}else{
+			$('#subastaImagenUrl-hint').show();
+		}
+	});
+
+	//	Validar URL: helpers
+	function ValidURL(str) {
+		 var pattern = /^(http|https|ftp)\:\/\/[a-z0-9\.-]+\.[a-z]{2,4}/gi;
+		  if(str.match(pattern))
+	        return true;
+	    else
+	        return false;
+
+	}
+
+	function checkImgURL(url) {
+	    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+	}
+
 	/*$("#tarjeta").blur(function(e) {
 	    var val = $(this).val();
 	   	if (val.match(/[^0-9]/g)) {
@@ -345,17 +372,9 @@ function checkImgURL(url) {
 	   		$("#dni-hint").hide();
 	   	}
 	});*/
-$('#subastaImagenUrl').blur(function(){
-	var val = $(this).val();
-	if (ValidURL(val) && checkImgURL(val)){
-		$('#subastaImagenUrl-hint').hide();
-	}else{
-		$('#subastaImagenUrl-hint').show();
-	}
-});
 
 
-//validacion de formulario de  crear subasta luego del submit
+	//	Validación de formulario de  crear subasta luego del submit
 	$("#subasta-form").submit(function (event) {
 		console.log("Hello");
 		event.preventDefault();
@@ -402,6 +421,28 @@ $('#subastaImagenUrl').blur(function(){
 				});
 			
 		}
+	});
+
+	// OFERTAR
+
+	// Validación sobre el precio
+
+	$("#precio").blur(function(){
+		var precio = $("#precio").val();
+
+		if(precio <= 0){
+			$("#precio-invalido").html('* Ingrese un monto mayor a cero.');
+			$("#precio-invalido").show();
+		} else {
+			$("#precio-invalido").hide();
+		}
+	});
+
+	$("#ofertar-form").submit(function (event) {
+		event.preventDefault();
+
+		
+
 	});
 
 	/**

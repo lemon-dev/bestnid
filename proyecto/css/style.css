@@ -141,15 +141,17 @@ FORMULARIOS: MENSAJES
 	color: #263238;
 }
 
-.form-submit {
-	margin-right: 3%;
-}
-
 
 /**********************************
 FORMULARIOS: HINTS
 ***********************************/
 
+.instruction {
+	line-height: 1em;
+	margin: 0 auto; 
+	margin-bottom: 20px;
+	color: #4caf50;
+}
 
 .text-hint {
 	
@@ -187,7 +189,11 @@ VER SUBASTA
 }
 
 .ver-subasta img {
-	border: 3px solid #263238;
+	/*border: 3px solid #263238;*/
+}
+
+.consulta .mdi-communication-messenger {
+	color: #4caf50;
 }
 
 .subasta-opciones {
@@ -201,13 +207,16 @@ VER SUBASTA
 	margin: 0;
 }
 
-.subasta-opciones a {
-	margin-top: 5%;
+.subasta-opciones .not-registered {
+	margin: 0;
+	margin-top: 2%;
+	display: block;
+	color: #ee6e73;
 }
 
 .modal-footer {
 	margin: 0 auto;
-	margin-bottom: 2%;
+	margin-top: 2%;
 }
 
 /**********************************
@@ -243,7 +252,11 @@ BUSCAR POR TITULO
 COLORES
 ***********************************/
 
-/* 	Azul oscuro: 	#263238; 
-	GrisClaro: 		#e0e0e0;
-	Turquesa:		#26a69a;
+/* 	Azul oscuro: 		#263238; 
+	GrisClaro: 			#e0e0e0;
+	Turquesa:			#26a69a;
+	Amarillo: 			#EDB140;
+	Rojo advertencia:	red;
+	Rojo principal: 	#ee6e73;
+	Verde exito: 		#4caf50;
 */

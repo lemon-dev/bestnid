@@ -66,7 +66,7 @@
 					}else{
 						$query = "	SELECT 	*
 									FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
-									ORDER BY  $criterio ";	
+									ORDER BY  $criterio DESC";	
 					}
 
 					($result = $db->query($query)); 
