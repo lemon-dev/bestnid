@@ -30,8 +30,8 @@ include('include/header.php');
 	
 	<div class="container operation-result" id="crearSubasta-result">
 		<div class="row">
-			<h3>Se ha creado la subasta con exito!</h3>
-			<a class="btn center" href="subasta.php?id_subasta=<?php echo $_GET['id_subasta'] ?>">Inicio</a>
+			<h3>La subasta se ha creado con exito!</h3>
+			<a class="btn center" href="subasta.php?id_subasta=<?php echo $_GET['id_subasta'] ?>">Ver subasta</a>
 
 		</div>
 	</div>

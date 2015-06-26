@@ -387,7 +387,7 @@ $('#subastaImagenUrl').blur(function(){
 					cache: false,
 					encode: true,
 					success: function(data){
-						alert(data.id_subasta);
+						
 						if(data.success == true){
 							window.location.href = "publicarSubasta.php?id_subasta="+data.id_subasta+"&status=success";
 						} else {
