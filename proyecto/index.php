@@ -44,11 +44,14 @@
 			<div class="row">
 				<?php
 					$query = "	SELECT 	*
-								FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto";
+								FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
+								ORDER BY fecha_inicio DESC";
 
 					($result = $db->query($query)); 
 
-					while ($row = $result->fetch_object()) { ?>
+					while ($row = $result->fetch_object()) { 
+
+						if($row->fecha_final > date('Y-m-d')){ ?>
 						
 				        <div class="col s12 m12 l6">
 				          	<div class="card">
@@ -67,7 +70,7 @@
 				          </div>
 				        </div>
 				            
-				<?php } ?>
+				<?php } }?>
 			</div>
 		</div>
 	</div>	

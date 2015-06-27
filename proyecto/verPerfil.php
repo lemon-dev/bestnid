@@ -105,10 +105,10 @@
 										</a>
 									</div>
 								</div>
-								<p>Estado: <?php if($row->fecha_final>date('Y-m-d')){
+								<p>Estado de la subasta: <?php if($row->fecha_final>date('Y-m-d')){
 										echo "activa.";
 										}else{
-											echo "pendiente.";
+											echo "finalizada.";
 										}?></p>
 							</div>
 						<?php } 

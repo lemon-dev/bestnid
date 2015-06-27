@@ -72,7 +72,7 @@ include('include/header.php');
 				        <div class="input-field col s12">
 				          	<input name="subastaImagenUrl" id="subastaImagenUrl" type="text" class="validate" required>
 		          			<label for="subastaImagenUrl">Url de la imagen</label>
-		          			<span id="subastaImagenUrl-hint" class="text-hint error">* Por favor ingrese una url valido</p>
+		          			<span id="subastaImagenUrl-hint" class="text-hint error">* Por favor ingrese una url valido (Formatos validos: jpeg, jpg, gif, png)</p>
 				        </div>
 		     		</div>
 					<div class="row">
@@ -83,7 +83,7 @@ include('include/header.php');
 					</div>
 		     		<div class="row">		     			
 		     		    <div class="range-field col s12">
-		     		    	<label for="subastaFechafin">Duración de la subasta (entre 15 y 30)</label>
+		     		    	<label for="subastaFechafin">Duración de la subasta (entre 15 y 30 días)</label>
 					    	<input type="range" name="subastaFechaFin" id="test5" min="15" max="30" />
 					    </div> 
 					</div>

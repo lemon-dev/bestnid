@@ -92,6 +92,7 @@ FORMULARIOS: GENERAL;
 	box-shadow: 0 5px 11px 0;
 	background-color: white;
 	margin: 5% auto;
+	margin-bottom: 15%;
 }
 
 section .container .row .input-field {
@@ -393,8 +394,8 @@ OFERTAS
 .container.ofertas{
 	background-color: #e0e0e0;
 	color: #263238;
-	margin-bottom: 20%;
-	margin-top: 20%;
+	margin-bottom: 10%;
+	margin-top: 10%;
 	font-size: 1.25em;
 }
 
