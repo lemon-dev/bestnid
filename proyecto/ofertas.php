@@ -45,8 +45,7 @@ if($_SESSION && ($_SESSION['id_usuario'] == $subasta->id_usuario)){
 					while($oferta = $ofertas->fetch_object()){ ?>
 					
 						<div class="card-panel grey lighten-5 z-depth-1 row">
-							<p class="col m4 ofertador"><i class="mdi-social-person"></i><?php echo $oferta->nombre_usuario ?></p>
-							<p class="col m8"><?php echo $oferta->necesidad ?></p>
+							<p class="col m12"><?php echo $oferta->necesidad ?></p>
 							<?php if($terminada) { ?>
 								<form action="/function/oferta-exitosa-process.php" method="post">
 									<input type="hidden" name="id_oferta" value="<?php echo $oferta->id_oferta ?>">
