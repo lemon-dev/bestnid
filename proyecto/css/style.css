@@ -62,7 +62,7 @@ section .container {
 section .container .bienvenida {
 	background-color: #e0e0e0;
 	padding-bottom: 5%;
-	margin-bottom: 5%;
+	margin-bottom: 25%;	
 }
 
 section .container .bienvenida p, h2 {
@@ -193,6 +193,7 @@ VER SUBASTA: GENERAL
 
 .ver-subasta {
 	background-color: #e0e0e0;
+	margin-bottom: 10%;
 }
 
 .ver-subasta h3 {
@@ -449,7 +450,7 @@ div.box
   vertical-align:top;
   padding:10px;
   color:#999;
-  position:relative;
+  position: relative;
 }
 
 div.box.finalizada:after
