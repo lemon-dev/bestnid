@@ -79,11 +79,18 @@ if($_SESSION && ($_SESSION['id_usuario'] == $subasta->id_usuario)){
 			<div class="container oferta-ganadora z-depth-2">
 				<h4 id="finalizada-header" class="center z-depth-1">Subasta finalizada!</h4>
 				<p>La oferta ganadora es: </p>
-				<div class="card-panel grey lighten-5 z-depth-1 row">
-					<p class="col m3 ofertador"><i class="mdi-social-person"></i><?php echo $oferta_exitosa->nombre_usuario ?></p>
-					<p class="col m6"><?php echo $oferta_exitosa->necesidad ?></p>
-					<p class="col m3">$ <?php echo $oferta_exitosa->precio ?>
-				</div>
+				<div class="card-panel grey lighten-5 z-depth-1">
+					<div class="row">
+						<p class="col m3 ofertador">Usuario: <i class="mdi-social-person"></i><?php echo $oferta_exitosa->nombre_usuario ?></p>
+						<p class="col m6">Email: <a href="mailto:<?php echo $oferta_exitosa->email ?>"><?php echo $oferta_exitosa->email ?></a></p>
+						<p class="col m3">CBU: <?php echo $oferta_exitosa->tarjeta ?></p>
+					</div>
+					<div class="row">
+						<p class="col m3"><?php echo $oferta_exitosa->nombre . ' ' . $oferta_exitosa->apellido ?></p>
+						<p class="col m6"><?php echo $oferta_exitosa->necesidad ?></p>
+						<p class="col m3">Ganancia (neta): $<?php echo $oferta_exitosa->precio - ($oferta_exitosa->precio * 0.3) ?>
+					</div>
+			</div>
 			</div>
 		<?php } ?>
 
