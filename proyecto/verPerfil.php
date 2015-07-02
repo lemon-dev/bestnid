@@ -40,6 +40,7 @@
 									</div>
 								</div>
 								<p><?php echo $row->descripcion ?></p>
+								<?php if($row->fecha_final>date('Y-m-d')){ ?>
 								<div class="row">
 									<div class="col s6 m6 l9">
 										<p></p>
@@ -53,6 +54,7 @@
 										</a>
 									</div>
 								</div>
+								<?php } ?>
 								<p>Estado: <?php if($row->fecha_final>date('Y-m-d')){
 									echo "activa.";
 									}else{
@@ -99,11 +101,13 @@
 									<div class="col s6 m6 l9">
 										<p>Monto: $<?php echo $row->precio ?></p>
 									</div>
+									<?php if($row->fecha_final>date('Y-m-d')){ ?>
 									<div class="col s6 m6 l3">
 										<a class="waves-effect waves-light btn  abrirEditarPrecio" data-id="<?php echo $row->id_oferta ?>" href="#modalPrecio">
 											<i class="mdi-editor-mode-edit "></i>
 										</a>
 									</div>
+									<?php } ?>
 								</div>
 								<p>Estado de la subasta: <?php if($row->fecha_final>date('Y-m-d')){
 										echo "activa.";
@@ -140,7 +144,7 @@
 		</div>
 	</div>
 
-	<!-- modal de eliminar subasta -->
+	<!-- modal de eliminar oferta -->
 	<div id="modalEliminarOferta" class="modal">
 		<div class="modal-content">
 			<h4 class="center">¿Desea eliminar la oferta?</h4>
@@ -165,11 +169,12 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<input name="precio" id="precio" type="number" class="validate" required>
-							<label for="precio">Precio</label>
+		          			<label for="precio">Precio</label>
+		          			<span id="precio-invalido" class="text-hint error"></span>
 						</div>
 						<input type="hidden" name="idOferta" id="idOferta" value=""/>
 					</div>
-					<input id="subasta-submit" type="submit" class="btn right green form-submit" value="Aceptar">
+					<input id="subasta-submit" type="submit" class="btn right green form-submit" value="Aceptar">				
 					<a href="#!" class=" modal-action modal-close btn red left">Cancelar</a>
 				</form>
 			</div>
