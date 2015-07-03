@@ -168,7 +168,7 @@
 				<form action="function/ofertaEditarPrecio.php" method="post">
 					<div class="row">
 						<div class="input-field col s12">
-							<input name="precio" id="precio" type="number" class="validate" required>
+							<input name="precio" id="precio" type="number" min="1" class="validate" required>
 		          			<label for="precio">Precio</label>
 		          			<span id="precio-invalido" class="text-hint error"></span>
 						</div>
