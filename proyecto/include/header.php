@@ -1,6 +1,5 @@
 <?php 
 	session_start();
-	var_dump($_SESSION);
  ?>
 
 <!DOCTYPE html>
@@ -26,8 +25,14 @@
 				
 				<?php 
 				if($_SESSION){ ?>
-					<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
-					<li><a href="/verPerfil.php">Ver Perfil</a></li>	
+
+					<?php if($_SESSION['rol'] == 'usuario') : ?>
+						<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
+						<li><a href="/verPerfil.php">Ver Perfil</a></li>	
+					<?php elseif ($_SESSION['rol'] == 'admin'): ?>
+						<li><a href="/admin.php">Opciones</a></li>
+					<?php endif; ?>
+
 					<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
 
 
@@ -41,19 +46,19 @@
 				<!--seccion para mobiles-->
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
-							<?php
-							if($_SESSION){ ?>
-								   	<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
-									<li><a href="/verPerfil.php">Ver Perfil</a></li>    
-									<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
-	 
-							<?php } else { ?>
-	 
-									<li><a href="/register.php">Registrarse</a></li>
-									<li><a href="/login.php">Iniciar Sesi&oacute;n</a></li>
-								   
+					<?php
+					if($_SESSION){ ?>
+						
+						<?php if($_SESSION['rol'] == 'usuario') : ?>
+							<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
+							<li><a href="/verPerfil.php">Ver Perfil</a></li>	
+						<?php elseif ($_SESSION['rol'] == 'admin'): ?>
+							<li><a href="/admin.php">Opciones</a></li>
+						<?php endif; ?>
+
+						<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
 						   
-							<?php } ?>
+					<?php } ?>
 				</ul>
 			</div>
 		</nav>
