@@ -42,4 +42,39 @@ function ofertaExitosaParaSubasta($id_subasta){
 	return $result;
 }
 
+function categorias(){
+	include('db/connect.php');
+	$query = "SELECT * FROM `categoria`";
+
+	if(!$result = $db->query($query)){
+		echo ":(";
+		die();
+	}
+
+	return $result;
+}
+
+function categoriaTieneProducto($id_categoria) {
+	include('connect.php');
+	$query = "	SELECT * 
+				FROM categoria C
+				INNER JOIN producto P
+				ON C.id_categoria = P.id_categoria
+				WHERE C.id_categoria = '" . $id_categoria .  "'";
+
+	$result = $db->query($query);
+
+	return $result->num_rows == 0;
+}
+
+function eliminarCategoria($id_categoria) {
+	//Elimina la categoria y devuelve el objeto de la consulta
+	include('connect.php');
+	$query = "DELETE FROM categoria WHERE id_categoria = '" . $id_categoria . "'";
+
+	$result = $db->query($query);
+
+	return $result;
+}
+
 ?>

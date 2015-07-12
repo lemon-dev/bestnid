@@ -480,6 +480,31 @@ div.box.finalizada:after
     box-shadow: 0 0 2px #c00;
 }
 
+/**********************************
+CATEGORIAS
+***********************************/
+
+.categoria-header {
+	text-align: center;
+
+}
+
+.categorias {
+	margin-top: 5%;
+	margin-bottom: 5%;
+	background-color: white;
+}
+
+.categorias .row {
+	margin: 0 auto;
+}
+
+.categoria a {
+	font-size: 1.5em;
+}
+
+.eliminar-categoria {
+}
 
 
 /**********************************
