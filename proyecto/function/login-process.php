@@ -21,7 +21,9 @@ if(isset($_POST)){
 
 		include("../db/connect.php");
 
-		$result = $db->query("SELECT * FROM usuario WHERE nombre_usuario = '" . $_POST['nombre'] . "'");
+		$result = $db->query("	SELECT * FROM usuario U
+								INNER JOIN rol R ON U.id_rol = R.id_rol
+								WHERE nombre_usuario = '" . $_POST['nombre'] . "'");
 
 		if ($result->num_rows == 0) {
 		
@@ -38,6 +40,7 @@ if(isset($_POST)){
 				$_SESSION['id_usuario']=$row->id_usuario;
 				$_SESSION['apellido']=$row->apellido;
 				$_SESSION['nombre']=$row->nombre;
+				$_SESSION['rol']=$row->rol;
 				$data['session'] = $_SESSION;
 			} else {
 				
