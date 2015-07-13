@@ -61,7 +61,13 @@
 
 						<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
 						   
-					<?php } ?>
+					<?php } else { ?>
+
+					<li><a href="/register.php">Registrarse</a></li>
+					<li><a href="/login.php">Iniciar Sesi&oacute;n</a></li>
+					
+				
+				<?php } ?>
 				</ul>
 			</div>
 		</nav>
