@@ -434,7 +434,9 @@ $(document).ready(function() {
 		}
 	});
 
-	// OFERTAR
+	/*******************************
+	OFERTAS
+	*******************************/
 
 	// Validación sobre el precio
 
@@ -449,6 +451,7 @@ $(document).ready(function() {
 		}
 	});
 
+
 	/*******************************
 	CATEGORIAS
 	*******************************/
@@ -458,6 +461,8 @@ $(document).ready(function() {
 		$(this).next().hide();
 		$(this).next().next().show();
 	});
+
+	//
 
 
 	/**

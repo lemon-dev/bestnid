@@ -69,7 +69,7 @@ function categoriaTieneProducto($id_categoria) {
 
 	$result = $db->query($query);
 
-	return $result->num_rows == 0;
+	return $result->num_rows != 0;
 }
 
 function eliminarCategoria($id_categoria) {
