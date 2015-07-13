@@ -42,9 +42,14 @@ function ofertaExitosaParaSubasta($id_subasta){
 	return $result;
 }
 
+
+/********************************
+CATEGORIAS
+********************************/
+
 function categorias(){
 	include('db/connect.php');
-	$query = "SELECT * FROM `categoria`";
+	$query = "SELECT * FROM categoria ORDER BY nombre";
 
 	if(!$result = $db->query($query)){
 		echo ":(";
@@ -71,6 +76,24 @@ function eliminarCategoria($id_categoria) {
 	//Elimina la categoria y devuelve el objeto de la consulta
 	include('connect.php');
 	$query = "DELETE FROM categoria WHERE id_categoria = '" . $id_categoria . "'";
+
+	$result = $db->query($query);
+
+	return $result;
+}
+
+function crearCategoria($nombre) {
+	include('connect.php');
+	$query = "INSERT INTO categoria (id_categoria, nombre) VALUES (NULL, '" . $nombre . "');";
+	
+	$result = $db->query($query);
+
+	return $result;
+}
+
+function modificarCategoria($id_categoria, $nombre) {
+	include('connect.php');
+	$query = "UPDATE categoria SET nombre = '" . $nombre . "' WHERE id_categoria = '" . $id_categoria . "'";
 
 	$result = $db->query($query);
 

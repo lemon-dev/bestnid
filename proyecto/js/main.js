@@ -449,6 +449,16 @@ $(document).ready(function() {
 		}
 	});
 
+	/*******************************
+	CATEGORIAS
+	*******************************/
+
+	$('a').click(function() {
+		$(this).hide();
+		$(this).next().hide();
+		$(this).next().next().show();
+	});
+
 
 	/**
   	* @author ComFreek
