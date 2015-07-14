@@ -3,10 +3,9 @@
     error_reporting(-1);
     ini_set('display_errors', 'On');
     
-    $pageTitle = "Bestnid"; 
+    $pageTitle = "Bestnid | Home"; 
     include("include/header.php");
-
-    include("db/connect.php");
+	include("db/functions.php");
 ?>
 
 <section>
@@ -31,7 +30,6 @@
 						<option value="fecha_final">Fecha de Fin</option>
 						<option value="fecha_inicio">Fecha de inicio</option>
 						<option value="categoria">Categoria</option>
-
 					</select>
 				</div>
 				<div class="col s4 m4 l2">
@@ -42,35 +40,7 @@
 
 		<div class="container subastas">
 			<div class="row">
-				<?php
-					$query = "	SELECT 	*
-								FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
-								ORDER BY fecha_inicio DESC";
-
-					($result = $db->query($query)); 
-
-					while ($row = $result->fetch_object()) { 
-
-						if($row->fecha_final > date('Y-m-d')){ ?>
-						
-				        <div class="col s12 m12 l6">
-				          	<div class="card">
-				            	<div class="card-image">
-				              		<img class="responsive-img" src="<?php echo $row->imagen_url ?>">
-				            	</div>
-				            <div class="card-content">
-								<span class="card-title black-text"><?php echo $row->titulo ?></span>
-				              	<p><?php echo $row->descripcion ?></p>
-				              	<p>La subasta comenz&oacute; el d&iacute;a <?php echo $row->fecha_inicio ?></p>
-			              		<p>La subasta finaliza el d&iacute;a <?php echo $row->fecha_final ?></p>
-				            </div>
-				            <div class="card-action">
-				              	<a href="subasta.php?id_subasta=<?php echo $row->id_subasta?>">Ver Subasta</a>
-				            </div>
-				          </div>
-				        </div>
-				            
-				<?php } }?>
+				<?php include('include/ver_subastas.php'); ?>
 			</div>
 		</div>
 	</div>	

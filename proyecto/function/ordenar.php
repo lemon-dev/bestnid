@@ -7,6 +7,7 @@
     include("../include/header.php");
 
     include("../db/connect.php");
+    include("../db/functions.php");
 ?>
 
 
@@ -20,19 +21,7 @@
 				</header>
 			</div>
 
-			<div class="busqueda">
-				<nav class="white">
-					<div class="nav-wrapper">
-					  <form method="get" action="../function/buscar_titulo.php">
-					    <div class="input-field">
-					      <input id="search" name="param_busqueda" type="search" required>
-					      <label for="search"><i class="mdi-action-search black-text"></i></label>
-					      <i class="mdi-navigation-close"></i>
-					    </div>
-					  </form>
-					</div>
-				</nav>
-			</div>
+			<?php include('../include/search_bar.php'); ?>
 		</div>
 		
 	
@@ -57,23 +46,12 @@
 			<div class="row">
 				<?php
 					$criterio = $_GET["criterio"];
-					if ($criterio == "categoria" ){
-						$query = "	SELECT 	*
-								FROM	subasta S INNER JOIN  producto P ON S.id_producto = P.id_producto
-										INNER JOIN categoria C ON P.id_categoria = C.id_categoria 
-								ORDER BY C.nombre ";
-
-					}else{
-						$query = "	SELECT 	*
-									FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
-									ORDER BY  $criterio DESC";	
-					}
-
-					($result = $db->query($query)); 
+					
+					$result = subastas_por_criterio($criterio);
 
 					while ($row = $result->fetch_object()) { ?>
 						
-				        <div class="col s12 m6">
+				        <div class="col s12 m12 l12">
 				          	<div class="card">
 				            	<div class="card-image">
 				              		<img class="responsive-img" src="<?php echo $row->imagen_url ?>">
