@@ -26,8 +26,8 @@ if(isset($_POST)){
 
 		if($result->num_rows == 0) {
 
-			$query = "INSERT INTO usuario (id_usuario, dni, email, nombre_usuario, password, nombre, apellido, tarjeta, fecha_alta)
-						VALUES (NULL, '" . $_POST['dni'] ."', '" . $_POST['email'] . "' ,'" . $_POST['nombre_usuario'] . "', '" . $_POST['password'] . "', '" . $_POST['nombre'] . "', '" . $_POST['apellido'] ."', '" . $_POST['tarjeta'] . "', CURRENT_DATE())";
+			$query = "INSERT INTO usuario (id_usuario, id_rol, dni, email, nombre_usuario, password, nombre, apellido, tarjeta, fecha_alta)
+						VALUES (NULL, 1 , '" . $_POST['dni'] ."', '" . $_POST['email'] . "' ,'" . $_POST['nombre_usuario'] . "', '" . $_POST['password'] . "', '" . $_POST['nombre'] . "', '" . $_POST['apellido'] ."', '" . $_POST['tarjeta'] . "', CURRENT_DATE())";
 			
 			if(!$result = $db->query($query)) {
 				$errors['db_error'] = 'Error realizando el registro, pruebe nuevamente en unos minutos.';

@@ -73,6 +73,58 @@ function ofertaExitosaParaSubasta($id_subasta){
 	return $result;
 }
 
+/********************************
+OFERTAS
+********************************/
+
+function yaOferto($id_usuario, $id_subasta){
+	include('db/connect.php');
+	$query = "	SELECT 	*
+				FROM	subasta S INNER JOIN oferta O ON S.id_subasta = O.id_subasta
+				WHERE	O.id_usuario = " . $id_usuario . " AND S.id_subasta = " . $id_subasta;
+
+	if(!$result = $db->query($query)){
+		echo ":(";
+		die();
+	}
+
+	if($result->num_rows != 0){
+		return true;
+	}
+	return false;
+}
+
+/********************************
+CONSULTAS
+********************************/
+
+function consultasParaSubasta($id_subasta){
+	include('db/connect.php');
+
+	$query = " SELECT * FROM consulta WHERE id_subasta=" .  $_GET['id_subasta'];
+
+	if(!$result = $db->query($query)){
+		echo ':(';
+		die();
+	}
+
+	return $result;
+}
+
+/********************************
+RESPUESTAS
+********************************/
+
+function respuestaParaConsulta($id_consulta){
+	include('db/connect.php');
+
+	$query = " SELECT * FROM respuesta WHERE id_consulta=" . $id_consulta;
+
+	$result = $db->query($query);
+
+	return $result;
+}
+
 
 /********************************
 CATEGORIAS
