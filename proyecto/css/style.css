@@ -434,8 +434,10 @@ OFERTAS: OFERTA GANADORA
 	background-color: #e0e0e0;
 	color: #263238;
 	margin-bottom: 20%;
-	margin-top: 20%;
+	margin-top: 8%;
 	font-size: 1.25em;
+	padding-top: 1%;
+	padding-bottom: 2.5%;
 }
 
 #finalizada-header {
@@ -453,7 +455,6 @@ WATER MARK
 
 div.box
 {
-  display:inline-block;
   vertical-align:top;
   padding:10px;
   color:#999;
@@ -525,6 +526,39 @@ CATEGORIAS
 #eliminar-categoria-submit {
 	display: inline-block;
 }
+
+/**********************************
+SUBASTAS EXITOSAS
+***********************************/
+
+.subastas-exitosas {
+	margin-top: 10%;
+	font-size: 1.5em;
+	padding-bottom: 2.5%;
+	padding-top: 2.5%;
+}
+
+.subastas-resumen {
+}
+
+.subastas-resumen .row{
+	margin: 0;
+}
+
+.fechas-form {
+	margin: 0;
+	padding: 0;
+}
+
+.fechas-form.row {
+	margin: 0 auto;
+}
+
+.uso-fechas {
+	font-size: .8em;
+	margin-top: 0;
+}
+
 
 /**********************************
 COLORES

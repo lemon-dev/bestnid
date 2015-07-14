@@ -13,12 +13,12 @@ if(isset($_GET["criterio"])) {
 while ($subasta = $subastas->fetch_object()): if($subasta->fecha_final > date('Y-m-d')): ?>
 	
     <div class="col s12 m12 l6">
-      	<div class="card">
+        <div class="card">
         	<div class="card-image">
           		<img class="responsive-img" src="<?php echo $subasta->imagen_url ?>">
         	</div>
         <div class="card-content">
-			<span class="card-title black-text"><?php echo $subasta->titulo ?></span>
+		        <span class="card-title black-text"><?php echo $subasta->titulo ?></span>
           	<p><?php echo $subasta->descripcion ?></p>
           	<p>La subasta comenz&oacute; el d&iacute;a <?php echo $subasta->fecha_inicio ?></p>
       		<p>La subasta finaliza el d&iacute;a <?php echo $subasta->fecha_final ?></p>
