@@ -1,11 +1,10 @@
 <?php
    
-    error_reporting(-1);
-    ini_set('display_errors', 'On');
-    
-    $pageTitle = "Bestnid | Home"; 
-    include("include/header.php");
-	include("db/functions.php");
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
+$pageTitle = "Bestnid | Home"; 
+include("include/header.php");
 ?>
 
 <section>
@@ -22,7 +21,7 @@
 		</div>
 		
 	
-		<form method="get" action="function/ordenar.php">
+		<form id="ordenar" method="get" action="">
 			<div class="row">
 				<div class="col s8 m8 l10">
 					<select name="criterio" class="browser-default">
@@ -39,7 +38,7 @@
 		</form>
 
 		<div class="container subastas">
-			<div class="row">
+			<div id="main-container" class="row">
 				<?php include('include/ver_subastas.php'); ?>
 			</div>
 		</div>

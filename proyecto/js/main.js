@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 $(document).ready(function() {
+
+	/*******************************
+	INICIALIZACIÓN
+	*******************************/
     
 	// Side-nav initialize
 	$(".button-collapse").sideNav();  
@@ -40,18 +44,31 @@ $(document).ready(function() {
 
 	//Dropdown initialization
 	$('.dropdown-button').dropdown({
-      inDuration: 300,
-      outDuration: 225,
-      constrain_width: false, // Does not change width of dropdown to that of the activator
-      hover: true, // Activate on hover
-      gutter: 0, // Spacing from edge
-      belowOrigin: true // Displays dropdown below the button
-    }
-  );
+		inDuration: 300,
+		outDuration: 225,
+		constrain_width: false, // Does not change width of dropdown to that of the activator
+		hover: true, // Activate on hover
+		gutter: 0, // Spacing from edge
+		belowOrigin: true // Displays dropdown below the button
+    });
 
-	// Form validation
+    /*******************************
+	ORDENAR
+	*******************************/
 
-	// Loguearse
+	$("#ordenar").submit(function(event) {
+		event.preventDefault();
+		var $main = $("#main-container");
+		var $criterio = $("#ordenar select").val();
+		$.get("include/ver_subastas.php", {"criterio" :  $criterio}, function(data) {
+			$main.html(data)
+		});
+	});
+
+	/*******************************
+	VER PERFIL
+	*******************************/
+
 	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     	
@@ -112,7 +129,9 @@ $(document).ready(function() {
 	
 	
 
-	// Form submission
+	/*******************************
+	LOGIN
+	*******************************/
 
 	// Control sobre el formulario de Login
 	$("#login-form").submit(function (event) {
@@ -200,28 +219,6 @@ $(document).ready(function() {
 			});
 		}
 	});
-	
-	// Validar que en el apellido no se pueden ingresar caracteres
-	$("#nombre").blur(function(e) {
-	    var val = $(this).val();
-	   	if (val.match(/[^a-zA-Z]/g)) {
-	       $(this).val(val.replace(/[^a-zA-Z]/g, ''));
-	       $("#name-hint").show();
-	   	} else {
-	   		$("#name-hint").hide();
-	   	}
-	});
-
-	// Validar que en el apellido no se puedan ingresar caracteres
-	$("#apellido").blur(function(e) {
-	    var val = $(this).val();
-	   	if (val.match(/[^a-zA-Z]/g)) {
-	      	$(this).val(val.replace(/[^a-zA-Z]/g, ''));
-	      	$("#lastname-hint").show();
-	   	} else {
-	   		$("#lastname-hint").hide();
-	   	}
-	});
 
 	// Confirmar que se haya ingresado el nombre de usuario
 	$("#usuario").blur(function () {
@@ -233,6 +230,12 @@ $(document).ready(function() {
 		}
 	});
 		
+
+	/*******************************
+	REGISTRARSE
+	*******************************/
+	// 	Event handlers para el formulario de registro
+
 	// Validación del DNI
 	$("#dni").blur(function(e) {
 	    var val = $(this).val();
@@ -252,25 +255,6 @@ $(document).ready(function() {
 	   		$("#dni-hint").show();
 	   	}
 	});
-	
-	// Validación de tarjetas
-	$("#tarjeta").blur(function(e) {
-	    var val = $(this).val();
-	   	if (val.match(/[^0-9]/g)) {
-
-	      	$(this).val(val.replace(/[^0-9]/g, ''));
-	      	$('#dni-hint').className = "text-hint warning";
-	      	
-	      	$("#tarjeta-hint").show();
-	   	} else {
-	   		
-	   		$("#dni-hint").hide();
-	   	}
-	});
-	
-
-	//	REGISTRAR
-	// 	Event handlers para el formulario de registro
 
 	//	Validación en tiempo real de nombre de usuario
 	$('#nombre_usuario').blur(function () {
@@ -354,7 +338,46 @@ $(document).ready(function() {
 		}
 	});
 
-	//	Validación campos  de formulario para crear subasta
+	// Validar que en el apellido no se pueden ingresar caracteres
+	$("#nombre").blur(function(e) {
+	    var val = $(this).val();
+	   	if (val.match(/[^a-zA-Z]/g)) {
+	       $(this).val(val.replace(/[^a-zA-Z]/g, ''));
+	       $("#name-hint").show();
+	   	} else {
+	   		$("#name-hint").hide();
+	   	}
+	});
+
+	// Validar que en el apellido no se puedan ingresar caracteres
+	$("#apellido").blur(function(e) {
+	    var val = $(this).val();
+	   	if (val.match(/[^a-zA-Z]/g)) {
+	      	$(this).val(val.replace(/[^a-zA-Z]/g, ''));
+	      	$("#lastname-hint").show();
+	   	} else {
+	   		$("#lastname-hint").hide();
+	   	}
+	});
+
+	// Validación de tarjetas
+	$("#tarjeta").blur(function(e) {
+	    var val = $(this).val();
+	   	if (val.match(/[^0-9]/g)) {
+
+	      	$(this).val(val.replace(/[^0-9]/g, ''));
+	      	$('#dni-hint').className = "text-hint warning";
+	      	
+	      	$("#tarjeta-hint").show();
+	   	} else {
+	   		
+	   		$("#dni-hint").hide();
+	   	}
+	});
+
+	/*******************************
+	CREAR SUBASTA
+	*******************************/
 
 	//	Validar URL
 
@@ -444,6 +467,7 @@ $(document).ready(function() {
 			
 		}
 	});
+
 
 	/*******************************
 	OFERTAS
