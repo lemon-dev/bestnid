@@ -1,4 +1,6 @@
 <?php //El footer se modifica solo de acá ?>
+
+</main>	
 	
 	<!-- floating -->
 	 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
