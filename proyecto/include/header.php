@@ -31,7 +31,14 @@
 						<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
 						<li><a href="/verPerfil.php">Ver Perfil</a></li>	
 					<?php elseif ($_SESSION['rol'] == 'admin'): ?>
-						<li><a href="/admin.php">Opciones</a></li>
+						<li><a class='dropdown-button' href='#' data-activates='dropdown1'>Reportes</a></li>
+
+						<!-- Dropdown Structure -->
+						<ul id='dropdown1' class='dropdown-content'>
+							<li><a href="/reporteUsuarios.php">Usuarios</a></li>
+							<li><a href="/reporteSubastas.php">Subastas</a></li>
+						</ul>
+
 						<li><a href="/categorias.php">Categorias</a></li>
 					<?php endif; ?>
 
@@ -55,7 +62,14 @@
 							<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
 							<li><a href="/verPerfil.php">Ver Perfil</a></li>	
 						<?php elseif ($_SESSION['rol'] == 'admin'): ?>
-							<li><a href="/admin.php">Opciones</a></li>
+							<li><a class='dropdown-button' href='#' data-activates='dropdown2'>Reportes</a></li>
+
+							<!-- Dropdown Structure -->
+							<ul id='dropdown2' class='dropdown-content'>
+								<li><a href="/reporteUsuarios.php">Usuarios</a></li>
+								<li><a href="/reporteSubastas.php">Subastas</a></li>
+							</ul>
+
 							<li><a href="/categorias.php">Categorias</a></li>
 						<?php endif; ?>
 
@@ -69,6 +83,7 @@
 				
 				<?php } ?>
 				</ul>
+
 			</div>
 		</nav>
 	</div>
