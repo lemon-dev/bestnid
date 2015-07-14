@@ -29,17 +29,15 @@ function subastaConID($id_subasta) {
 
 function subastas_por_criterio($criterio) {
 	include('connect.php');
-	if ($criterio == "categoria" ){
-		$query = "	SELECT 	*
+	if ($criterio == "categoria" )
+		$query_string = "C.nombre";
+	else
+		$query_string = $criterio . " DESC";
+	
+	$query = "	SELECT 	*
 				FROM	subasta S INNER JOIN  producto P ON S.id_producto = P.id_producto
 						INNER JOIN categoria C ON P.id_categoria = C.id_categoria 
-				ORDER BY C.nombre ";
-
-	}else{
-		$query = "	SELECT 	*
-					FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
-					ORDER BY  $criterio DESC";	
-	}
+				ORDER BY " . $query_string;
 
 	return $db->query($query);
 }
