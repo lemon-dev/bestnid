@@ -23,7 +23,7 @@
 				</div>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 				<ul class="right hide-on-med-and-down">	
-				
+					<li><a href="/index.php"><i class="mdi-action-home"></i></a></li>
 				<?php 
 				if($_SESSION){ ?>
 					<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
@@ -41,6 +41,7 @@
 				<!--seccion para mobiles-->
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
+									<li><a href="/index.php">Ir a la Página de Inicio</a></li>
 							<?php
 							if($_SESSION){ ?>
 								   	<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>

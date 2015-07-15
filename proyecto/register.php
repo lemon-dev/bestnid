@@ -98,7 +98,7 @@ include('include/header.php');
 				        </div>
 		     		</div>
 
-		     		<input id="register-submit" type="submit" class="btn right form-submit" value="Submit"required>
+		     		<input id="register-submit" type="submit" class="btn right form-submit" value="Registrarme">
 				</form>
 				<div class="form-messages"></div>
 			</div>
