@@ -92,14 +92,101 @@ $(document).ready(function() {
 	    console.log(miIdProducto);
  	});
 
+	//Parametros enviados desde perfil a eliminar usuario
+	$('.abrirEliminarUsuario').leanModal();
+
+	$(document).on("click", ".abrirEliminarUsuario", function () {
+	    var miIdUsuario = $(this).data('id');
+	    $(".modal-content #idUsuario").val( miIdUsuario );
+	    console.log(miIdUsuario);
+	});
+
+ 	//Parametros enviados desde perfil a modificar usuario
+ 	$('.abrirEditarUsuario').leanModal();
+ 	
+ 	$(document).on("click", ".abrirEditarUsuario", function () {
+	    var miusuarioNombre = $(this).data('nombre');
+	    $(".modal-content #nombre").val( miusuarioNombre );
+	    console.log(miusuarioNombre);
+	    var miusuarioApellido = $(this).data('apellido');
+	    $(".modal-content #apellido").val( miusuarioApellido );
+	    console.log(miusuarioApellido);
+	    var miusuarioDni = $(this).data('dni');
+	    $(".modal-content #dni").val( miusuarioDni );
+	    console.log(miusuarioDni);
+	    var miusuarioEmail = $(this).data('email');
+	    $(".modal-content #email").val( miusuarioEmail );
+	    console.log(miusuarioEmail);
+	    var miusuarioTarjeta = $(this).data('tarjeta');
+	    $(".modal-content #tarjeta").val( miusuarioTarjeta );
+	    console.log(miusuarioTarjeta);
+	   	var miIdUsuario = $(this).data('id');
+	    $(".modal-content #idUsuario").val( miIdUsuario );
+	    console.log(miIdUsuario);
+ 	});
+
     // Inicializacion del date picker
     $('.datepicker').pickadate({
 		selectMonths: true, // Creates a dropdown to control month
 		selectYears:15 // Creates a dropdown of 15 years to control year
 	});
 
-	
-	
+	//EDITAR USUARIO
+	// 	Validación del formulario luego del submit
+	$("#editarUsuarioForm").submit(function (event) {
+		event.preventDefault();
+		console.log("Hello");
+		var nombre = $.trim($('#nombre').val());
+		var apellido = $.trim($('#apellido').val());
+		var dni = $.trim($('#dni').val());
+		var email = $.trim($('#email').val());
+		var password = $.trim($('#password').val());
+		var val_password = $.trim($('#val_password').val());
+		var tarjeta = $.trim($('#tarjeta').val());
+		var idUsuario = $.trim($('#idUsuario'));
+
+		if(nombre == '' || apellido == '' || dni == '' ||
+			email == '' || password == '' || tarjeta == '') {
+			
+			window.alert("Por favor llene todos los campos.");
+		
+		} else {
+
+			if(password != val_password){
+				
+				$("#editarUsuarioForm #pass-hint").show();
+				$("#password").val('');
+				$("#val_password").val('');
+			
+			} else {
+
+				$("#editarUsuarioForm #pass-hint").hide();
+				formData = $(this).serialize();	
+		
+				$.ajax({
+					method: "POST",
+					url: "function/usuarioEditar.php",
+					dataType: 'json',
+					data: formData,
+					cache: false,
+					encode: true,
+					success: function(data){
+						console.log(data);
+						if(data.success == true){
+							window.location.href = '/verPerfil.php';
+						} else {
+							window.location.href = '/verPerfil.php';
+						}
+					},
+					error: function (xhr, ajaxOptions, thrownError) {
+						console.log(thrownError);
+						console.log(hxr.status);
+					}
+				});
+			}
+		}
+	});
+
 
 	// Form submission
 
@@ -193,8 +280,8 @@ $(document).ready(function() {
 	// Validar que en el apellido no se pueden ingresar caracteres
 	$("#nombre").blur(function(e) {
 	    var val = $(this).val();
-	   	if (val.match(/[^a-zA-Z]/g)) {
-	       $(this).val(val.replace(/[^a-zA-Z]/g, ''));
+	   	if (val.match(/[^a-zA-Z ]/g)) {
+	       $(this).val(val.replace(/[^a-zA-Z ]/g, ''));
 	       $("#name-hint").show();
 	   	} else {
 	   		$("#name-hint").hide();
@@ -204,8 +291,8 @@ $(document).ready(function() {
 	// Validar que en el apellido no se puedan ingresar caracteres
 	$("#apellido").blur(function(e) {
 	    var val = $(this).val();
-	   	if (val.match(/[^a-zA-Z]/g)) {
-	      	$(this).val(val.replace(/[^a-zA-Z]/g, ''));
+	   	if (val.match(/[^a-zA-Z ]/g)) {
+	      	$(this).val(val.replace(/[^a-zA-Z ]/g, ''));
 	      	$("#lastname-hint").show();
 	   	} else {
 	   		$("#lastname-hint").hide();

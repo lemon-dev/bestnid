@@ -59,7 +59,7 @@ include('include/header.php');
 		     		<div class="row">
 				        <div class="input-field col s12">
 				          <input name="dni" id="dni" type="text" class="validate active" placeholder="Ejemplo: xx.xxx.xxx"  required>
-		          			<label for="dni">DNI (Documento Nacional de Identidad</label>
+		          			<label for="dni">DNI (Documento Nacional de Identidad)</label>
 				        	<span id="dni-hint" class="text-hint warning">* El dni solo puede contener numeros,caracteres invalidos han sido omitidos</span>
 				        </div>
 		     		</div>
@@ -73,8 +73,8 @@ include('include/header.php');
 				        <div class="input-field col s12">
 				          	<input name="nombre_usuario" id="nombre_usuario" type="text" class="validate" required>
 		          			<label for="nombre_usuario">Username</label>
-		          			<span id="user-hint" class="text-hint error">* El nombre de usuario ya existe</p>
-				        	<!--span id="user-hint">El nombre de usuario ya existe.</span-->
+		          			<span id="user-hint" class="text-hint error">* El nombre de usuario ya existe</span>
+				        	
 				        </div>
 		     		</div>
 		     		<div class="row">
@@ -87,7 +87,7 @@ include('include/header.php');
 				        <div class="input-field col s12">
 				          	<input name="val_password" id="val_password" type="password" class="validate" required>
 		          			<label for="val_password">Confirmación de contraseña</label>
-		          			<span id="pass-hint" class="text-hint error">* Las contraseñas no coinciden, por favor vuelva a intentarlo</span-->
+		          			<span id="pass-hint" class="text-hint error">* Las contraseñas no coinciden, por favor vuelva a intentarlo</span>
 				        </div>
 		     		</div>
 		     		<div class="row">
