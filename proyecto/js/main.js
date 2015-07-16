@@ -41,7 +41,7 @@ $(document).ready(function() {
 		var form_id = '#respuesta-form-'.concat(id_consulta);
 		$(form_id).toggle('normal');
 	});
-
+    
 	//Dropdown initialization
 	$('.dropdown-button').dropdown({
 		inDuration: 300,
@@ -51,6 +51,7 @@ $(document).ready(function() {
 		gutter: 0, // Spacing from edge
 		belowOrigin: true // Displays dropdown below the button
     });
+    
 
     /*******************************
 	ORDENAR
@@ -307,28 +308,6 @@ $(document).ready(function() {
 		}
 	});
 
-	// Validar que en el apellido no se pueden ingresar caracteres
-	$("#nombre").blur(function(e) {
-	    var val = $(this).val();
-	   	if (val.match(/[^a-zA-Z ]/g)) {
-	       $(this).val(val.replace(/[^a-zA-Z ]/g, ''));
-	       $("#name-hint").show();
-	   	} else {
-	   		$("#name-hint").hide();
-	   	}
-	});
-
-	// Validar que en el apellido no se puedan ingresar caracteres
-	$("#apellido").blur(function(e) {
-	    var val = $(this).val();
-	   	if (val.match(/[^a-zA-Z ]/g)) {
-	      	$(this).val(val.replace(/[^a-zA-Z ]/g, ''));
-	      	$("#lastname-hint").show();
-	   	} else {
-	   		$("#lastname-hint").hide();
-	   	}
-	});
-
 	// Confirmar que se haya ingresado el nombre de usuario
 	$("#usuario").blur(function () {
 		if($(this).val() == '') {
@@ -450,8 +429,8 @@ $(document).ready(function() {
 	// Validar que en el apellido no se pueden ingresar caracteres
 	$("#nombre").blur(function(e) {
 	    var val = $(this).val();
-	   	if (val.match(/[^a-zA-Z]/g)) {
-	       $(this).val(val.replace(/[^a-zA-Z]/g, ''));
+	   	if (val.match(/[^a-zA-Z ]/g)) {
+	       $(this).val(val.replace(/[^a-zA-Z ]/g, ''));
 	       $("#name-hint").show();
 	   	} else {
 	   		$("#name-hint").hide();
@@ -461,8 +440,8 @@ $(document).ready(function() {
 	// Validar que en el apellido no se puedan ingresar caracteres
 	$("#apellido").blur(function(e) {
 	    var val = $(this).val();
-	   	if (val.match(/[^a-zA-Z]/g)) {
-	      	$(this).val(val.replace(/[^a-zA-Z]/g, ''));
+	   	if (val.match(/[^a-zA-Z ]/g)) {
+	      	$(this).val(val.replace(/[^a-zA-Z ]/g, ''));
 	      	$("#lastname-hint").show();
 	   	} else {
 	   		$("#lastname-hint").hide();

@@ -5,31 +5,46 @@
 	include('db/connect.php');
 ?>
 	
-<?php if(isset($_GET['status'])){ ?>
+<?php if(isset($_GET['status'])){
 
-	<?php if($_GET['status'] == 'fail') {?>
+	if($_GET['status'] == 'failSubasta') {?>
 
-	<div class="container operation-result" id="eliminar-usuario-result">
-		<div class="row">
-			<h3>Ups :(</h3>
-			<p>No puede eliminar su cuenta si tiene subastas activas!</p>
-			<a class="btn center" href="verPerfil.php">Volver</a>
+		<div class="container operation-result" id="eliminar-usuario-result">
+			<div class="row">
+				<h3>Ups :(</h3>
+				<p>No puede eliminar su cuenta si tiene subastas activas!</p>
+				<a class="btn center" href="verPerfil.php">Volver</a>
+			</div>
 		</div>
-	</div>
 
-	<?php } else {?>
+	<?php } 
+
+	if($_GET['status'] == 'failOferta') {?>
 	
-	<div class="container operation-result" id="eliminar-usuario-result">
-		<div class="row">
-			<h3>Ha eliminado su cuenta con exito!</h3>
-			<p>Esperamos verlo de vuelta por este maravilloso sitio.</p>
-			<a class="btn center" href="index.php">Aceptar</a>
+		<div class="container operation-result" id="eliminar-usuario-result">
+			<div class="row">
+				<h3>Ups :(</h3>
+				<p>No puede eliminar su cuenta si tiene ofertas exitosas!</p>
+				<p>Por favor contáctese con el subastador y luego elimine la oferta desde su perfil.</p>
+				<a class="btn center" href="verPerfil.php">Volver</a>
+			</div>
 		</div>
-	</div>
 
-<?php } ?>
+	<?php }
 
-<?php } else {?>
+	if($_GET['status'] == 'success') {?>
+		
+		<div class="container operation-result" id="eliminar-usuario-result">
+			<div class="row">
+				<h3>Ha eliminado su cuenta con exito!</h3>
+				<p>Esperamos verlo de vuelta por este maravilloso sitio.</p>
+				<a class="btn center" href="index.php">Aceptar</a>
+			</div>
+		</div>
+
+	<?php } 	
+
+} else {?>
 
 	<section>
 		<div class="container perfil">
@@ -331,7 +346,7 @@
 		     		</div>
 		     		<div class= "row">
 		     			<div class="input-field col s12">
-		     				<select name="subastaCategorias" id="subastaCategorias">
+		     				<select name="subastaCategorias" id="subastaCategorias" class="browser-default">
 							<?php 
 								while ($row = $resultCat->fetch_object()) { ?>
 								<option value="<?php echo $row->id_categoria ?>"><?php echo $row->nombre ?></option>

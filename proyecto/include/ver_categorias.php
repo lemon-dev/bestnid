@@ -6,7 +6,7 @@ while($categoria = $categorias->fetch_object()):  ?>
 	<div class="card-panel grey lighten-5 z-depth-1">
 		<div class="row">
 			<a class="col s8 m8 l8 left categoria-nombre col s6 m6 l6" href="#!"><?php echo $categoria->nombre ?></a>
-			<!--a id="editarCategoria" class="btn" href="#!"><i class="mdi-editor-mode-edit"></i></a-->
+			<a id="editarCategoria" class="btn" href="#!"><i class="mdi-editor-mode-edit"></i></a>
 
 			<form method="post" action="function/categoriaEliminar.php">
 				<input type="hidden" name="id_categoria" value="<?php echo $categoria->id_categoria ?>">
