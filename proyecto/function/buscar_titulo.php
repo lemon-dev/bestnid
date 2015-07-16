@@ -19,14 +19,20 @@ include("../db/connect.php");
 				</header>
 			</div>
 			<div class="row">
-				<?php 
-					$query = " 	SELECT *
-								FROM subasta S
-								INNER JOIN  producto P ON S.id_producto = P.id_producto
-								WHERE titulo LIKE '%" . $_GET["param_busqueda"] . "%'";
+			    <?php 
+				$query = " 	SELECT *
+							FROM subasta S
+							INNER JOIN  producto P ON S.id_producto = P.id_producto
+							WHERE titulo LIKE '%" . $_GET["param_busqueda"] . "%'";
 					
-					$result = $db->query($query); 
-					
+				$result = $db->query($query); 
+
+				if($result->num_rows == 0) {?>
+					<div class="container busqueda-fallida">
+						<h4>No se han encontrado resultados :(</h4>
+			        </div>
+				<?php }
+				else {	
 					while ($row = $result->fetch_object()) {
 						
 						?>
@@ -46,8 +52,10 @@ include("../db/connect.php");
 			            </div>
 			          </div>
 			        </div>	  
-				<?php } ?>
-				</div>
+					<?php } 
+				}?>
+
+			</div>
 		</div>
 	</div>
 </section>

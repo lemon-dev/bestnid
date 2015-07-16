@@ -60,7 +60,7 @@ include('include/header.php');
 		     		</div>
 		     		<div class= "row">
 		     			<div class="input-field col s12">
-		     				<select name="subastaCategorias" id="subastaCategorias">
+		     				<select name="subastaCategorias" id="subastaCategorias" class="browser-default">
 							<?php 
 								while ($row = $result->fetch_object()) { ?>
 								<option value="<?php echo $row->id_categoria ?>"><?php echo $row->nombre ?></option>

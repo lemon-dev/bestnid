@@ -19,10 +19,27 @@
 				//verificamos que no tenga subasta activas
 				if($row->fecha_final>date('Y-m-d')){
 					$errors = 'El usuario tiene subastas activas';
-					header('Location: /verPerfil.php?status=fail');
+					header('Location: /verPerfil.php?status=failSubasta');
 					die();
+					exit();
 				}
 			}
+
+			//seleccionamos todas las ofertas exitosas del usuario
+			$query="SELECT * FROM oferta_exitosa E INNER JOIN oferta O WHERE O.id_usuario ='".$_POST['idUsuario']."' AND E.id_oferta = O.id_oferta";
+			
+			$result = $db->query($query);
+
+			if($result->num_rows > 0){
+				//verificamos que no tenga ofertas exitosas		
+				$errors = 'El usuario tiene ofertas exitosas';
+				header('Location: /verPerfil.php?status=failOferta');
+				die();
+				exit();
+			}
+
+			//seleccionamos todas las subastas que pertenecen al usuario 
+			$query="SELECT * FROM subasta WHERE id_usuario ='".$_POST['idUsuario']."'";
 
 			$resultado = $db->query($query);
 			
@@ -55,6 +72,7 @@
 				session_destroy();
 				header('Location: /verPerfil.php?status=success');
 				die();
+				exit();
 			}					
 			
 		}
