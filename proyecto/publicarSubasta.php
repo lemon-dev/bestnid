@@ -2,7 +2,7 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-$pageTitle = "Bestnid | Crear subasta";
+$pageTitle = "Bestnid | Publicar subasta";
 include('include/header.php');
  include("db/connect.php");
 
@@ -45,7 +45,7 @@ include('include/header.php');
 		<div class="container form-container">
 			<div class="row">
 				<header class="form-header">
-					<h4>Crear subasta</h4>
+					<h4>Publicar subasta</h4>
 					<p>Complete los siguientes campos para crear una subasta.</p>
 					
 				</header>
@@ -87,7 +87,7 @@ include('include/header.php');
 					    	<input type="range" name="subastaFechaFin" id="test5" min="15" max="30" />
 					    </div> 
 					</div>
-		     		<input id="crearSubasta-submit" type="submit" class="btn right form-submit" value="Submit"required>
+		     		<input id="crearSubasta-submit" type="submit" class="btn right form-submit" value="Publicar"required>
 				</form>
 				<div class="form-messages"></div>
 			</div>

@@ -41,6 +41,9 @@ if(isset($_POST)){
 				$_SESSION['apellido']=$row->apellido;
 				$_SESSION['nombre']=$row->nombre;
 				$_SESSION['rol']=$row->rol;
+				$_SESSION['dni']=$row->dni;
+				$_SESSION['email']=$row->email;
+				$_SESSION['tarjeta']=$row->tarjeta;
 				$data['session'] = $_SESSION;
 			} else {
 				

@@ -23,7 +23,7 @@
 				</div>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 				<ul class="right hide-on-med-and-down">	
-				
+					<li><a href="/index.php"><i class="mdi-action-home"></i></a></li>
 				<?php 
 				if($_SESSION){ ?>
 
@@ -49,7 +49,7 @@
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
 					<?php
-					if($_SESSION){ ?>
+					if($_SESSION): ?>
 						
 						<?php if($_SESSION['rol'] == 'usuario') : ?>
 							<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
@@ -59,9 +59,9 @@
 							<li><a href="/categorias.php">Categorias</a></li>
 						<?php endif; ?>
 
-						<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
+						<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li
 						   
-					<?php } ?>
+					<?php endif; ?>
 				</ul>
 			</div>
 		</nav>

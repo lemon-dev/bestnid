@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 //error_reporting(-1);
 //ini_set('display_errors', 'On');
 
@@ -98,7 +98,7 @@ if($_SESSION && ($_SESSION['id_usuario'] == $subasta->id_usuario)){
 
  <?php }  else {?>
 	
-	<p>Solo el dueno de la subasta puede ver las ofertas</p>
+	<p>Solo el dueño de la subasta puede ver las ofertas</p>
 	<?php die(); ?>
 
  <?php } ?>

@@ -31,7 +31,7 @@ include("db/connect.php");
 	          			<span id="log-pass-hint" class="text-hint error">* Por favor ingrese una contraseña</span>
 			        </div>
 	     		</div>
-	     		<input type="submit" class="btn right form-submit" value="Submit" id="login-submit">
+	     		<input type="submit" class="btn right form-submit" value="Iniciar Sesión" id="login-submit">
 			</form>
 		</div>
 	</div>
