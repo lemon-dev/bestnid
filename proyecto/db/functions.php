@@ -41,11 +41,8 @@ function subastas_por_criterio($criterio = "C.nombre") {
 	return $db->query($query);
 }
 
-function subastas_exitosas($fecha_desde=NULL, $fecha_hasta=NULL) {
+function subastas_exitosas() {
 	include('connect.php');
-	if($fecha_desde != NULL && $fecha_hasta != NULL)
-		$query_string = "WHERE fecha_inicio BETWEEN " . $fecha_desde . "AND " . $fecha_hasta; 
-	else $query_string = "";
 
 	$query = "SELECT * 
 			FROM oferta_exitosa E 
@@ -56,7 +53,23 @@ function subastas_exitosas($fecha_desde=NULL, $fecha_hasta=NULL) {
 			INNER JOIN producto P 
 			ON S.id_producto = P.id_producto
 			INNER JOIN categoria C 
-			ON P.id_categoria = C.id_categoria " . $query_string;
+			ON P.id_categoria = C.id_categoria ";
+
+	return $db->query($query);
+}
+
+function subastas_exitosas_entre($fecha_desde, $fecha_hasta) {
+	include('connect.php');
+	
+
+	$query = "SELECT * FROM oferta_exitosa E
+			INNER JOIN oferta O ON E.id_oferta = O.id_oferta 
+    		INNER JOIN subasta S ON S.id_subasta = O.id_subasta
+    		INNER JOIN producto P ON S.id_producto = P.id_producto
+    		INNER JOIN categoria C ON P.id_categoria = C.id_categoria
+    		WHERE S.fecha_final BETWEEN '" . $fecha_desde . "' AND '" . $fecha_hasta . "'";
+
+    		//echo $query;
 
 	return $db->query($query);
 }

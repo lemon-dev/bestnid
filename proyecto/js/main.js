@@ -156,7 +156,8 @@ $(document).ready(function() {
     // Inicializacion del date picker
     $('.datepicker').pickadate({
 		selectMonths: true, // Creates a dropdown to control month
-		selectYears:15 // Creates a dropdown of 15 years to control year
+		selectYears:15, // Creates a dropdown of 15 years to control year
+		format: 'yyyy-mm-dd'
 	});
 
 	//EDITAR USUARIO
@@ -603,6 +604,18 @@ $(document).ready(function() {
 	$('.categoria-nombre').click(function() {
 		$(this).next().toggle();
 		$(this).next().next().toggle();
+	});
+
+	/*******************************
+	REPORTES
+	*******************************/
+
+	$("#filtrar-subastas").submit(function(event) {
+		event.preventDefault();
+		var data = $(this).serialize();
+		$.get("include/ver_subastas_exitosas.php", data, function(response) {
+			$("#subastas_exitosas").html(response);
+		});
 	});
 
 	//

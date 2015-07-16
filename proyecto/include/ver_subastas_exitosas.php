@@ -1,6 +1,14 @@
 <?php 
 
-$subastas = subastas_exitosas();
+if(isset($_GET['desde'], $_GET['hasta'])):
+	//echo $_GET['desde'] . ' ' . $_GET['hasta'] . ' ';
+	include('../db/functions.php');
+	$subastas = subastas_exitosas_entre($_GET['desde'], $_GET['hasta']);
+
+else: 
+	$subastas = subastas_exitosas();
+endif;
+
 $total = 0;
 
 if($subastas->num_rows > 0): while($subasta = $subastas->fetch_object()): 
