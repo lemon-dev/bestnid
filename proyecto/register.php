@@ -92,7 +92,7 @@ include('include/header.php');
 		     		</div>
 		     		<div class="row">
 				        <div class="input-field col s12">
-				          	<input name="tarjeta" id="tarjeta" type="text" class="validate" placeholder="Ejemplo: xxxx xxxx xxxx" required>
+				          	<input name="tarjeta" id="tarjeta" type="text" class="validate" placeholder="Ejemplo: xxxx xxxx xxxx" required maxlength="11">
 		          			<label for="tarjeta">Num. tarjeta de credito</label>
 		          			<span id="tarjeta-hint" class="text-hint warning">* El num. de la tarjeta solo puede contener numeros,caracteres invalidos han sido omitidos</span>
 				        </div>

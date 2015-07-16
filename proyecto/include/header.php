@@ -25,44 +25,71 @@
 				<ul class="right hide-on-med-and-down">	
 					<li><a href="/index.php"><i class="mdi-action-home"></i></a></li>
 				<?php 
-				if($_SESSION){ ?>
+				if($_SESSION): ?>
 
 					<?php if($_SESSION['rol'] == 'usuario') : ?>
+					
 						<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
 						<li><a href="/verPerfil.php">Ver Perfil</a></li>	
+					
 					<?php elseif ($_SESSION['rol'] == 'admin'): ?>
-						<li><a href="/admin.php">Opciones</a></li>
+						
+						<li><a class='dropdown-button' href='#' data-activates='dropdown1'>Reportes</a></li>
+
+						<!-- Dropdown Structure -->
+						<ul id='dropdown1' class='dropdown-content'>
+							<li><a href="/reporteUsuarios.php">Usuarios</a></li>
+							<li><a href="/reporteSubastas.php">Subastas</a></li>
+						</ul>
+
 						<li><a href="/categorias.php">Categorias</a></li>
+
 					<?php endif; ?>
 
 					<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li>
 
 
-				<?php } else { ?>
+				<?php  else: ?>
 
 					<li><a href="/register.php">Registrarse</a></li>
 					<li><a href="/login.php">Iniciar Sesi&oacute;n</a></li>
 					
 				
-				<?php } ?>
+				<?php endif; ?>
+				
 				<!--seccion para mobiles-->
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
-					<?php
-					if($_SESSION): ?>
+				<?php
+				if($_SESSION): ?>
 						
-						<?php if($_SESSION['rol'] == 'usuario') : ?>
+					<?php 	if($_SESSION['rol'] == 'usuario') : ?>
 							<li><a href="/publicarSubasta.php">Publicar Subasta</a></li>
 							<li><a href="/verPerfil.php">Ver Perfil</a></li>	
-						<?php elseif ($_SESSION['rol'] == 'admin'): ?>
-							<li><a href="/admin.php">Opciones</a></li>
+					<?php 	elseif ($_SESSION['rol'] == 'admin'): ?>
+							<li><a class='dropdown-button' href='#' data-activates='dropdown2'>Reportes</a></li>
+
+							<!-- Dropdown Structure -->
+							<ul id='dropdown2' class='dropdown-content'>
+								<li><a href="/reporteUsuarios.php">Usuarios</a></li>
+								<li><a href="/reporteSubastas.php">Subastas</a></li>
+							</ul>
+
 							<li><a href="/categorias.php">Categorias</a></li>
-						<?php endif; ?>
+					<?php 	endif; ?>
 
 						<li><a href="/logout.php">Cerrar Sesi&oacute;n</a></li
-						   
-					<?php endif; ?>
+			
+			<?php  	else: ?>
+
+					<li><a href="/register.php">Registrarse</a></li>
+					<li><a href="/login.php">Iniciar Sesi&oacute;n</a></li>
+					
+				
+			<?php 	endif; ?>
 				</ul>
+
 			</div>
 		</nav>
 	</div>
+<main>

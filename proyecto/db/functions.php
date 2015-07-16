@@ -1,6 +1,19 @@
 <?php 
 
-function subastaConID($id_subasta){
+/********************************
+SUBASTAS
+********************************/
+
+function subastas() {
+	include('connect.php');
+	$query = "	SELECT 	*
+				FROM	subasta S INNER JOIN producto P ON S.id_producto = P.id_producto
+				INNER JOIN categoria C ON P.id_categoria = C.id_categoria 
+				ORDER BY fecha_inicio DESC";
+	return $db->query($query);
+}
+
+function subastaConID($id_subasta) {
 	include('db/connect.php');
 	
 	$query = "	SELECT 	*
@@ -14,6 +27,43 @@ function subastaConID($id_subasta){
 
 	return $row;
 }
+
+function subastas_por_criterio($criterio = "C.nombre") {
+	include('connect.php');
+	if ($criterio != "categoria" )
+		$query_string = $criterio . " DESC";
+	
+	$query = "	SELECT 	*
+				FROM	subasta S INNER JOIN  producto P ON S.id_producto = P.id_producto
+						INNER JOIN categoria C ON P.id_categoria = C.id_categoria 
+				ORDER BY " . $query_string;
+
+	return $db->query($query);
+}
+
+function subastas_exitosas($fecha_desde=NULL, $fecha_hasta=NULL) {
+	include('connect.php');
+	if($fecha_desde != NULL && $fecha_hasta != NULL)
+		$query_string = "WHERE fecha_inicio BETWEEN " . $fecha_desde . "AND " . $fecha_hasta; 
+	else $query_string = "";
+
+	$query = "SELECT * 
+			FROM oferta_exitosa E 
+			INNER JOIN oferta O 
+			ON E.id_oferta = O.id_oferta
+			INNER JOIN subasta S
+			ON S.id_subasta = O.id_subasta
+			INNER JOIN producto P 
+			ON S.id_producto = P.id_producto
+			INNER JOIN categoria C 
+			ON P.id_categoria = C.id_categoria " . $query_string;
+
+	return $db->query($query);
+}
+
+/********************************
+OFERTAS
+********************************/
 
 function ofertasParaSubasta($id_subasta){
 
@@ -37,6 +87,58 @@ function ofertaExitosaParaSubasta($id_subasta){
 				INNER JOIN usuario U ON O.id_usuario = U.id_usuario
 				INNER JOIN oferta_exitosa E ON O.id_oferta = E.id_oferta
 				WHERE S.id_subasta='". $id_subasta ."'";
+	$result = $db->query($query);
+
+	return $result;
+}
+
+/********************************
+OFERTAS
+********************************/
+
+function yaOferto($id_usuario, $id_subasta){
+	include('db/connect.php');
+	$query = "	SELECT 	*
+				FROM	subasta S INNER JOIN oferta O ON S.id_subasta = O.id_subasta
+				WHERE	O.id_usuario = " . $id_usuario . " AND S.id_subasta = " . $id_subasta;
+
+	if(!$result = $db->query($query)){
+		echo ":(";
+		die();
+	}
+
+	if($result->num_rows != 0){
+		return true;
+	}
+	return false;
+}
+
+/********************************
+CONSULTAS
+********************************/
+
+function consultasParaSubasta($id_subasta){
+	include('db/connect.php');
+
+	$query = " SELECT * FROM consulta WHERE id_subasta=" .  $_GET['id_subasta'];
+
+	if(!$result = $db->query($query)){
+		echo ':(';
+		die();
+	}
+
+	return $result;
+}
+
+/********************************
+RESPUESTAS
+********************************/
+
+function respuestaParaConsulta($id_consulta){
+	include('db/connect.php');
+
+	$query = " SELECT * FROM respuesta WHERE id_consulta=" . $id_consulta;
+
 	$result = $db->query($query);
 
 	return $result;
@@ -69,7 +171,7 @@ function categoriaTieneProducto($id_categoria) {
 
 	$result = $db->query($query);
 
-	return $result->num_rows == 0;
+	return $result->num_rows != 0;
 }
 
 function eliminarCategoria($id_categoria) {
