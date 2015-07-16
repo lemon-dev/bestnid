@@ -24,14 +24,15 @@ include('db/functions.php');
 	</div>
 
 	<p>Resultados:</p>
-	<ul class="collection">
+	<ul >
 		<!-- Acá se incluye el script que lista los usuarios el cual devuelve un $total-->
+		<?php include('include/ver_usuarios.php') ?>
 	</ul>
 
-	<div class="card-panel <?php //echo ($total > 0 ? 'green' : 'yellow') ?> z-depth-1 resumen">
+	<div class="card-panel <?php echo ($total > 0 ? 'green' : 'red') ?> z-depth-1 resumen">
 		<div class="row">
-			<p class="left">Ganancia total:</p>
-			<p class="right">$<?php //echo $total ?></p>
+			<p class="left">Total de usuarios:</p>
+			<p class="right"><?php echo $total ?></p>
 		</div>
 	</div>
 </div>

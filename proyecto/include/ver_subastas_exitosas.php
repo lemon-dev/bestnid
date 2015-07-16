@@ -22,5 +22,5 @@ if($subastas->num_rows > 0): while($subasta = $subastas->fetch_object()):
 	</li>
 
 <?php endwhile; else: ?>
-	
+	<h5>No hay resultados.</h5>
 <?php endif; ?>

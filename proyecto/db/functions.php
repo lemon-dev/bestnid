@@ -1,5 +1,16 @@
 <?php 
-
+/********************************
+USUARIOS
+********************************/
+function usuarios() {
+	include('connect.php');
+	$query = "	SELECT 	*
+				FROM	usuario S 
+				WHERE S.id_rol='1'
+				ORDER BY fecha_alta DESC
+				";
+	return $db->query($query);
+}
 /********************************
 SUBASTAS
 ********************************/
