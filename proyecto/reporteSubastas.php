@@ -15,7 +15,7 @@ if(isset($_GET['desde'], $_GET['hasta'])) {
 
 
 
-<div class=" white container subastas-exitosas">
+<div class="white container reporte">
 
 	<h2>Subastas exitosas</h2>
 	<br>
@@ -35,7 +35,7 @@ if(isset($_GET['desde'], $_GET['hasta'])) {
 		<?php include('include/ver_subastas_exitosas.php') ?>
 	</ul>
 
-	<div class="card-panel <?php echo ($total > 0 ? 'green' : 'yellow') ?> z-depth-1 subastas-resumen">
+	<div class="card-panel <?php echo ($total > 0 ? 'green' : 'yellow') ?> z-depth-1 resumen">
 		<div class="row">
 			<p class="left">Ganancia total:</p>
 			<p class="right">$<?php echo $total ?></p>

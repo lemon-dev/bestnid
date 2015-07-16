@@ -528,20 +528,20 @@ CATEGORIAS
 }
 
 /**********************************
-SUBASTAS EXITOSAS
+REPORTES
 ***********************************/
 
-.subastas-exitosas {
+.reporte {
 	margin-top: 10%;
 	font-size: 1.5em;
 	padding-bottom: 2.5%;
 	padding-top: 2.5%;
 }
 
-.subastas-resumen {
+.resumen {
 }
 
-.subastas-resumen .row{
+.reporte .row{
 	margin: 0;
 }
 
