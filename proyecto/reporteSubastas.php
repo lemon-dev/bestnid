@@ -6,11 +6,11 @@ $pageTitle = "Bestnid | Reporte - Subastas";
 include('include/header.php');
 include('db/functions.php');
 
-if(isset($_GET['desde'], $_GET['hasta']) {}
+if(isset($_GET['desde'], $_GET['hasta'])) {
 	$fecha_desde = $_GET['desde'];
 	$fecha_hasta = $_GET['hasta'];
 	$subastas = subastas_exitosas($fecha_desde, $fecha_hasta);
-} else subastas_exitosas();
+} else $subastas = subastas_exitosas();
 ?>
 
 
