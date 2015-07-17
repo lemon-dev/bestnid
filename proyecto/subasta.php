@@ -33,9 +33,9 @@ include('db/functions.php');
 					<p>Categoria : <?php echo $subasta->nombre ?></p>
 					<p>Fecha de Inicio: <?php echo $subasta->fecha_inicio ?></p>
 					<p>Fecha de Fin: <?php echo $subasta->fecha_final ?></p>
-					<?php 	if($_SESSION){ ?>
+					<?php 	if($_SESSION  && $_SESSION['rol'] == 1){ ?>
 						
-							<?php 	if($subasta->id_usuario != $_SESSION['id_usuario']) {  
+					<?php 	if($subasta->id_usuario != $_SESSION['id_usuario']) {  
 
 								if(!yaOferto($_SESSION['id_usuario'], $_GET['id_subasta'])) { ?>
 									<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ofertar</a>
@@ -73,9 +73,13 @@ include('db/functions.php');
 						
 					<?php 	} else { ?>
 
+						<?php if($_SESSION['rol'] == 1) { ?>
+
 						<a id="ofertar-btn" class="waves-effect waves-light btn disabled">Ofertar</a>
 						<span class="not-registered warning"> * Haga <a href="/login.php?redirect_to=<?php echo $_GET['id_subasta'] ?>">click aquí</a> para iniciar sesión y poder Ofertar.</span>
 
+						<?php } ?>
+					
 					<?php 	} ?>
 				</div>
 			</li>
@@ -139,7 +143,7 @@ include('db/functions.php');
 					<?php } ?>
 				</ul>
 
-				<?php if(empty($_SESSION) || ($_SESSION && $subasta->id_usuario != $_SESSION['id_usuario'])) { ?>
+				<?php if(empty($_SESSION) || ($_SESSION && $subasta->id_usuario != $_SESSION['id_usuario'] && $_SESSION['rol'] == 1)) { ?>
 					<form id="consultar-form" method="post" action="/function/consultar-process.php">
 						<div class="input-field col s12 m12 l12">
 							<textarea name="consulta" id="cuerpo-consulta" class="materialize-textarea validate active center" placeholder="Escriba aquí su consulta..." required></textarea>
