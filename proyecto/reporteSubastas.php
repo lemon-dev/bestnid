@@ -33,15 +33,10 @@ if(isset($_GET['desde'], $_GET['hasta'])) {
 	</div>
 	
 	<p>Resultados:</p>
-	<ul id="subastas_exitosas" class="collection">
+	<div id="subastas_exitosas">
+		
 		<?php include('include/ver_subastas_exitosas.php') ?>
-	</ul>
 
-	<div class="card-panel <?php echo ($total > 0 ? 'green' : 'yellow') ?> z-depth-1 resumen">
-		<div class="row">
-			<p class="left">Ganancia total:</p>
-			<p class="right">$<?php echo $total ?></p>
-		</div>
 	</div>
 </div>
 

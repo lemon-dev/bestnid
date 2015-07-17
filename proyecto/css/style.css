@@ -559,6 +559,10 @@ REPORTES
 	margin-top: 0;
 }
 
+.subasta-exitosa {
+	border-top: 2px solid #263238;
+}
+
 
 /**********************************
 COLORES
