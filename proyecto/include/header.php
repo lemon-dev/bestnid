@@ -60,6 +60,7 @@
 				<!--seccion para mobiles-->
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
+				<li><a href="/index.php">Ir a la Página de Inicio</a></li>
 				<?php
 				if($_SESSION): ?>
 						
