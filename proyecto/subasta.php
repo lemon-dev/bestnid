@@ -11,7 +11,8 @@ include('db/functions.php');
 <?php 
 	$subasta = subastaConID($_GET['id_subasta']);
 	$pageTitle = "Bestnid | $subasta->titulo";
-	include('include/header.php');	
+	include('include/header.php');
+	
  ?>
 <?php $terminada = $subasta->fecha_final < date('Y-m-d') ?>
 
@@ -33,11 +34,13 @@ include('db/functions.php');
 					<p>Categoria : <?php echo $subasta->nombre ?></p>
 					<p>Fecha de Inicio: <?php echo $subasta->fecha_inicio ?></p>
 					<p>Fecha de Fin: <?php echo $subasta->fecha_final ?></p>
-					<?php 	if($_SESSION  && $_SESSION['rol'] == 1){ ?>
+
+				<?php 	if($_SESSION  && $_SESSION['rol'] == 'usuario'){ ?>
 						
 					<?php 	if($subasta->id_usuario != $_SESSION['id_usuario']) {  
 
 								if(!yaOferto($_SESSION['id_usuario'], $_GET['id_subasta'])) { ?>
+									
 									<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ofertar</a>
 
 									<div id="modal1" class="modal">
@@ -63,24 +66,30 @@ include('db/functions.php');
 											</div>
 										</div>
 									</div>
-								<?php   } else { 
-											if(!$terminada) { ?>
-											<span class="not-registered warning"> * Usted ya ha ofertado en esta subasta, para ver sus ofertas haga <a href="/verPerfil.php">click aquí</a>.</span>
-								<?php }	} ?>
-							<?php	} else { ?>
-										<a class="waves-effect waves-light btn" href="ofertas.php?id_subasta=<?php echo $_GET['id_subasta']?>">Ver Ofertas</a>
+
+						<?php   } else { 
+									if(!$terminada) { ?>
+
+										<span class="not-registered warning"> * Usted ya ha ofertado en esta subasta, para ver sus ofertas haga <a href="/verPerfil.php">click aquí</a>.</span>
+						
+						<?php 		}	
+								} ?>
+					<?php	} else { ?>
+
+								<a class="waves-effect waves-light btn" href="ofertas.php?id_subasta=<?php echo $_GET['id_subasta']?>">Ver Ofertas</a>
+					
 							<?php 	} ?>
 						
-					<?php 	} else { ?>
+				<?php 	} else { ?>
 
-						<?php if($_SESSION['rol'] == 1) { ?>
+						<?php if($_SESSION['rol'] == 'usuario') { ?>
 
 						<a id="ofertar-btn" class="waves-effect waves-light btn disabled">Ofertar</a>
 						<span class="not-registered warning"> * Haga <a href="/login.php?redirect_to=<?php echo $_GET['id_subasta'] ?>">click aquí</a> para iniciar sesión y poder Ofertar.</span>
 
 						<?php } ?>
 					
-					<?php 	} ?>
+				<?php 	} ?>
 				</div>
 			</li>
 		</ul>
@@ -143,7 +152,7 @@ include('db/functions.php');
 					<?php } ?>
 				</ul>
 
-				<?php if(empty($_SESSION) || ($_SESSION && $subasta->id_usuario != $_SESSION['id_usuario'] && $_SESSION['rol'] == 1)) { ?>
+				<?php if(empty($_SESSION) || ($_SESSION && $subasta->id_usuario != $_SESSION['id_usuario'] && $_SESSION['rol'] == 'usuario')) { ?>
 					<form id="consultar-form" method="post" action="/function/consultar-process.php">
 						<div class="input-field col s12 m12 l12">
 							<textarea name="consulta" id="cuerpo-consulta" class="materialize-textarea validate active center" placeholder="Escriba aquí su consulta..." required></textarea>
@@ -156,6 +165,5 @@ include('db/functions.php');
 		</section>	
 	<?php 	} ?>		
 </div>
-
 
 <?php include('include/footer.php'); ?>
