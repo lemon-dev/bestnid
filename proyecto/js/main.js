@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 $(document).on("click", '.editarCategoria', function() {
-	$('#eliminar-categoria-submit').toggle();
 	$(this).siblings('.modificar-categoria').toggle();
 	var $this = $(this).parent().parent().parent().find('.editarCategoria');
 	$.each($this.not($(this)), function(index, value) {
