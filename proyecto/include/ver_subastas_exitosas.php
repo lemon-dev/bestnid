@@ -36,7 +36,5 @@ $total = 0;
 </div>
 
 <?php else: ?> 
-
-<?php endwhile; else: ?>
 	<h5>No hay resultados.</h5>
 <?php endif; ?>
