@@ -9,8 +9,6 @@ if(isset($_POST['nombre'], $_POST['id_categoria'])){
 	$id_categoria = $_POST['id_categoria'];
 
 	modificarCategoria($id_categoria, $nombre);
-	header('Location: /categorias.php');
-
 }
 
 ?>

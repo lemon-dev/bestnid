@@ -17,6 +17,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+$(document).on("click", '.editarCategoria', function() {
+	$('#eliminar-categoria-submit').toggle();
+	$(this).siblings('.modificar-categoria').toggle();
+	var $this = $(this).parent().parent().parent().find('.editarCategoria');
+	$.each($this.not($(this)), function(index, value) {
+		$(value).siblings('.modificar-categoria').hide();
+	});
+});
+
 
 $(document).ready(function() {
 
@@ -580,9 +589,12 @@ $(document).ready(function() {
 	CATEGORIAS
 	*******************************/
 
-	$('.categoria-nombre').click(function() {
-		$(this).next().toggle();
-		$(this).next().next().toggle();
+	$('.modificar-categoria').submit(function (event) {
+		event.preventDefault();
+		var data = $(this).serialize();
+		$.post("function/categoriaModificar.php", data, function(data) {
+			$("#categorias").load("include/ver_categorias.php");
+		});
 	});
 
 	/*******************************

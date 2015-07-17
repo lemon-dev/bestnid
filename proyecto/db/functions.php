@@ -174,7 +174,7 @@ CATEGORIAS
 ********************************/
 
 function categorias(){
-	include('db/connect.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] .'/db/connect.php');
 	$query = "SELECT * FROM categoria ORDER BY nombre";
 
 	if(!$result = $db->query($query)){

@@ -1,12 +1,18 @@
 <?php
+
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
+require_once($_SERVER['DOCUMENT_ROOT'] . '/db/functions.php');
+
 $categorias =  categorias();
 
 while($categoria = $categorias->fetch_object()):  ?>
 	
 	<div class="card-panel grey lighten-5 z-depth-1">
 		<div class="row">
-			<a class="col s8 m8 l8 left categoria-nombre col s6 m6 l6" href="#!"><?php echo $categoria->nombre ?></a>
-			<a id="editarCategoria" class="btn" href="#!"><i class="mdi-editor-mode-edit"></i></a>
+			<a class="btn left editarCategoria" href="#!"><i class="mdi-editor-mode-edit"></i></a>
+			<a class="left categoria-nombre" href="#!"><?php echo $categoria->nombre ?></a>
 
 			<form method="post" action="function/categoriaEliminar.php">
 				<input type="hidden" name="id_categoria" value="<?php echo $categoria->id_categoria ?>">

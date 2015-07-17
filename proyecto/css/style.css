@@ -493,12 +493,13 @@ CATEGORIAS
 ***********************************/
 
 .categoria-header {
+	margin-bottom: 25px;
 	text-align: center;
-	margin: 5%;
 	color: #263238;
 }
 
 .categorias {
+	padding: 2.5%;
 	margin-top: 5%;
 	margin-bottom: 5%;
 	background-color: white;
@@ -511,6 +512,12 @@ CATEGORIAS
 .categoria-nombre {
 	font-size: 1.5em;
 }
+
+.crear-categoria {
+	margin-top: 45px;
+}
+
+
 
 .categorias-disponibles {
 	margin: 0;
@@ -525,6 +532,10 @@ CATEGORIAS
 
 #eliminar-categoria-submit {
 	display: inline-block;
+}
+
+.categoria-nombre {
+	margin-left: 15px;
 }
 
 /**********************************
