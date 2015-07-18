@@ -37,16 +37,20 @@ $(document).on("submit", "#crear-subasta", function(event){
 	event.preventDefault();
 	var data = $(this).serialize();
 	$.post("function/categoriaCrear.php", data, function(){
-		$("#categorias").load("include/ver_categorias.php");
+		$("#categorias").load("include/ver_categorias.php", function() {
+			alert("La categoria ha sido creada");
+		});
 	});
 });
 
 $(document).on("submit", ".eliminar-categoria", function(event){
 	event.preventDefault();
 	var data = $(this).serialize();
-	$.post("function/categoriaEliminar.php", data, function(data){
-		$("#categorias").load("include/ver_categorias.php");
-	});
+	if(confirm("Esta seguro que desea eliminar la categoria?") == true){
+		$.post("function/categoriaEliminar.php", data, function(data){
+			$("#categorias").load("include/ver_categorias.php");
+		});
+	}
 });
 
 $(document).ready(function() {
