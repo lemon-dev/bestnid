@@ -2,7 +2,7 @@
 
 if(isset($_GET['desde'], $_GET['hasta'])):
 	//echo $_GET['desde'] . ' ' . $_GET['hasta'] . ' ';
-	include('../db/functions.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/db/functions.php');
 	$usuarios = listar_usuarios_entre($_GET['desde'], $_GET['hasta']);
 
 else: 
