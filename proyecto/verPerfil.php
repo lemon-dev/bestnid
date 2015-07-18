@@ -1,8 +1,11 @@
 <?php 
+error_reporting(-1);
+ini_set('display_errors', 'On');
 
-	$pageTitle = "Bestnid | Perfil";
-	include('include/header.php');
-	include('db/connect.php');
+$pageTitle = "Bestnid | Perfil";
+include('include/header.php');
+include('db/connect.php');
+include('db/functions.php');
 ?>
 	
 <?php if(isset($_GET['status'])){
@@ -178,11 +181,15 @@
 									</div>
 									<?php } ?>
 								</div>
-								<p>Estado de la subasta: <?php if($row->fecha_final>date('Y-m-d')){
-										echo "activa.";
-										}else{
-											echo "finalizada.";
-										}?></p>
+								<p>Estado de la subasta: 
+									<?php echo ($row->fecha_final>date('Y-m-d') ? 'activa.' : 'finalizada.') ?>
+								</p>
+						<?php 	if(esOfertaGanadora($row->id_oferta) && $row->fecha_final < date('Y-m-d')): ?>
+									<h5>¡Tu oferta es la ganadora! </h5>
+									<p>Vaya a la subasta para obtener los datos de contacto del subastador</p>
+						<?php 	elseif($row->fecha_final < date('Y-m-d')): ?>
+								 	<h5>Tu oferta no ha sido elegida</h5> 
+						<?php 	endif; ?>
 							</div>
 						<?php } 
 					}

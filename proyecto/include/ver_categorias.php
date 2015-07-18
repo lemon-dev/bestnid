@@ -14,9 +14,9 @@ while($categoria = $categorias->fetch_object()):  ?>
 			<a class="btn left editarCategoria" href="#!"><i class="mdi-editor-mode-edit"></i></a>
 			<a class="left categoria-nombre" href="#!"><?php echo $categoria->nombre ?></a>
 
-			<form method="post" action="function/categoriaEliminar.php">
+			<form class="eliminar-categoria" method="post" action="function/categoriaEliminar.php">
 				<input type="hidden" name="id_categoria" value="<?php echo $categoria->id_categoria ?>">
-				<input id="eliminar-categoria-submit" type="submit" name="nombre" class="btn red right" value="X">	
+				<?php if(!categoriaTieneProducto($categoria->id_categoria)): ?><input id="eliminar-categoria-submit" type="submit" name="nombre" class="btn red right" value="X"> <?php endif; ?>	
 			</form>
 
 			<form class="modificar-categoria" method="post" action="function/categoriaModificar.php">

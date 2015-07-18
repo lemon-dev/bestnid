@@ -25,6 +25,29 @@ $(document).on("click", '.editarCategoria', function() {
 	});
 });
 
+$(document).on("submit", '.modificar-categoria', function (event) {
+	event.preventDefault();
+	var data = $(this).serialize();
+	$.post("function/categoriaModificar.php", data, function(data) {
+		$("#categorias").load("include/ver_categorias.php");
+	});
+});
+
+$(document).on("submit", "#crear-subasta", function(event){
+	event.preventDefault();
+	var data = $(this).serialize();
+	$.post("function/categoriaCrear.php", data, function(){
+		$("#categorias").load("include/ver_categorias.php");
+	});
+});
+
+$(document).on("submit", ".eliminar-categoria", function(event){
+	event.preventDefault();
+	var data = $(this).serialize();
+	$.post("function/categoriaEliminar.php", data, function(data){
+		$("#categorias").load("include/ver_categorias.php");
+	});
+});
 
 $(document).ready(function() {
 
@@ -518,7 +541,7 @@ $(document).ready(function() {
 
 	//	Validación de formulario de  crear subasta luego del submit
 	$("#subasta-form").submit(function (event) {
-		console.log("Hello");
+		//console.log("Hello");
 		event.preventDefault();
 
 		var subastaTitulo = $.trim($('#subastaTitulo').val());
@@ -587,14 +610,6 @@ $(document).ready(function() {
 	/*******************************
 	CATEGORIAS
 	*******************************/
-
-	$('.modificar-categoria').submit(function (event) {
-		event.preventDefault();
-		var data = $(this).serialize();
-		$.post("function/categoriaModificar.php", data, function(data) {
-			$("#categorias").load("include/ver_categorias.php");
-		});
-	});
 
 	/*******************************
 	REPORTES

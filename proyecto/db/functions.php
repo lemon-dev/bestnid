@@ -11,6 +11,35 @@ function usuarios() {
 				";
 	return $db->query($query);
 }
+
+function esGanador($id_usuario, $id_subasta) {
+	include('connect.php');
+	$query = "	SELECT DISTINCT S.id_subasta
+				FROM subasta S
+				INNER JOIN oferta O
+				ON S.id_subasta = O.id_subasta
+				INNER JOIN oferta_exitosa E
+				ON O.id_oferta = E.id_oferta
+				INNER JOIN usuario U
+				ON O.id_usuario = '" . $id_usuario . "'";
+	$result =  $db->query($query);
+
+	return $result->num_rows == 1;
+}
+
+function datosSubastador($id_subasta) {
+	include('connect.php');
+	$query = "	SELECT *
+				FROM subasta S
+				INNER JOIN usuario U
+				WHERE S.id_usuario = U.id_usuario
+				AND S.id_subasta = '" . $id_subasta . "'";
+	$result =  $db->query($query);
+
+	return $result ->fetch_object();
+}
+
+
 /********************************
 SUBASTAS
 ********************************/
@@ -116,10 +145,6 @@ function ofertaExitosaParaSubasta($id_subasta){
 	return $result;
 }
 
-/********************************
-OFERTAS
-********************************/
-
 function yaOferto($id_usuario, $id_subasta){
 	include('db/connect.php');
 	$query = "	SELECT 	*
@@ -135,6 +160,15 @@ function yaOferto($id_usuario, $id_subasta){
 		return true;
 	}
 	return false;
+}
+
+function esOfertaGanadora($id_oferta) {
+	include('db/connect.php');
+	$query = "	SELECT *
+				FROM oferta_exitosa 
+				WHERE id_oferta = '" . $id_oferta . "'";
+	$result = $db->query($query);
+	return $result->num_rows == 1; 
 }
 
 /********************************

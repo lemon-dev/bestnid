@@ -72,21 +72,43 @@ include('db/functions.php');
 
 										<span class="not-registered warning"> * Usted ya ha ofertado en esta subasta, para ver sus ofertas haga <a href="/verPerfil.php">click aquí</a>.</span>
 						
-						<?php 		}	
+						<?php 		} else { ?>
+										
+										<?php if(esGanador($_SESSION['id_usuario'], $_GET['id_subasta'])):  ?>
+											
+											<?php $datos = datosSubastador($_GET['id_subasta']); ?>
+
+											<p>Felicitaciones! Tu oferta ha sido elegida como ganadora, 
+											contáctate con el subastador con los siguientes datos:</p>
+											
+											<div class="card-panel grey lighten-2 z-depth-1">
+												<h5>Contacto: </h5>
+
+												<p>Nombre: <?php echo $datos->nombre . " " . $datos->apellido ?></p>
+												<p>Email: <a href="mailto:<?php echo $oferta_exitosa->email ?>"><?php echo $datos->email ?></a></p>
+												<p>CBU: <?php echo $datos->tarjeta ?></p>
+											</div>
+
+										<?php endif; ?>
+
+						<?php		}	
 								} ?>
 					<?php	} else { ?>
 
 								<a class="waves-effect waves-light btn" href="ofertas.php?id_subasta=<?php echo $_GET['id_subasta']?>">Ver Ofertas</a>
 					
-							<?php 	} ?>
+					<?php 	} ?>
 						
 				<?php 	} else { ?>
 
-						<?php if($_SESSION['rol'] == 'usuario') { ?>
+						<?php if($_SESSION && $_SESSION['rol'] == 'usuario') { ?>
 
-						<a id="ofertar-btn" class="waves-effect waves-light btn disabled">Ofertar</a>
-						<span class="not-registered warning"> * Haga <a href="/login.php?redirect_to=<?php echo $_GET['id_subasta'] ?>">click aquí</a> para iniciar sesión y poder Ofertar.</span>
+							<a id="ofertar-btn" class="waves-effect waves-light btn disabled">Ofertar</a>
 
+						<?php } else { ?>
+
+							<span class="not-registered warning"> * Haga <a href="/login.php?redirect_to=<?php echo $_GET['id_subasta'] ?>">click aquí</a> para iniciar sesión y poder Ofertar.</span>
+							
 						<?php } ?>
 					
 				<?php 	} ?>
@@ -94,7 +116,7 @@ include('db/functions.php');
 			</li>
 		</ul>
 	</section>
-	<?php 	if(!$terminada) { ?>
+<?php 	if(!$terminada) { ?>
 		<section class="container consultas">
 			<div class="container">
 

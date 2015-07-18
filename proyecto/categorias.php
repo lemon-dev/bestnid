@@ -11,11 +11,13 @@ include('include/header.php');
 	
 	<h3 class="categoria-header">Administrar Categorias</h3>
 
+	<p>*Las categorias que ya tiene productos asignados no podrán ser borradas.</p>
+
 	<div class="card-panel grey lighten-5 z-depth-1 categoria">
 		<div class="row">
-			<form method="post" action="function/categoriaCrear.php" class="input-field col s12" >
+			<form id="crear-subasta" method="post" action="function/categoriaCrear.php" class="input-field col s12" >
 				<label for="name">Nombre</label>	
-				<input name="nombre" type="text">
+				<input name="nombre" type="text" required>
 				<input type="submit" class="btn right form-submit" value="Crear">
 			</form>
 		</div>
