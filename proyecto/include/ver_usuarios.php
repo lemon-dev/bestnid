@@ -2,7 +2,11 @@
 
 if(isset($_GET['desde'], $_GET['hasta'])):
 	//echo $_GET['desde'] . ' ' . $_GET['hasta'] . ' ';
+<<<<<<< Updated upstream
 	include($_SERVER['DOCUMENT_ROOT'].'/db/functions.php');
+=======
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/db/functions.php');
+>>>>>>> Stashed changes
 	$usuarios = listar_usuarios_entre($_GET['desde'], $_GET['hasta']);
 
 else: 

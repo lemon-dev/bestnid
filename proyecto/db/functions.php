@@ -54,6 +54,18 @@ function datosSubastador($id_subasta) {
 	return $result ->fetch_object();
 }
 
+function tieneOfertaExitosa($id_subasta) {
+	include('connect.php');
+	$query = "	SELECT DISTINCT S.id_subasta
+				FROM subasta S
+				INNER JOIN oferta O
+				ON S.id_subasta = O.id_subasta
+				INNER JOIN oferta_exitosa E
+				ON O.id_oferta = E.id_oferta
+				WHERE S.id_subasta = " . $id_subasta;
+	$result =  $db->query($query);
+	return $result->num_rows == 1;
+}
 
 /********************************
 SUBASTAS

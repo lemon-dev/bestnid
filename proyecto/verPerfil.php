@@ -184,12 +184,26 @@ include('db/functions.php');
 								<p>Estado de la subasta: 
 									<?php echo ($row->fecha_final>date('Y-m-d') ? 'activa.' : 'finalizada.') ?>
 								</p>
-						<?php 	if(esOfertaGanadora($row->id_oferta) && $row->fecha_final < date('Y-m-d')): ?>
-									<h5>¡Tu oferta es la ganadora! </h5>
-									<p>Vaya a la subasta para obtener los datos de contacto del subastador</p>
-						<?php 	elseif($row->fecha_final < date('Y-m-d')): ?>
-								 	<h5>Tu oferta no ha sido elegida</h5> 
-						<?php 	endif; ?>
+								
+								<?php if(tieneOfertaExitosa($row->id_subasta)): ?>
+	
+									<?php if(esOfertaGanadora($row->id_oferta)): ?>
+
+										<h5>¡Tu oferta es la ganadora! </h5>
+										<p>Vaya a la subasta para obtener los datos de contacto del subastador</p>
+
+									<?php else: ?>
+
+										<h5>Tu oferta no ha sido elegida</h5>
+
+									<?php endif; ?>
+
+								<?php elseif($row->fecha_final < date('Y-m-d')): ?>
+
+									<p>El subastador aun debe elegir la oferta ganadora.</p>
+
+								<?php endif; ?>
+					
 							</div>
 						<?php } 
 					}

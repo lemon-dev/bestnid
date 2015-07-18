@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 
 $pageTitle = "Bestnid | Reporte - Usuarios";
 include('include/header.php');
-include('db/functions.php');
+require_once('db/functions.php');
 
 ?>
 
