@@ -36,5 +36,7 @@ $total = 0;
 </div>
 
 <?php else: ?> 
-	<h5>No hay resultados.</h5>
+	<div class=" collection-item grey lighten-3 z-depth-1">
+		<p>No hay resultados para las fechas indicadas.</p>
+	</div>
 <?php endif; ?>
