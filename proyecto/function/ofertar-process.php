@@ -22,7 +22,7 @@ if(isset($_POST)){
 		require_once('../db/connect.php');
 
 		if($result = $db->query($query)){
-			header('Location: /index.php');
+			header('Location: /verPerfil.php');
 		}					
 		
 	}
