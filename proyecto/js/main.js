@@ -610,7 +610,7 @@ $(document).ready(function() {
 	/*******************************
 	CATEGORIAS
 	*******************************/
-
+	//subastas
 	/*******************************
 	REPORTES
 	*******************************/
@@ -620,6 +620,16 @@ $(document).ready(function() {
 		var data = $(this).serialize();
 		$.get("include/ver_subastas_exitosas.php", data, function(response) {
 			$("#subastas_exitosas").html(response);
+		});
+	});
+
+	//usuarios
+
+		$("#filtrar_usuarios").submit(function(event) {
+		event.preventDefault();
+		var data = $(this).serialize();
+		$.get("include/ver_usuarios.php", data, function(response) {
+			$("#reporte_usuarios").html(response);
 		});
 	});
 

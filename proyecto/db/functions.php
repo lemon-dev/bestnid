@@ -2,13 +2,28 @@
 /********************************
 USUARIOS
 ********************************/
-function usuarios() {
+function listar_usuarios() {
 	include('connect.php');
 	$query = "	SELECT 	*
-				FROM	usuario S 
-				WHERE S.id_rol='1'
+				FROM usuario U 
+				WHERE U.id_rol='1'
 				ORDER BY fecha_alta DESC
 				";
+	return $db->query($query);
+}
+
+function listar_usuarios_entre($fecha_desde, $fecha_hasta) {
+	include('connect.php');
+	
+
+	$query = "SELECT * FROM usuario U
+			
+    		WHERE U.fecha_alta BETWEEN '" . $fecha_desde . "' AND '" . $fecha_hasta . "' AND U.id_rol='1'
+			ORDER BY fecha_alta DESC
+    		";
+
+    		//echo $query;
+
 	return $db->query($query);
 }
 
